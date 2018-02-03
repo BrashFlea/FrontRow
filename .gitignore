@@ -53,9 +53,14 @@ TestResults/
 *.log
 *.sqlite
 db.lock
+######################
 # OS generated files #
 ######################
 .DS_Store?
 ehthumbs.db
 Icon?
 Thumbs.db
+###################
+# VS config files #
+###################
+/.vs/config/applicationhost.config
