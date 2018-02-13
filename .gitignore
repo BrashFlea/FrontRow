@@ -64,3 +64,9 @@ Thumbs.db
 # VS config files #
 ###################
 /.vs/config/applicationhost.config
+
+FrontRowCMS/\.vs/config/applicationhost\.config
+
+FrontRowCMS/\.vs/FrontRowCMS/v15/Server/sqlite3/storage\.ide-shm
+
+FrontRowCMS/\.vs/FrontRowCMS/v15/Server/sqlite3/storage\.ide-wal
