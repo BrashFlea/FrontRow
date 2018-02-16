@@ -648,7 +648,7 @@ footer {
 .boxes {
     margin-top: 52px;
     margin-bottom: 72px;
-    padding: 0 97px;
+    padding: 1.5em;
 }
 
     .boxes .panel {
@@ -657,7 +657,7 @@ footer {
         /*min-height: 594px;*/
         background-color: #FFF;
         border: 1px solid #b9b9b9;
-        padding: 30px 15px 29px 15px;
+        
         border-radius: 0;
     }
 
@@ -1357,6 +1357,7 @@ footer {
 .needs_subheader {
     font-family: "montserrat-semibold";
     font-size: 20px;
+    font-weight:bold;
     line-height: 30px;
     color: #474747;
 }
@@ -1371,12 +1372,8 @@ footer {
 
 .needs_list {
     max-width: 300px;
-    margin-left: 5%;
+    margin-left: 2em;
 }
-
-    .needs_list.first {
-        margin-left: 10%;
-    }
 
     .needs_list ul {
         text-align: left;
@@ -1385,11 +1382,6 @@ footer {
 
 .change {
     visibility: hidden;
-}
-
-
-.two_col {
-    padding-left: 5%;
 }
 
 .contact_subheader {
@@ -1406,7 +1398,7 @@ footer {
     }
 
 .contact_form {
-    padding-left: 10%;
+    padding-left: 2em;
 }
 
     .contact_form input {
