@@ -430,16 +430,13 @@ h1, h2, h4, h6 {
     width: 100%;
 }
 
-
-.navbar-brand {
-    padding: 0;
-    min-height: 123px;
+.navbar-collapse {
+    background-color:#fff;
 }
 
-.navbar-header {
-    margin-left: 18px !important;
-    margin-top: 10px !important;
-    margin-bottom: 9px !important;
+.navbar-brand {
+    padding: 15px 15px 15px 30px;
+    max-width: 335px;
 }
 
 
@@ -627,11 +624,6 @@ footer {
         color: #474747;
         line-height: 43px;
     }
-
-.header-box {
-    margin-left: 550px;
-}
-
 
 
 .have-questions-heading {
@@ -1529,6 +1521,10 @@ footer {
 @media (max-width: 1200px) {
     .navbar-header {
         float: none;
+    }
+
+    .navbar-brand{
+        width:85vw!important;
     }
 
     .navbar-toggle {
