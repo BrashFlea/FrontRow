@@ -1,4 +1,4 @@
-###################
+﻿###################
 # compiled source #
 ###################
 *.com
@@ -72,3 +72,17 @@ FrontRowCMS/\.vs/FrontRowCMS/v15/Server/sqlite3/storage\.ide-shm
 FrontRowCMS/\.vs/FrontRowCMS/v15/Server/sqlite3/storage\.ide-wal
 
 FrontRowCMS/\.vs/FrontRowCMS/v15/Server/sqlite3/storage\.ide
+
+FrontRowCMS2/\.vs/config/applicationhost\.config
+
+FrontRowCMS2/\.vs/FrontRowCMS/v15/Server/sqlite3/storage\.ide-shm
+
+FrontRowCMS2/\.vs/FrontRowCMS/v15/Server/sqlite3/storage\.ide-wal
+
+FrontRowCMS2/\.vs/FrontRowCMS/v15/Server/sqlite3/storage\.ide
+
+FrontRowCMS2/\.vs/FrontRowCMS2/v15/Server/sqlite3/storage\.ide
+
+FrontRowCMS2/\.vs/FrontRowCMS2/v15/Server/sqlite3/storage\.ide-shm
+
+FrontRowCMS2/\.vs/FrontRowCMS2/v15/Server/sqlite3/storage\.ide-wal
