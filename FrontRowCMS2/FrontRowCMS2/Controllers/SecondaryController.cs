@@ -8,7 +8,7 @@ using FrontRowCMS2.Models;
 
 namespace FrontRowCMS2.Controllers
 {
-    public class HomeController : Controller
+    public class SecondaryController : Controller
     {
         public IActionResult Index()
         {
