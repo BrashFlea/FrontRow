@@ -16,9 +16,9 @@
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
 </head>
-<body>
+<body data-spy="scroll" data-target=".navbar">
     <div>
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -28,47 +28,48 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#"><img src="~/images/yf_logo.svg" alt="Youth Futures Logo" /></a>
+                    <a class="navbar-brand" href="#"><img src="~/images/yf_logo.svg" alt="Youth Futures Logo" class="img-responsive" /></a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="home">Home</a></li>
+                        <li><a href="/" data-target="#home">Home</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Programs <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="secondary#outreachBanner">Street Outreach</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="secondary#dropinsMain">Drop-Ins</a></li>
-
-								<li role="separator" class="divider"></li>
-								<li><a href="secondary#sheltersMain">Shelters</a></li>
-							</ul>
+                            <ul class="dropdown-menu">
+                                <li><a href="secondary#outreachBanner" data-target="#outreachBanner">Street Outreach</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="secondary#dropinsMain" data-target="#dropinsMain">Drop-Ins</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="secondary#sheltersMain" data-target="#sheltersMain">Shelters</a></li>
+                            </ul>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Get Involved <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="secondary#donateMain">Donate</a></li>
-                                <li><a href="secondary#eventsMain">Events</a></li>
-                                <li><a href="secondary#donorsMain">Donor Recognition</a></li>
+                                <li><a href="secondary#donateMain" data-target="#donateMain">Donate</a></li>
                                 <li role="separator" class="divider"></li>
+                                <li><a href="secondary#eventsMain" data-target="#eventsMain">Events</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="secondary#donorsMain" data-target="#donorsMain">Donor Recognition</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Us <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="secondary#historyBanner">History</a></li>
-                                <li><a href="secondary#staffMain">Staff</a></li>
-                                <li><a href="secondary#directorsMain">Board</a></li>
-                                <li><a href="secondary#mediaMain">Media</a></li>
+                                <li><a href="secondary#historyBanner" data-target="#historyBanner">History</a></li>
                                 <li role="separator" class="divider"></li>
+                                <li><a href="secondary#staffMain" data-target="#staffMain">Staff</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="secondary#directorsMain" data-target="#directorsMain">Board</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="secondary#mediaMain" data-target="#mediaMain">Media</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contact <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="secondary#contactMain">Contact Info</a></li>
-                                <li role="separator" class="divider"></li>
+                                <li><a href="secondary#contactMain" data-target="#contactMain">Contact Info</a></li>
                             </ul>
                         </li>
                         <li class="donate"><a href="secondary#donateMain">Donate</a></li>
@@ -78,8 +79,9 @@
             </div>
             <!-- /.container-fluid -->
         </nav>
-
-        @RenderBody()
+        <div class="main_body_view">
+            @RenderBody()
+        </div>
 
         <footer class="container-fluid">
             <div class="row">
@@ -142,6 +144,10 @@
             </script>
             <script src="~/js/site.min.js" asp-append-version="true"></script>
         </environment>
+
+        <script>
+            $('body').scrollspy({ selector: '.scrollclass',offset:123 });
+        </script>
 
         @RenderSection("Scripts", required: false)
     </div>
