@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="114px" height="103px" viewBox="0 0 114 103" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>C7FB0537-0BA3-4155-985F-E0D71C061FB4</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <rect id="path-1" x="44.8577792" y="55.8883807" width="23.5319498" height="19.1197092" rx="2"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="23.5319498" height="19.1197092" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <rect id="path-3" x="78.684957" y="54.4176338" width="16.1782155" height="25.0026966"></rect>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="16.1782155" height="25.0026966" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+        <rect id="path-5" x="16.1782155" y="54.4176338" width="16.1782155" height="25.0026966"></rect>
+        <mask id="mask-6" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="16.1782155" height="25.0026966" fill="white">
+            <use xlink:href="#path-5"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-Secondary-Template" transform="translate(-941.000000, -2855.000000)">
+            <g id="Group-4" transform="translate(941.743933, 2855.831272)">
+                <rect id="Rectangle" fill="#6A6A6A" x="76" y="5" width="17" height="25"></rect>
+                <use id="Rectangle-3" stroke="#979797" mask="url(#mask-2)" stroke-width="2" fill="#9EC54D" xlink:href="#path-1"></use>
+                <rect id="Combined-Shape" fill="#FFFFFF" x="9.38144386" y="38.9044211" width="93.8144386" height="62.9351229"></rect>
+                <rect id="Rectangle-15" fill="#977B2D" x="40.4455386" y="52.2115135" width="31.6210575" height="49.2700198"></rect>
+                <rect id="Rectangle-16" fill="#553B15" x="44.8577792" y="55.8883807" width="23.5319498" height="17.6489623" rx="2"></rect>
+                <rect id="Rectangle-16-Copy" fill="#553B15" x="44.8577792" y="79.4203304" width="23.5319498" height="18.3843357" rx="2"></rect>
+                <circle id="Oval-3" fill="#474747" cx="69.1251024" cy="76.4788367" r="2.20612029"></circle>
+                <use id="Rectangle-17" stroke="#474747" mask="url(#mask-4)" stroke-width="4" fill="#CFE4F5" xlink:href="#path-3"></use>
+                <use id="Rectangle-17-Copy-2" stroke="#474747" mask="url(#mask-6)" stroke-width="4" fill="#CFE4F5" xlink:href="#path-5"></use>
+                <polygon id="Triangle-2" fill="#553B15" points="56.2560674 0 112.512135 38.9747918 0 38.9747918"></polygon>
+                <path d="M103.225173,101.831267 L103.225173,38.9747918 L103.225173,101.831267 Z" id="Path-5" fill="#B9B9B9" opacity="0.445425725" style="mix-blend-mode: multiply;"></path>
+            </g>
+        </g>
+    </g>
+</svg>
