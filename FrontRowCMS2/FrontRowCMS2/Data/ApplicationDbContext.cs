@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using FrontRowCMS2.Models;
+using FrontRowCMS2.Models.Home;
+using FrontRowCMS2.Models.Secondary;
 
 namespace FrontRowCMS2.Data
 {
@@ -14,6 +16,17 @@ namespace FrontRowCMS2.Data
             : base(options)
         {
         }
+
+        //Site-wide DbSet
+        public DbSet<User> User { get; set; }
+        public DbSet<Footer> Footer { get; set; }
+
+        //DbSet for Home Page
+
+        //DbSet for Secondary Page
+        public DbSet<History> History { get; set; }
+        public DbSet<Person> Persons { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
