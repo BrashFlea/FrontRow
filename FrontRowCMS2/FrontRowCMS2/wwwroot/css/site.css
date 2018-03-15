@@ -568,14 +568,30 @@ footer {
     text-align: center;
 }
 
+/*
+    
+    Editable Views
+
+*****************************************************************/
+.editableButton{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 1.5em;
+}
+
+hr{ 
+    border-color: slategray;
+    border-width: 2px;
+}
+
+
+
 
 /***************************************************************
 
                    Home Page CSS
 
 ****************************************************************/
-
-
 #header {
     background-color: #9ec54d;
     padding-top: 30px;

@@ -2,7 +2,15 @@
     ViewData["Title"] = "Secondary Page";
 }
 
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    string isEditable = HttpContextAccessor.HttpContext.Session.GetString("isEditable");
+}
+
 <article>
+
     <div class="container-fluid">
         <div class="row  questions">
             <div class="col-sm-12 col-md-7 text">
@@ -24,6 +32,14 @@
         </div>
     </div>
 
+    @if(@isEditable == "true")
+        {
+            <div class="row text-center">
+                <a class="btn btn-success editableButton" href="#" role="button">Edit History Banner</a>
+                <hr />
+            </div>
+        }
+
     <div class="container-fluid">
         <div class="row history_text">
             <section class="col-xs-12">
@@ -35,17 +51,17 @@
     <div class="container-fluid">
         <div class="row history_text_pics">
             <section class="col-xs-12  col-md-4 first_img ">
-                <img src="./images/history_kristen_scott.jpg" class="img-responsive center-block" title="Kristen and Scott" alt="Kristen and Scott">
+                <img src="~/images/history_kristen_scott.jpg" class="img-responsive center-block" title="Kristen and Scott" alt="Kristen and Scott">
                 <p class="mont_light_14_white hist_subtitle">Kristen and Scott</p>
             </section>
 
             <section class="col-xs-12 col-md-4 second_img">
-                <img src="./images/history_shelter.jpg" class="img-responsive img-responsive center-block" title="Shelter" alt="Shelter">
+                <img src="~/images/history_shelter.jpg" class="img-responsive img-responsive center-block" title="Shelter" alt="Shelter">
                 <p class="mont_light_14_white hist_subtitle">The shelter home</p>
             </section>
 
             <section class="col-xs-12 col-md-4 third_img">
-                <img src="./images/history_kristen.jpg" class="img-responsive center-block" title="Kristen" alt="Kristen">
+                <img src="~/images/history_kristen.jpg" class="img-responsive center-block" title="Kristen" alt="Kristen">
                 <p class="mont_light_14_white hist_subtitle">Kristen</p>
             </section>
         </div>
@@ -58,6 +74,14 @@
             </section>
         </div>
     </div>
+
+    @if (@isEditable == "true")
+    {
+        <div class="row text-center ">
+            <a class="btn btn-success editableButton" href="~/Secondary/EditHistory" role="button">Edit History Section</a>
+            <hr />
+        </div>
+    }
 
     <div class="container-fluid">
         <div class="row hist_2nd_back_img">
@@ -86,12 +110,12 @@
     <div class="container-fluid">
         <section class="row more">
             <div class="col-xs-12 col-md-4 more_volunteer">
-                <img src="./images/history_meal.svg" title="Meal" alt="Meal">
+                <img src="~/images/history_meal.svg" title="Meal" alt="Meal">
                 <p class="vol_p mont_light_18_darkgray">Served <span class="green">7,085</span> meals; 3 meals a day and 2 snacks for shelter and drop-in youth. Opened the resource room <span class="green">354</span> times with access to basic nec-essities including clothing, hygiene items, back packs, blankets, sleeping bags, basic medical supplies, etc.</p>
             </div>
 
             <div class="col-xs-12 col-md-4 more_stories">
-                <img src="./images/history_hand.svg" title="Outreach Hand" alt="Hand">
+                <img src="~/images/history_hand.svg" title="Outreach Hand" alt="Hand">
                 <p class="youth_p mont_light_18_darkgray">Conducted more than <span class="green">245</span> street outreach hours and provided items from the resource room to street youth.</p>
             </div>
 
@@ -101,6 +125,14 @@
             </div>
         </section>
     </div>
+
+    @if (@isEditable == "true")
+    {
+        <div class="row text-center ">
+            <a class="btn btn-success editableButton" href="#" role="button">Edit Operations Section</a>
+            <hr />
+        </div>
+    }
 
     <div class="container-fluid" id="outreachBanner">
         <div class="row outreach_main_img">
@@ -139,6 +171,14 @@
         </div>
     </div>
 
+    @if (@isEditable == "true")
+    {
+        <div class="row text-center ">
+            <a class="btn btn-success editableButton" href="#" role="button">Edit Outreach Section</a>
+            <hr />
+        </div>
+    }
+
     <div class="container-fluid" id="dropinsMain">
         <div class="row events_header">
             <div class="col-xs-6 text">
@@ -146,6 +186,15 @@
             </div>
         </div>
     </div>
+
+    @if (@isEditable == "true")
+    {
+        <div class="row text-center ">
+            <a class="btn btn-success editableButton" href="#" role="button">Edit Drop-Ins Section</a>
+            <hr />
+        </div>
+    }
+
     <div class="container-fluid" id="sheltersMain">
         <div class="row events_header">
             <div class="col-xs-6 text">
@@ -153,6 +202,14 @@
             </div>
         </div>
     </div>
+
+    @if (@isEditable == "true")
+    {
+        <div class="row text-center ">
+            <a class="btn btn-success editableButton" href="#" role="button">Edit Shelters Section</a>
+            <hr />
+        </div>
+    }
 
     <div class="container-fluid" id="directorsMain">
         <div class="row board_header board_main_img">
@@ -191,21 +248,29 @@
     <div class="container-fluid">
         <div class="row board_members">
             <section class="col-xs-12 col-md-4">
-                <img src="./images/staff_justine.jpg" class="img-responsive" title="Justine Murray" alt="Justine Murray">
+                <img src="~/images/staff_justine.jpg" class="img-responsive" title="Justine Murray" alt="Justine Murray">
                 <p><span class="name">JUSTINE MURRAY</span><br />Program Manager, Youth Futures<br />President, A3 Utah<br /> <span class="email">jmurray@yfut.org</span></p>
             </section>
 
             <section class="col-xs-12 col-md-4">
-                <img src="./images/staff_susan.jpg" class="img-responsive" title="Susan McBride" alt="Susan McBride">
+                <img src="~/images/staff_susan.jpg" class="img-responsive" title="Susan McBride" alt="Susan McBride">
                 <p><span class="name">SUSAN MCBRIDE</span><br />Floor Staff Co-Lead, Youth Futures<br />Executive Director, Youth Futures<br /><span class="email">kristen@yfut.org</span> </p>
             </section>
 
             <section class="col-xs-12 col-md-4">
-                <img src="./images/staff_alyson.jpg" class="img-responsive" title="Alyson Deussen" alt="Alyson Deussen">
+                <img src="~/images/staff_alyson.jpg" class="img-responsive" title="Alyson Deussen" alt="Alyson Deussen">
                 <p><span class="name">ALYSON DEUSSEN</span><br />Floor Staff Co-Lead, Youth Futures<br />Ouelessebougou Utah Alliance<br /><span class="email">aallred@yfut.org</span></p>
             </section>
         </div>
     </div>
+
+    @if (@isEditable == "true")
+    {
+        <div class="row text-center ">
+            <a class="btn btn-success editableButton" href="~/Staff" role="button">Edit Directors & Staff</a>
+            <hr />
+        </div>
+    }
 
     <div class="container-fluid" id="mediaMain">
         <div class="row media_header media_main_img">
@@ -229,7 +294,7 @@
     <div class="container-fluid">
         <div class="row media_pic">
             <div class="col-xs-12 col-lg-7 pic">
-                <img src="./images/media_check.jpg" class="img-responsive center-block" title="America First Check" alt="Check">
+                <img src="~/images/media_check.jpg" class="img-responsive center-block" title="America First Check" alt="Check">
             </div>
 
             <div class="col-xs-12 col-lg-3 subtext">
@@ -246,6 +311,14 @@
             </section>
         </div>
     </div>
+
+    @if (@isEditable == "true")
+    {
+        <div class="row text-center ">
+            <a class="btn btn-success editableButton" href="#" role="button">Edit Media Section</a>
+            <hr />
+        </div>
+    }
 
 
     <div class="container-fluid" id="donorsMain">
@@ -441,6 +514,14 @@
         </div>
     </div>
 
+    @if (@isEditable == "true")
+    {
+        <div class="row text-center ">
+            <a class="btn btn-success editableButton" href="#" role="button">Edit Donors Section</a>
+            <hr />
+        </div>
+    }
+
     <div class="container-fluid" id="donateMain">
         <div class="row donor_header donate_main_img">
             <div class="col-xs-6 text">
@@ -463,7 +544,7 @@
 
         <section class="row more">
             <div class="col-xs-12 col-lg-4 more_volunteer">
-                <img src="./images/donate_dollar.svg" title="Dollar" alt="Dollar">
+                <img src="~/images/donate_dollar.svg" title="Dollar" alt="Dollar">
                 <p class="vol_p mont_light_18_darkgray">Monetary donations are our biggest need right now. Recurring <span class="green"><a href="#">PayPal</a></span> donations can be scheduled from our website, even $10 makes a difference. </p>
             </div>
 
@@ -476,11 +557,19 @@
             </div>
 
             <div class="col-xs-12 col-lg-4 more_events">
-                <img src="./images/donate_hand.svg" title="Hand" alt="Hand">
+                <img src="~/images/donate_hand.svg" title="Hand" alt="Hand">
                 <p class="events_p mont_light_18_darkgray">Donate your time as a volunteer to help with needs around the shelter! <span class="green"><a href="#">Sign up here.</a></span></p>
             </div>
         </section>
     </div>
+
+    @if (@isEditable == "true")
+    {
+        <div class="row text-center ">
+            <a class="btn btn-success editableButton" href="#" role="button">Edit Donate Section</a>
+            <hr />
+        </div>
+    }
 
     <div class="container-fluid needs">
         <div class="row donate_help">
@@ -576,6 +665,15 @@
             </div>
         </div>
     </div>
+
+    @if (@isEditable == "true")
+    {
+        <div class="row text-center ">
+            <a class="btn btn-success editableButton" href="#" role="button">Edit Needs Section</a>
+            <hr />
+        </div>
+    }
+
     <div class="container-fluid" id="eventsMain">
         <div class="row events_header events_main_img">
             <div class="col-xs-6 text">
@@ -584,6 +682,15 @@
             </div>
         </div>
     </div>
+
+    @if (@isEditable == "true")
+    {
+        <div class="row text-center ">
+            <a class="btn btn-success editableButton" href="#" role="button">Edit Events Section</a>
+            <hr />
+        </div>
+    }
+
     <div class="container-fluid" id="storiesMain">
         <div class="row events_header">
             <div class="col-xs-6 text">
@@ -591,6 +698,15 @@
             </div>
         </div>
     </div>
+
+    @if (@isEditable == "true")
+    {
+        <div class="row text-center ">
+            <a class="btn btn-success editableButton" href="#" role="button">Edit Youth Stories Section</a>
+            <hr />
+        </div>
+    }
+
     <div class="container-fluid needs" id="contactMain">
         <div class="row donor_header contact_main_img">
             <div class="col-xs-6 text">
@@ -632,6 +748,15 @@
                 </div>
             </div>
         </div>
+
+        @if (@isEditable == "true")
+        {
+            <div class="row text-center ">
+                <a class="btn btn-success editableButton" href="#" role="button">Edit Contact Section</a>
+                <hr />
+            </div>
+        }
+
     </div>
     <!-- </div> -->
 </article>

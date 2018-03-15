@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using FrontRowCMS2.Data;
 using FrontRowCMS2.Models;
 using FrontRowCMS2.Services;
+using Microsoft.AspNetCore.Http;
 
 namespace FrontRowCMS2
 {
@@ -37,6 +38,8 @@ namespace FrontRowCMS2
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
+
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,6 +56,16 @@ namespace FrontRowCMS2
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseSession();
+            //app.Use(async (context, next) =>
+            //{
+            //    if (context.Session.GetString("isEditing") == "" || context.Session.GetString("isEditing") == null)
+            //    {
+            //        context.Session.SetString("isEditing", "false");
+            //        await next();
+            //    }
+            //});
+            
             app.UseStaticFiles();
 
             app.UseAuthentication();

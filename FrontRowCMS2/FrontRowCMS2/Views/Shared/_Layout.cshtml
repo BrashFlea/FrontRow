@@ -1,4 +1,12 @@
-﻿<!DOCTYPE html>
+﻿@model FrontRowCMS2.Models.Footer
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    string isEditable = HttpContextAccessor.HttpContext.Session.GetString("isEditable");
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -88,33 +96,37 @@
                 <div class="col-md-5">
                     <section class="col-sm-4 footer-section">
                         <p class="quicksand-dark-18-white">Contact</p>
-                        <p class="mont-light-dark-14-email">Email: info@yfut.org</p>
+                        <p class="mont-light-dark-14-email">Email: @Html.DisplayFor(model => model.ContactEmail)</p>
                         <p class="mont-light-dark-14-email">
                             Phone:
-                            <tel>801-528-1214</tel>
+                            <tel>@Html.DisplayFor(model => model.ContactPhone)</tel>
                         </p>
                     </section>
                     <section class="col-sm-4 footer-section">
                         <p class="quicksand-dark-18-white">Mailing Address</p>
-                        <p class="mont-light-dark-14-email">Youth Futures<br /> POB 160301<br /> Clearfield, UT 84016</p>
+                        <p class="mont-light-dark-14-email">Youth Futures<br /> 
+                                                            @Html.DisplayFor(model => model.MailingAddressLine1)<br /> 
+                                                            @Html.DisplayFor(model => model.MailingAddressLine2)</p>
                     </section>
                     <section class="col-sm-4 footer-section">
                         <p class="quicksand-dark-18-white">Shelter Address</p>
-                        <p class="mont-light-dark-14-email">Youth Futures<br /> 2760 S. Adams Ave<br /> Ogden, UT 84403</p>
+                        <p class="mont-light-dark-14-email">Youth Futures<br /> 
+                                                            @Html.DisplayFor(model => model.ShelterAddressLine1)<br /> 
+                                                            @Html.DisplayFor(model => model.ShelterAddressLine2)</p>
                     </section>
                 </div>
                 <div class="col-md-2">
                     <section class="footer-section">
-                        <img src="./images/page_1.png" alt="Home Image" class="footer-home" />
+                        <img src="~/images/@Html.DisplayFor(model => model.HomeImage)" alt="Home Image" class="footer-home" />
                     </section>
                 </div>
                 <div class="col-md-5">
                     <section class="footer-section">
                         <div class="social-media">
-                            <a href="#"><img src="./images/social_instagram.png" alt="Instagram" /></a>
-                            <a href="#"><img src="./images/social_twitter.png" alt="Twitter" /></a>
-                            <a href="#"><img src="./images/social_tumblr.png" alt="Tumbler" /></a>
-                            <a href="#"><img src="./images/social_fb.png" alt="Facebook" /></a>
+                            <a href="@Html.DisplayFor(model => model.InstagramLink)"><img src="~/images/social_instagram.png" alt="Instagram" /></a>
+                            <a href="@Html.DisplayFor(model => model.TwitterLink)"><img src="~/images/social_twitter.png" alt="Twitter" /></a>
+                            <a href="@Html.DisplayFor(model => model.TumblrLink)"><img src="~/images/social_tumblr.png" alt="Tumbler" /></a>
+                            <a href="@Html.DisplayFor(model => model.FacebookLink)"><img src="~/images/social_fb.png" alt="Facebook" /></a>
                         </div>
                     </section>
                 </div>
@@ -122,7 +134,29 @@
             <div class="copyright">
                 <p class="mont-regular-dark-16-grey">© Youth Futures, Inc.</p>
             </div>
+
+            @if (isEditable == "true")
+                {
+                    <div class="text-center">
+                        <a href="~/home/logout">Logout</a>
+                    </div>
+
+                }
+                else
+                {
+                    <div class="text-center">
+                        <a href="~/home/login">Login</a>
+                    </div>
+                }
+
         </footer>
+       @if (@isEditable == "true")
+       {
+        <div class="row text-center ">
+            <a class="btn btn-success editableButton" href="~/home/EditFooter" role="button">Edit Footer</a>
+            <hr />
+        </div>
+       }
 
         <environment include="Development">
             <script src="~/lib/jquery/dist/jquery.js"></script>
