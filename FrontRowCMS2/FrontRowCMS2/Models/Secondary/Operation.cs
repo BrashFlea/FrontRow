@@ -7,5 +7,8 @@ namespace FrontRowCMS2.Models.Secondary
 {
     public class Operation
     {
+        public int ID { get; set; }
+        public string TextArea { get; set; }
+        public TextSubContent textSubContent { get; set; }
     }
 }

@@ -7,5 +7,9 @@ namespace FrontRowCMS2.Models.Secondary
 {
     public class Donor
     {
+        public int ID { get; set; }
+        public string Level { get; set; }
+        public string Name { get; set; }
+        public string Year { get; set; }
     }
 }

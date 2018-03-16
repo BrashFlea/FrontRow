@@ -7,5 +7,8 @@ namespace FrontRowCMS2.Models.Secondary
 {
     public class TextSubContent
     {
+        public int ID { get; set; }
+        public string Image { get; set; }
+        public string Description { get; set; }
     }
 }
