@@ -1,47 +1,47 @@
 ﻿@model FrontRowCMS2.Models.Secondary.History
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_EditLayout.cshtml";
 }
 
-<!DOCTYPE html>
+@{
+    ViewData["Title"] = "Edit History";
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>EditHistory</title>
-</head>
-<body>
-
-<h4>History</h4>
+<h4>Edit History Section</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6 col-md-offset-3">
         <form asp-action="EditHistory">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ID" />
             <div class="form-group">
                 <label asp-for="TextArea1" class="control-label"></label>
-                <textarea asp-for="TextArea1" class="form-control"></textarea>
+                <textarea asp-for="TextArea1" class="form-control" rows="10"></textarea>
                 <span asp-validation-for="TextArea1" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="TextArea2" class="control-label"></label>
-                <textarea asp-for="TextArea2" class="form-control" ></textarea>
+                <textarea asp-for="TextArea2" class="form-control" rows="10"></textarea>
                 <span asp-validation-for="TextArea2" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Image1" class="control-label"></label>
+                <img src="~/images/@Html.DisplayFor(model => model.Image1)" style="max-height:100px;"/>
                 <input asp-for="Image1" class="form-control" />
                 <span asp-validation-for="Image1" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Image2" class="control-label"></label>
+                <img src="~/images/@Html.DisplayFor(model => model.Image2)" style="max-height:100px;" />
                 <input asp-for="Image2" class="form-control" />
                 <span asp-validation-for="Image2" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Image3" class="control-label"></label>
+                <img src="~/images/@Html.DisplayFor(model => model.Image3)" style="max-height:100px;" />
                 <input asp-for="Image3" class="form-control" />
                 <span asp-validation-for="Image3" class="text-danger"></span>
             </div>
@@ -60,16 +60,27 @@
                 <input asp-for="Caption3" class="form-control" />
                 <span asp-validation-for="Caption3" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="form-group text-center">
+                <input type="submit" value="Save" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-danger" role="button">Go Back</a>
+            </div>
+        </form>
+
+        <form>
+            <div>
+                Site Images:
+                <select id="selectImage" name="siteImages" asp-items="ViewBag.image" onchange="UpdateImage()"></select>
+            </div>
+            <div style="margin:20px;">
+                <img id="sampleImage" src="" alt="Web Images" width="300px;" />
             </div>
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-</body>
-</html>
+<script>
+    function UpdateImage() {
+        var source = document.getElementById("selectImage").value;
+        document.getElementById("sampleImage").src ="../images/" + source;
+    
+    }
+</script>

@@ -8,16 +8,22 @@ using FrontRowCMS2.Models;
 using FrontRowCMS2.Data;
 using FrontRowCMS2.Models.Secondary;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace FrontRowCMS2.Controllers
 {
     public class SecondaryController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IHostingEnvironment _env;
 
-        public SecondaryController(ApplicationDbContext context)
+        public SecondaryController(ApplicationDbContext context, IHostingEnvironment env)
         {
             _context = context;
+            _env = env;
+
         }
 
         public async Task<IActionResult> Index()
@@ -34,6 +40,7 @@ namespace FrontRowCMS2.Controllers
         public async Task<IActionResult> EditHistory()
         {
             var history = await _context.History.FirstOrDefaultAsync();
+            GetImages();
             return View(history);
         }
 
@@ -62,6 +69,23 @@ namespace FrontRowCMS2.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        private void GetImages()
+        {
+            var webRoot = _env.WebRootPath;
+            var appData = System.IO.Path.Combine(webRoot, "images");
+            var images = new List<SelectListItem>();
+            images.Add(new SelectListItem
+            {
+                Text = "Select",
+                Value = ""
+            });
+            foreach (string file in Directory.EnumerateFiles(appData, "*", SearchOption.AllDirectories))
+            {
+                images.Add(new SelectListItem { Text = file.Substring(file.LastIndexOf("\\")+1), Value = file.Substring(file.LastIndexOf("\\")+1) });
+            }
+            ViewBag.image = images;
         }
     }
 }

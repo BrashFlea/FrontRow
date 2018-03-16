@@ -568,6 +568,19 @@ footer {
     text-align: center;
 }
 
+.loginLink {
+    padding-bottom: 10px;
+}
+
+    .loginLink a {
+        color: blueviolet;
+
+    }
+    .loginLink a:hover{
+        color: indigo;
+    }
+
+
 /*
     
     Editable Views

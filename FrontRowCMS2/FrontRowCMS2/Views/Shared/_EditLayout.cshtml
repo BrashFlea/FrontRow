@@ -1,9 +1,6 @@
-﻿@model FrontRowCMS2.Models.Footer
-@using Microsoft.AspNetCore.Http
-@inject IHttpContextAccessor HttpContextAccessor
-
+﻿
 @{
-    string isEditable = HttpContextAccessor.HttpContext.Session.GetString("isEditable");
+    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -24,7 +21,8 @@
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
 </head>
-<body data-spy="scroll" data-target=".navbar">
+<body>
+
     <div>
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
@@ -91,72 +89,8 @@
             @RenderBody()
         </div>
 
-        <footer class="container-fluid">
-            <div class="row">
-                <div class="col-md-5">
-                    <section class="col-sm-4 footer-section">
-                        <p class="quicksand-dark-18-white">Contact</p>
-                        <p class="mont-light-dark-14-email">Email: @Html.DisplayFor(model => model.ContactEmail)</p>
-                        <p class="mont-light-dark-14-email">
-                            Phone:
-                            <tel>@Html.DisplayFor(model => model.ContactPhone)</tel>
-                        </p>
-                    </section>
-                    <section class="col-sm-4 footer-section">
-                        <p class="quicksand-dark-18-white">Mailing Address</p>
-                        <p class="mont-light-dark-14-email">Youth Futures<br /> 
-                                                            @Html.DisplayFor(model => model.MailingAddressLine1)<br /> 
-                                                            @Html.DisplayFor(model => model.MailingAddressLine2)</p>
-                    </section>
-                    <section class="col-sm-4 footer-section">
-                        <p class="quicksand-dark-18-white">Shelter Address</p>
-                        <p class="mont-light-dark-14-email">Youth Futures<br /> 
-                                                            @Html.DisplayFor(model => model.ShelterAddressLine1)<br /> 
-                                                            @Html.DisplayFor(model => model.ShelterAddressLine2)</p>
-                    </section>
-                </div>
-                <div class="col-md-2">
-                    <section class="footer-section">
-                        <img src="~/images/@Html.DisplayFor(model => model.HomeImage)" alt="Home Image" class="footer-home" />
-                    </section>
-                </div>
-                <div class="col-md-5">
-                    <section class="footer-section">
-                        <div class="social-media">
-                            <a href="@Html.DisplayFor(model => model.InstagramLink)"><img src="~/images/social_instagram.png" alt="Instagram" /></a>
-                            <a href="@Html.DisplayFor(model => model.TwitterLink)"><img src="~/images/social_twitter.png" alt="Twitter" /></a>
-                            <a href="@Html.DisplayFor(model => model.TumblrLink)"><img src="~/images/social_tumblr.png" alt="Tumbler" /></a>
-                            <a href="@Html.DisplayFor(model => model.FacebookLink)"><img src="~/images/social_fb.png" alt="Facebook" /></a>
-                        </div>
-                    </section>
-                </div>
-            </div>
-            <div class="copyright">
-                <p class="mont-regular-dark-16-grey">© Youth Futures, Inc.</p>
-            </div>
+        </div>
 
-            @if (isEditable == "true")
-                {
-                    <div class="text-center loginLink">
-                        <a href="~/home/logout" class="">Logout</a>
-                    </div>
-
-                }
-                else
-                {
-                    <div class="text-center loginLink">
-                        <a href="~/home/login" class="">Login</a>
-                    </div>
-                }
-
-        </footer>
-       @if (@isEditable == "true")
-           {
-            <div class="row text-center ">
-                <a class="btn btn-success editableButton" href="~/home/EditFooter" role="button">Edit Footer</a>
-                <hr />
-            </div>
-           }
 
         <environment include="Development">
             <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -184,6 +118,6 @@
         </script>
 
         @RenderSection("Scripts", required: false)
-    </div>
+
 </body>
 </html>
