@@ -48,6 +48,24 @@ namespace FrontRowCMS2.Data
             });
             context.SaveChanges();
 
+            //OUTREACH
+            List<string> Table = new List<string>();
+            Table.Add("Jefferson Park");
+            Table.Add("Basketball Court at Bonneville Park");
+            Table.Add("Marchall White Center Park");
+            Table.Add("Under the Ogden River Bridge (sporadic)");
+            Table.Add("Lorin Farr Skate Park");
+            Table.Add("Lantern House Homeless Shelter");
+
+            context.Outreach.Add(new Outreach { Image="outreach_header.jpg",
+                                                TextArea1 = "STREET",
+                                                TextArea2 = "OUTREACH",
+                                                TextArea3 = "Street Outreach is designed to meet the clients where they are on the street to build rapport and encourage youth to access drop-in and shelter services. This program offers, case management, hygiene items, food, sleeping bags, and other essential items as needed. Street Outreach currently take place once per week on Wednesdays. The team visits the same Ogden, Utah locations every week:",
+                                                outreachTable = Table
+            });
+            context.SaveChanges();
+
+
             ///DIRECTORS
             var directors = new Person[]
             {
@@ -72,6 +90,14 @@ namespace FrontRowCMS2.Data
             {
                 context.Persons.Add(s);
             }
+            context.SaveChanges();
+
+            //LIST OF NEEDS
+            context.Needs.Add(new Needs { Title = "LIST OF NEEDS",
+                                          TextArea1 = "MOST IMPORTANT NEEDS (In order of priority) \n Cash donations \n Printer Paper \n Canned meat & Jerky \n Scotch tape \n Bus tokens or passes \n Earbud Headphones \n Cinch bags \n Batteries \n Sweat Pants \n Pajama Bottoms \n Sports bras \n Trail mix individuals \n Toilet Paper \n Condoms \n Tampons \n Carabiners \n Paper plates and cups \n Men's and Women's Underwear \n Socks \n Kleenex individuals \n Undershirts, S M L XL \n Garbage bags 30 Gallon \n Garbage sacks small bathroom \n Lip balm \n Ziploc bags, quart and gallon \n Energy Bars \n Heavy duty plastic storage bins that won't melt if heated in shed",
+                                          TextArea2 = "MISC. NEEDS \n Minivan \n NEW Printer \n GIFT CARDS FOR \n Walmart \n Fun things to do \n Grocery store \n Maverick \n Restaurants \n Movies \n Bus passes or tokens \n Phone minutes \n Beauty salons/ haircuts \n For shoe stores \n Lagoon passes",
+                                          TextArea3 = "HOUSEHOLD FURNISHINGS NEEDS \n NEW pots and pans \n New Couches \n VOLUNTEERS \n Mentors \n Educators \n Group activity facilitators \n Meal preparers / providers \n Tutors \n Life skills trainers \n Beauticians \n Street Outreach Workers \n Artists for classes \n Yard work \n Interior painters \n REPAIR NEEDS \n Concrete or pavers 1500 sq.feet \n Cement sidewalk repair & labor"
+            });
             context.SaveChanges();
 
 

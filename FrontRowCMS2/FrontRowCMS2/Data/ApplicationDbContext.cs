@@ -26,6 +26,8 @@ namespace FrontRowCMS2.Data
         //DbSet for Secondary Page
         public DbSet<History> History { get; set; }
         public DbSet<Person> Persons { get; set; }
+        public DbSet<Outreach> Outreach { get; set; }
+        public DbSet<Needs> Needs { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)
