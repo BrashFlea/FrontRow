@@ -58,6 +58,11 @@ namespace FrontRowCMS2.Data
                 new OutreachTable{ OutreachID = 1, Location = "Lorin Farr Skate Park" },
                 new OutreachTable{ OutreachID = 1, Location = "Lantern House Homeless Shelter" }
             };
+            foreach(OutreachTable o in Table)
+            {
+                context.OutreachTable.Add(o);
+            }
+            context.SaveChanges();
 
             context.Outreach.Add(new Outreach { Image="outreach_header.jpg",
                                                 TextArea1 = "STREET",
