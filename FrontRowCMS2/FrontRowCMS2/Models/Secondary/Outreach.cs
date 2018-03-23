@@ -12,6 +12,6 @@ namespace FrontRowCMS2.Models.Secondary
         public string TextArea1 { get; set; }
         public string TextArea2 { get; set; }
         public string TextArea3 { get; set; }
-        public List<string> outreachTable { get; set; }
+        public ICollection<OutreachTable> OutreachTable { get; set; }
     }
 }
