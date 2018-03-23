@@ -97,6 +97,42 @@ namespace FrontRowCMS2.Data
             }
             context.SaveChanges();
 
+            //DONORS
+            var donors = new Donor[]
+            {
+                //PLATINUM
+                new Donor{Level="Platinum", Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
+                new Donor{Level="Platinum", Name="IVY LANE PEDIATRICS", Year="2016"},
+                new Donor{Level="Platinum", Name="SORENSON LEGACY FOUNDATION", Year="2015"},
+                new Donor{Level="Platinum", Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
+                new Donor{Level="Platinum", Name="IVY LANE PEDIATRICS", Year="2016"},
+                new Donor{Level="Platinum", Name="SORENSON LEGACY FOUNDATION", Year="2015"},
+
+                //GOLD
+                new Donor{Level="Gold", Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
+                new Donor{Level="Gold", Name="IVY LANE PEDIATRICS", Year="2016"},
+                new Donor{Level="Gold", Name="SORENSON LEGACY FOUNDATION", Year="2015"},
+                new Donor{Level="Gold", Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
+                new Donor{Level="Gold", Name="IVY LANE PEDIATRICS", Year="2016"},
+                new Donor{Level="Gold", Name="SORENSON LEGACY FOUNDATION", Year="2015"},
+
+                //SILVER
+                new Donor{Level="Silver", Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
+                new Donor{Level="Silver", Name="IVY LANE PEDIATRICS", Year="2016"},
+                new Donor{Level="Silver", Name="SORENSON LEGACY FOUNDATION", Year="2015"},
+                new Donor{Level="Silver", Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
+                new Donor{Level="Silver", Name="IVY LANE PEDIATRICS", Year="2016"},
+                new Donor{Level="Silver", Name="SORENSON LEGACY FOUNDATION", Year="2015"},
+
+                //Bronze
+                new Donor{Level="Bronze", Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
+                new Donor{Level="Bronze", Name="IVY LANE PEDIATRICS", Year="2016"},
+                new Donor{Level="Bronze", Name="SORENSON LEGACY FOUNDATION", Year="2015"},
+                new Donor{Level="Bronze", Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
+                new Donor{Level="Bronze", Name="IVY LANE PEDIATRICS", Year="2016"},
+                new Donor{Level="Bronze", Name="SORENSON LEGACY FOUNDATION", Year="2015"}
+            };
+
             //LIST OF NEEDS
             context.Needs.Add(new Needs { Title = "LIST OF NEEDS",
                                           TextArea1 = "MOST IMPORTANT NEEDS (In order of priority) \n Cash donations \n Printer Paper \n Canned meat & Jerky \n Scotch tape \n Bus tokens or passes \n Earbud Headphones \n Cinch bags \n Batteries \n Sweat Pants \n Pajama Bottoms \n Sports bras \n Trail mix individuals \n Toilet Paper \n Condoms \n Tampons \n Carabiners \n Paper plates and cups \n Men's and Women's Underwear \n Socks \n Kleenex individuals \n Undershirts, S M L XL \n Garbage bags 30 Gallon \n Garbage sacks small bathroom \n Lip balm \n Ziploc bags, quart and gallon \n Energy Bars \n Heavy duty plastic storage bins that won't melt if heated in shed",
