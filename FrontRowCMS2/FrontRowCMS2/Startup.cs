@@ -57,14 +57,6 @@ namespace FrontRowCMS2
             }
 
             app.UseSession();
-            //app.Use(async (context, next) =>
-            //{
-            //    if (context.Session.GetString("isEditing") == "" || context.Session.GetString("isEditing") == null)
-            //    {
-            //        context.Session.SetString("isEditing", "false");
-            //        await next();
-            //    }
-            //});
             
             app.UseStaticFiles();
 
