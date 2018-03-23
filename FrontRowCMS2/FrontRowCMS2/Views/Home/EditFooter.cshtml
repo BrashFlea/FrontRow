@@ -1,0 +1,80 @@
+﻿@model FrontRowCMS2.Models.Footer
+
+@{
+    Layout = "~/Views/Shared/_EditLayout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Edit Footer";
+}
+
+<h4>Edit Footer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form asp-action="EditFooter">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="ContactEmail" class="control-label"></label>
+                <input asp-for="ContactEmail" class="form-control" />
+                <span asp-validation-for="ContactEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactPhone" class="control-label"></label>
+                <input asp-for="ContactPhone" class="form-control" />
+                <span asp-validation-for="ContactPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MailingAddressLine1" class="control-label"></label>
+                <input asp-for="MailingAddressLine1" class="form-control" />
+                <span asp-validation-for="MailingAddressLine1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MailingAddressLine2" class="control-label"></label>
+                <input asp-for="MailingAddressLine2" class="form-control" />
+                <span asp-validation-for="MailingAddressLine2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShelterAddressLine1" class="control-label"></label>
+                <input asp-for="ShelterAddressLine1" class="form-control" />
+                <span asp-validation-for="ShelterAddressLine1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShelterAddressLine2" class="control-label"></label>
+                <input asp-for="ShelterAddressLine2" class="form-control" />
+                <span asp-validation-for="ShelterAddressLine2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HomeImage" class="control-label"></label>
+                <input asp-for="HomeImage" class="form-control" />
+                <span asp-validation-for="HomeImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InstagramLink" class="control-label"></label>
+                <input asp-for="InstagramLink" class="form-control" />
+                <span asp-validation-for="InstagramLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TwitterLink" class="control-label"></label>
+                <input asp-for="TwitterLink" class="form-control" />
+                <span asp-validation-for="TwitterLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TumblrLink" class="control-label"></label>
+                <input asp-for="TumblrLink" class="form-control" />
+                <span asp-validation-for="TumblrLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FacebookLink" class="control-label"></label>
+                <input asp-for="FacebookLink" class="form-control" />
+                <span asp-validation-for="FacebookLink" class="text-danger"></span>
+            </div>
+            <div class="form-group text-center">
+                <input type="submit" value="Save" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-danger" role="button">Go Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+

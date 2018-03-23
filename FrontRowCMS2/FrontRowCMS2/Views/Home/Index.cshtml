@@ -2,6 +2,13 @@
     ViewData["Title"] = "Home Page";
 }
 
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    string isEditable = HttpContextAccessor.HttpContext.Session.GetString("isEditable");
+}
+
 <section class="container-fluid main-header" id="home">
     <div class="row">
         <div class="col-lg-7 col-lg-offset-5">
@@ -25,6 +32,14 @@
     </div>
 </section>
 
+@if (@isEditable == "true")
+{
+    <div class="row text-center ">
+        <a class="btn btn-success editableButton" href="#" role="button">Edit Header Section</a>
+        <hr />
+    </div>
+}
+
 <section class="container-fluid services">
     <div class="row">
         <div class="col-xs-12">
@@ -37,7 +52,7 @@
             <div class="col-lg-4">
                 <article class="panel">
                     <section class="panel-img-container">
-                        <img src="./images/house_icon.png" alt="House" class="panel-img" />
+                        <img src="~/images/house_icon.png" alt="House" class="panel-img" />
                     </section>
                     <section>
                         <p class="quicksand-light-32 panel-heading">Overnight Shelter</p>
@@ -53,7 +68,7 @@
             <div class="col-lg-4">
                 <article class="panel">
                     <section class="panel-img-container">
-                        <img src="./images/door_icon.png" alt="Door" class="panel-img" />
+                        <img src="~/images/door_icon.png" alt="Door" class="panel-img" />
                     </section>
                     <section>
                         <p class="quicksand-light-32 panel-heading">Drop-in Services</p>
@@ -69,7 +84,7 @@
             <div class="col-lg-4">
                 <article class="panel">
                     <section class="panel-img-container">
-                        <img src="./images/van_icon.png" alt="Van" class="panel-img van-img" />
+                        <img src="~/images/van_icon.png" alt="Van" class="panel-img van-img" />
                     </section>
                     <section>
                         <p class="quicksand-light-32 panel-heading">Street Outreach</p>
@@ -85,6 +100,15 @@
         </div>
     </div>
 </section>
+
+@if (@isEditable == "true")
+{
+    <div class="row text-center ">
+        <a class="btn btn-success editableButton" href="#" role="button">Edit Services Section</a>
+        <hr />
+    </div>
+}
+
 <article class="container-fluid purpose-box">
     <section class="row purpose col-xs-12">
         <div class="row purpose-title">
@@ -110,26 +134,27 @@
         </div>
         <div class="col-xs-12 col-lg-3 ">
             <div class="partner-logo">
-                <img src="./images/mckaydee_hospital.png" alt="McKay Dee Hospital" class="mckay" />
+                <img src="~/images/mckaydee_hospital.png" alt="McKay Dee Hospital" class="mckay" />
             </div>
         </div>
         <div class="col-xs-12 col-lg-3">
             <div class="partner-logo">
-                <img src="./images/the_group_logo.png" alt="The Group Real Estate" class="thegroup" />
+                <img src="~/images/the_group_logo.png" alt="The Group Real Estate" class="thegroup" />
             </div>
         </div>
         <div class="col-xs-12 col-lg-3">
             <div class="partner-logo">
-                <img src="./images/giv_development.png" alt="GIV Development" class="giv" />
+                <img src="~/images/giv_development.png" alt="GIV Development" class="giv" />
             </div>
         </div>
     </section>
+
     <section class="row purpose-user">
         <div class="purpose-boxes">
             <div class="col-lg-4">
                 <article class="panel">
                     <section class="panel-img-container">
-                        <img src="./images/hand_icon.png" alt="Volunteer" class="panel-img" />
+                        <img src="~/images/hand_icon.png" alt="Volunteer" class="panel-img" />
                     </section>
                     <section>
                         <p class="panel-heading">Apply to Volunteer</p>
@@ -145,7 +170,7 @@
             <div class="col-lg-4">
                 <article class="panel">
                     <section class="panel-img-container">
-                        <img src="./images/girl_icon.png" alt="Youth Stories" class="panel-img" />
+                        <img src="~/images/girl_icon.png" alt="Youth Stories" class="panel-img" />
                     </section>
                     <section>
                         <p class="panel-heading">Youth Stories</p>
@@ -161,7 +186,7 @@
             <div class="col-lg-4">
                 <article class="panel">
                     <section class="panel-img-container">
-                        <img src="./images/calendar_icon.png" alt="Events" class="panel-img" />
+                        <img src="~/images/calendar_icon.png" alt="Events" class="panel-img" />
                     </section>
                     <section>
                         <p class="panel-heading">Events</p>
@@ -176,4 +201,13 @@
             </div>
         </div>
     </section>
+
+    @if (@isEditable == "true")
+    {
+        <div class="row text-center ">
+            <a class="btn btn-success editableButton" href="#" role="button">Edit Purpose Section</a>
+            <hr />
+        </div>
+    }
+
 </article>
