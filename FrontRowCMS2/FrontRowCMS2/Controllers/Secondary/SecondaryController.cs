@@ -31,11 +31,6 @@ namespace FrontRowCMS2.Controllers
             return View(await _context.Footer.FirstOrDefaultAsync());
         }
 
-        public IActionResult Edit()
-        {
-            return View();
-        }
-
         //GET: EditHistory
         public async Task<IActionResult> EditHistory()
         {
