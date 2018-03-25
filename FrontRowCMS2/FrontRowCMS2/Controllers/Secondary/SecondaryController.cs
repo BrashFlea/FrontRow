@@ -69,7 +69,7 @@ namespace FrontRowCMS2.Controllers
         private void GetImages()
         {
             var webRoot = _env.WebRootPath;
-            var appData = System.IO.Path.Combine(webRoot, "images");
+            var appData = Path.Combine(webRoot, "images");
             var images = new List<SelectListItem>();
             images.Add(new SelectListItem
             {
@@ -78,7 +78,7 @@ namespace FrontRowCMS2.Controllers
             });
             foreach (string file in Directory.EnumerateFiles(appData, "*", SearchOption.AllDirectories))
             {
-                images.Add(new SelectListItem { Text = file.Substring(file.LastIndexOf("\\")+1), Value = file.Substring(file.LastIndexOf("\\")+1) });
+                images.Add(new SelectListItem { Text = file.Substring(file.LastIndexOf("\\") + 1), Value = file.Substring(file.LastIndexOf("\\") + 1) });
             }
             ViewBag.image = images;
         }

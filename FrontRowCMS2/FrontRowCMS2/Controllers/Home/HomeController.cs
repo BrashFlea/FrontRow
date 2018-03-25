@@ -8,16 +8,20 @@ using FrontRowCMS2.Models;
 using Microsoft.AspNetCore.Http;
 using FrontRowCMS2.Data;
 using Microsoft.EntityFrameworkCore;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace FrontRowCMS2.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IHostingEnvironment _env;
 
-        public HomeController(ApplicationDbContext context)
+        public HomeController(ApplicationDbContext context, IHostingEnvironment env)
         {
             _context = context;
+            _env = env;
         }
 
         public async Task<IActionResult> Index()
@@ -53,6 +57,44 @@ namespace FrontRowCMS2.Controllers
                 }
             }
             return View(footer);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UploadImage(string returnurl, IFormFile imageFile)
+        {
+            if(imageFile != null && imageFile.Length > 0)
+            {
+                var filePath = Path.Combine(Path.Combine(_env.WebRootPath, "images"), imageFile.FileName);
+                FileInfo checkFile = new FileInfo(filePath);
+                if (checkFile.Exists)
+                {
+                    return Redirect("~/errors/fileExists.html");
+                }
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await imageFile.CopyToAsync(stream);
+                }
+            }
+
+            return Redirect(returnurl);
+            //return RedirectToAction(nameof(ReturnUrl));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteImage(string returnurl, string filename)
+        {
+            if(filename != null && filename != "")
+            {
+                string filePath = Path.Combine(Path.Combine(_env.WebRootPath, "images"), filename);
+                FileInfo file = new FileInfo(filePath);
+                if (file.Exists)
+                {
+                    file.Delete();
+                }
+            }
+            return Redirect(returnurl);
         }
 
         public IActionResult Login()
