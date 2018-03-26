@@ -126,6 +126,36 @@ namespace FrontRowCMS2.Controllers
             return View(history);
         }
 
+        //GET: EditDonors
+        public async Task<IActionResult> EditDonors()
+        {
+            var donors = await _context.Donors.FirstOrDefaultAsync();
+            GetImages();
+            return View(donors);
+        }
+
+        //POST: EditDonors
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditDonors([Bind("ID,Donor")] Donors donors)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(donors);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException ex)
+                {
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persister " +
+                    "see your system administrator for assitance.");
+                }
+            }
+            return View(donors);
+        }
+
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
