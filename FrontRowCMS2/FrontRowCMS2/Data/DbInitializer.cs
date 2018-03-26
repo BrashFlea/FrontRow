@@ -12,6 +12,8 @@ namespace FrontRowCMS2.Data
     {
         public static void Initialize(ApplicationDbContext context)
         {
+            //TODO: REMOVE BEFORE PRODUCTION
+            context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
 
             //Look for proff that database has been seeded
