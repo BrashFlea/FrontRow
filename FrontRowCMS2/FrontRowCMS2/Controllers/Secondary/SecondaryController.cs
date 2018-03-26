@@ -28,7 +28,15 @@ namespace FrontRowCMS2.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Footer.FirstOrDefaultAsync());
+            Page Page = new Page();
+
+            Page.Footer = await _context.Footer.FirstOrDefaultAsync();
+            Page.SecondaryPage = new SecondaryPage();
+            Page.SecondaryPage.History = await _context.History.FirstOrDefaultAsync();
+            Page.SecondaryPage.Directors = await _context.Persons.Where(p => p.Type != PersonType.Director).ToListAsync();
+            Page.SecondaryPage.Staff = await _context.Persons.Where(p => p.Type != PersonType.Director).ToListAsync();
+
+            return View(Page);
         }
 
         //GET: EditHistory

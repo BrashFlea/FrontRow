@@ -26,8 +26,9 @@ namespace FrontRowCMS2.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var footer = await _context.Footer.FirstOrDefaultAsync();
-            return View(footer);
+            Page page = new Page();
+            page.Footer = await _context.Footer.FirstOrDefaultAsync();
+            return View(page);
         }
 
         //GET: EditFooter
