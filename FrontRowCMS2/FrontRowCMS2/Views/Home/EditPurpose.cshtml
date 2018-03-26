@@ -1,0 +1,65 @@
+﻿@model FrontRowCMS2.Models.Home.Purpose
+
+@{
+    Layout = "~/Views/Shared/_EditLayout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Edit Purpose";
+}
+
+<h4>Edit Purpose</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form asp-action="EditPurpose">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="TextArea1" class="control-label"></label>
+                <textarea asp-for="TextArea1" class="form-control" rows="10"></textarea>
+                <span asp-validation-for="TextArea1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TextArea2" control-label"></label>
+                <input asp-for="TextArea2" class="form-control" />
+                <span asp-validation-for="TextArea2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BackgroundImage" class="control-label"></label>
+                <img src="~/images/@Html.DisplayFor(model => model.BackgroundImage)" style="max-height:100px;" />
+                <input asp-for="BackgroundImage" class="form-control" />
+                <span asp-validation-for="BackgroundImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PartnerImage1" class="control-label"></label>
+                <img src="~/images/@Html.DisplayFor(model => model.PartnerImage1)" style="max-height:100px;" />
+                <input asp-for="PartnerImage1" class="form-control" />
+                <span asp-validation-for="PartnerImage1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PartnerImage2" class="control-label"></label>
+                <img src="~/images/@Html.DisplayFor(model => model.PartnerImage2)" style="max-height:100px;" />
+                <input asp-for="PartnerImage2" class="form-control" />
+                <span asp-validation-for="PartnerImage2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PartnerImage3" class="control-label"></label>
+                <img src="~/images/@Html.DisplayFor(model => model.PartnerImage3)" style="max-height:100px;" />
+                <input asp-for="PartnerImage3" class="form-control" />
+                <span asp-validation-for="PartnerImage3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PartnerImage4" class="control-label"></label>
+                <img src="~/images/@Html.DisplayFor(model => model.PartnerImage4)" style="max-height:100px;" />
+                <input asp-for="PartnerImage4" class="form-control" />
+                <span asp-validation-for="PartnerImage4" class="text-danger"></span>
+            </div>
+            <div class="form-group text-center">
+                <input type="submit" value="Save" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-danger" role="button">Go Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+

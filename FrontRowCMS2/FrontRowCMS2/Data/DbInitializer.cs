@@ -12,7 +12,12 @@ namespace FrontRowCMS2.Data
     {
         public static void Initialize(ApplicationDbContext context)
         {
+            //Clear database while updating and adding models. Debug use only.
+            //Being saved for reference and will be removed when finished.
+            //context.Database.EnsureDeleted();
+
             context.Database.EnsureCreated();
+
 
             //Look for proff that database has been seeded
             if (context.History.Any())
@@ -36,6 +41,20 @@ namespace FrontRowCMS2.Data
             #region Home Page Initialization
             //Home Page
 
+            context.Header.Add(new Header { BackgroundImage = "home_header.png", PhoneNumber = "(801) 528-1214", TitleText = "14 WARM BEDS. YOUTH 12-17. YOUR TEMPORARY HOME <span class=\"quicksand - dark - 38 - lightgreen\">:) </span>" });
+            context.SaveChanges();
+
+            context.Services.Add(new FrontRowCMS2.Models.Home.Services {
+                MainText = "Our programming is divided into three main areas. Each program area has specific components to meet the needs of the youth in need.",
+                Service1 = new LinkSubContent { Title = "Overnight Shelter", Description = "Located in the heart of downtown Ogden, Utah, Youth Futures provides emergency shelter, temporary residence and supportive services for runaway, homeless, unaccompanied and at-risk youth ages 12-17.  The shelter is open 24 hours per day.", Image = "house_icon.png", Link = "/secondary#sheltersMain" },
+                Service2 = new LinkSubContent { Title = "Drop In Services", Description = "Available to any youth ages 12-18. Drop-in services allow for the youth to access food, clothing, hygiene items, laundry facilities, computer stations, and case management. Drop-in hours are 6:30 am to 8:00 pm every day of the week.", Image = "door_icon.png", Link = "/secondary#dropinsMain" },
+                Service3 = new LinkSubContent { Title = "Street Outreach", Description = "Youth Futures’ Street Outreach is conducted once per week and provides outreach and crisis services to youth in Ogden City, Utah. ", Image = "van_icon.png", Link = "/secondary#outreachBanner" }
+            });
+            context.SaveChanges();
+
+
+            context.Purpose.Add(new Purpose { BackgroundImage = "purpose.png", TextArea1 = "To provide unaccompanied, runaway and homeless youth with a safe and nurturing environment where they can develop the needed skills to become active, healthy, successful members of our future world.", TextArea2 = "7,085 MEALS SERVED. 511 DROP-IN SERVICES. 245 STREET OUTREACH HOURS. 64 SHELTERED YOUTH.", PartnerImage1 = "", PartnerImage2 = "mckaydee_hospital.png", PartnerImage3 = "the_group_logo.png", PartnerImage4 = "giv_development.png" });
+            context.SaveChanges();
 
             #endregion
 

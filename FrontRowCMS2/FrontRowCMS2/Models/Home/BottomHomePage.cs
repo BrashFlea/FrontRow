@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace FrontRowCMS2.Models.Home
 {
-    public class Deleteme
+    public class BottomHomePage
     {
-        //Empty class to allow me to commit the Home model folder to GitHub.
-        //Please delete
+        public int ID { get; set; }
+        public LinkSubContent[] linkSubContent { get; set; }
     }
 }
