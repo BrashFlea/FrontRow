@@ -132,36 +132,36 @@ namespace FrontRowCMS2.Data
             var donors = new Donor[]
             {
                 //PLATINUM
-                new Donor{Level="Platinum", Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
-                new Donor{Level="Platinum", Name="IVY LANE PEDIATRICS", Year="2016"},
-                new Donor{Level="Platinum", Name="SORENSON LEGACY FOUNDATION", Year="2015"},
-                new Donor{Level="Platinum", Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
-                new Donor{Level="Platinum", Name="IVY LANE PEDIATRICS", Year="2016"},
-                new Donor{Level="Platinum", Name="SORENSON LEGACY FOUNDATION", Year="2015"},
+                new Donor{Level=DonorType.Platinum, Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
+                new Donor{Level=DonorType.Platinum, Name="IVY LANE PEDIATRICS", Year="2016"},
+                new Donor{Level=DonorType.Platinum, Name="SORENSON LEGACY FOUNDATION", Year="2015"},
+                new Donor{Level=DonorType.Platinum, Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
+                new Donor{Level=DonorType.Platinum, Name="IVY LANE PEDIATRICS", Year="2016"},
+                new Donor{Level=DonorType.Platinum, Name="SORENSON LEGACY FOUNDATION", Year="2015"},
 
                 //GOLD
-                new Donor{Level="Gold", Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
-                new Donor{Level="Gold", Name="IVY LANE PEDIATRICS", Year="2016"},
-                new Donor{Level="Gold", Name="SORENSON LEGACY FOUNDATION", Year="2015"},
-                new Donor{Level="Gold", Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
-                new Donor{Level="Gold", Name="IVY LANE PEDIATRICS", Year="2016"},
-                new Donor{Level="Gold", Name="SORENSON LEGACY FOUNDATION", Year="2015"},
+                new Donor{Level=DonorType.Gold, Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
+                new Donor{Level=DonorType.Gold, Name="IVY LANE PEDIATRICS", Year="2016"},
+                new Donor{Level=DonorType.Gold, Name="SORENSON LEGACY FOUNDATION", Year="2015"},
+                new Donor{Level=DonorType.Gold, Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
+                new Donor{Level=DonorType.Gold, Name="IVY LANE PEDIATRICS", Year="2016"},
+                new Donor{Level=DonorType.Gold, Name="SORENSON LEGACY FOUNDATION", Year="2015"},
 
                 //SILVER
-                new Donor{Level="Silver", Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
-                new Donor{Level="Silver", Name="IVY LANE PEDIATRICS", Year="2016"},
-                new Donor{Level="Silver", Name="SORENSON LEGACY FOUNDATION", Year="2015"},
-                new Donor{Level="Silver", Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
-                new Donor{Level="Silver", Name="IVY LANE PEDIATRICS", Year="2016"},
-                new Donor{Level="Silver", Name="SORENSON LEGACY FOUNDATION", Year="2015"},
+                new Donor{Level=DonorType.Silver, Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
+                new Donor{Level=DonorType.Silver, Name="IVY LANE PEDIATRICS", Year="2016"},
+                new Donor{Level=DonorType.Silver, Name="SORENSON LEGACY FOUNDATION", Year="2015"},
+                new Donor{Level=DonorType.Silver, Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
+                new Donor{Level=DonorType.Silver, Name="IVY LANE PEDIATRICS", Year="2016"},
+                new Donor{Level=DonorType.Silver, Name="SORENSON LEGACY FOUNDATION", Year="2015"},
 
-                //Bronze
-                new Donor{Level="Bronze", Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
-                new Donor{Level="Bronze", Name="IVY LANE PEDIATRICS", Year="2016"},
-                new Donor{Level="Bronze", Name="SORENSON LEGACY FOUNDATION", Year="2015"},
-                new Donor{Level="Bronze", Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
-                new Donor{Level="Bronze", Name="IVY LANE PEDIATRICS", Year="2016"},
-                new Donor{Level="Bronze", Name="SORENSON LEGACY FOUNDATION", Year="2015"}
+                //BRONZE
+                new Donor{Level=DonorType.Bronze, Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
+                new Donor{Level=DonorType.Bronze, Name="IVY LANE PEDIATRICS", Year="2016"},
+                new Donor{Level=DonorType.Bronze, Name="SORENSON LEGACY FOUNDATION", Year="2015"},
+                new Donor{Level=DonorType.Bronze, Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
+                new Donor{Level=DonorType.Bronze, Name="IVY LANE PEDIATRICS", Year="2016"},
+                new Donor{Level=DonorType.Bronze, Name="SORENSON LEGACY FOUNDATION", Year="2015"}
             };
             foreach (Donor d in donors)
             {
