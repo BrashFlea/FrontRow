@@ -60,6 +60,9 @@ namespace FrontRowCMS2.Controllers
         public async Task<IActionResult> EditServices()
         {
             var services = await _context.Services.FirstOrDefaultAsync();
+            services.Service1 = await _context.LinkSubContent.Where(c => c.ID == 1).FirstAsync();
+            services.Service2 = await _context.LinkSubContent.Where(c => c.ID == 2).FirstAsync();
+            services.Service3 = await _context.LinkSubContent.Where(c => c.ID == 3).FirstAsync();
             return View(services);
         }
 
@@ -88,7 +91,7 @@ namespace FrontRowCMS2.Controllers
         //GET: EditPurpose
         public async Task<IActionResult> EditPurpose()
         {
-            var services = await _context.Services.FirstOrDefaultAsync();
+            var services = await _context.Purpose.FirstOrDefaultAsync();
             return View(services);
         }
 

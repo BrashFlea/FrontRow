@@ -24,6 +24,7 @@ namespace FrontRowCMS2.Data
         //DbSet for Home Page
         public DbSet<Header> Header { get; set; }
         public DbSet<Models.Home.Services> Services { get; set; }
+        public DbSet<LinkSubContent> LinkSubContent { get; set; }
         public DbSet<Purpose> Purpose { get; set; }
 
         //DbSet for Secondary Page
