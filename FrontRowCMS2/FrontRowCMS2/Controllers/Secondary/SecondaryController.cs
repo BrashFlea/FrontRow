@@ -66,6 +66,36 @@ namespace FrontRowCMS2.Controllers
             return View(header);
         }
 
+        //GET: EditOperation
+        public async Task<IActionResult> EditOperation()
+        {
+            var operation = await _context.Operation.FirstOrDefaultAsync();
+            GetImages();
+            return View(operation);
+        }
+
+        //POST: EditOperation
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditOperation([Bind("ID,TextArea1,TextArea2,TextSubContent")] Operation operation)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(operation);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException ex)
+                {
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persister " +
+                    "see your system administrator for assitance.");
+                }
+            }
+            return View(operation);
+        }
+
         //GET: EditHistory
         public async Task<IActionResult> EditHistory()
         {
