@@ -40,6 +40,17 @@ namespace FrontRowCMS2.Data
             #endregion
 
             #region Secondary Page Initialization
+            //SECONDARY PAGE HEADER
+            context.SecondaryHeader.Add(new SecondaryHeader
+            {
+                TitleText = "Have questions? Send us a text!",
+                PhoneNumber = "(801) 528-1214",
+                BackgroundImage = "history_header.jpg",
+                ImageText1 = "Youth Futures",
+                ImageText2 = "History"
+            });
+            context.SaveChanges();
+
             ///HISTORY SECTION
             context.History.Add(new History { TextArea1 = "Located in the heart of downtown Ogden, Youth Futures opened Utah's first homeless Residential Support Temporary Youth Shelter on February 20, 2015. Youth Futures provides shelter and drop-in services to all youth ages 12-17, and will not exclude any youth who falls within these age ranges, regardless of circumstance. We provide 14 temporary overnight shelter beds and day-time drop-in services to youth, as well as intensive case management to help youth become re-united with family or self-sufficiently contributing to our community. Weekly outreach efforts assist in building rapport with street youth, ensuring they receive food and other basic necessities and educating them about options to living in unsafe conditions. Youth are guided in a loving, supportive and productive way, encouraging their own personal path for a healthy future.",
                 TextArea2 = "Youth Futures was founded by Kristen Mitchell and Scott Catuccio, who had been conceptually planning to provide shelter and case management services to youth for over six years. It was identified that there was a lack of shelter services for the estimated 5,000 youth who experience homelessness for at least one night a year in Utah, so Scott and Kristen began researching other states that provide shelter services to youth. It was quickly identified that the largest barrier to providing services to homeless youth in Utah was a law prohibiting the opening of shelter facilities for youth.",
