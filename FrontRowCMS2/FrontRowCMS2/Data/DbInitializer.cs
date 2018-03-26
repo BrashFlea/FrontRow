@@ -48,6 +48,24 @@ namespace FrontRowCMS2.Data
             });
             context.SaveChanges();
 
+            //OPERATION
+            context.Operation.Add(new Operation
+            {
+                TextArea1 = "During the 2014 Legislative Session, HB132 was passed, which allowed for rewriting the prohibitive law and drafting licensing procedures for residential support programs for temporary homeless youth shelter in Utah. Youth Futures and other homeless youth service providers participated in the rules writing process. The licensing rules enrolled on October 22, 2014, and the founders began to set-up the facility for licensing. Youth Futures received the first license for homeless youth shelter granted in the State of Utah under the new law. ",
+                TextArea2 = "During the first full year of operations (February 20, 2015-March 31, 2016), our Residential Support Temporary Youth Shelter has:"
+            });
+            var OperationSubContent = new TextSubContent[]
+            {
+                new TextSubContent{Image="history_meal.svg", Description="Served 7,085 meals; 3 meals a day and 2 snacks for shelter and drop-in youth. Opened the resource room 354 times with access to basic nec-essities including clothing, hygiene items, back packs, blankets, sleeping bags, basic medical supplies, etc.", ContentType="Operation"},
+                new TextSubContent{Image="history_hand.svg", Description="Conducted more than 245 street outreach hours and provided items from the resource room to street youth.", ContentType="Operation"},
+                new TextSubContent{Image="house_icon2.png", Description="Provided 1,535 shelter night stays and 511 drop in services including case management, connections to health care, mental health care and group therapy, facilitation with other youth service providers, computer access, showers, laundry facilities, etc.", ContentType="Operation"}
+            };
+            foreach (TextSubContent t in OperationSubContent)
+            {
+                context.TextSubContent.Add(t);
+            }
+            context.SaveChanges();
+
             //OUTREACH
             var Table = new OutreachTable[]
             {
@@ -132,6 +150,29 @@ namespace FrontRowCMS2.Data
                 new Donor{Level="Bronze", Name="IVY LANE PEDIATRICS", Year="2016"},
                 new Donor{Level="Bronze", Name="SORENSON LEGACY FOUNDATION", Year="2015"}
             };
+            foreach (Donor d in donors)
+            {
+                context.Donors.Add(d);
+            }
+            context.SaveChanges();
+
+            //DONATE
+            context.Donate.Add(new Donate
+            {
+                TextArea1 = "HOW CAN YOU HELP?",
+                TextArea2 = "Your generosity helps keep the doors open and the lights on, providing a sanctuary for those in need. Please consider a donation."
+            });
+            var DonateSubContent = new TextSubContent[]
+            {
+                new TextSubContent{Image="donate_dollar.svg", Description="Monetary donations are our biggest need right now. Recurring PayPal donations can be scheduled from our website, even $10 makes a difference.", ContentType="Donate"},
+                new TextSubContent{Image="shoppingcart_icon.png", Description="Donate through rewards programs: Amazon Smile, Smiths Community Rewards, or United Way, Federal and State Employee contributions, LoveUTGiveUT", ContentType="Donate"},
+                new TextSubContent{Image="donate_hand.svg", Description="Donate your time as a volunteer to help with needs around the shelter! Sign up here.", ContentType="Donate"}
+            };
+            foreach (TextSubContent t in DonateSubContent)
+            {
+                context.TextSubContent.Add(t);
+            }
+            context.SaveChanges();
 
             //LIST OF NEEDS
             context.Needs.Add(new Needs { Title = "LIST OF NEEDS",
