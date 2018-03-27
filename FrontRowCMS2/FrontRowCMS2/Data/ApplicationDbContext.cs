@@ -34,7 +34,7 @@ namespace FrontRowCMS2.Data
         public DbSet<Calendar> Calendar { get; set; }
         public DbSet<CalendarMonths> CalendarMonths { get; set; }
         public DbSet<CalendarEvents> CalendarEvents { get; set; }
-        public DbSet<Donor> Donors { get; set; }
+        public DbSet<Donor> Donor { get; set; }
         public DbSet<Donate> Donate { get; set; }
         public DbSet<TextSubContent> TextSubContent { get; set; }
 
@@ -46,8 +46,5 @@ namespace FrontRowCMS2.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
         }
-
-
-        public DbSet<FrontRowCMS2.Models.Secondary.Donors> Donors_1 { get; set; }
     }
 }

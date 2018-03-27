@@ -126,24 +126,24 @@ namespace FrontRowCMS2.Controllers
             return View(history);
         }
 
-        //GET: EditDonors
-        public async Task<IActionResult> EditDonors()
+        //GET: EditDonor
+        public async Task<IActionResult> EditDonor()
         {
-            var donors = await _context.Donors.FirstOrDefaultAsync();
+            var donor = await _context.Donor.FirstOrDefaultAsync();
             GetImages();
-            return View(donors);
+            return View(donor);
         }
 
-        //POST: EditDonors
+        //POST: EditDonor
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditDonors([Bind("ID,Donor")] Donors donors)
+        public async Task<IActionResult> EditDonor([Bind("ID,Level,Name,Year")] Donor donor)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(donors);
+                    _context.Update(donor);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateException ex)
@@ -153,7 +153,7 @@ namespace FrontRowCMS2.Controllers
                     "see your system administrator for assitance.");
                 }
             }
-            return View(donors);
+            return View(donor);
         }
 
         public IActionResult Error()

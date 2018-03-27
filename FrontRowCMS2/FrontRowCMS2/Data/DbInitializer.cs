@@ -128,8 +128,8 @@ namespace FrontRowCMS2.Data
             }
             context.SaveChanges();
 
-            //DONORS
-            var donors = new Donor[]
+            //DONOR
+            var donor = new Donor[]
             {
                 //PLATINUM
                 new Donor{Level=DonorType.Platinum, Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
@@ -163,9 +163,9 @@ namespace FrontRowCMS2.Data
                 new Donor{Level=DonorType.Bronze, Name="IVY LANE PEDIATRICS", Year="2016"},
                 new Donor{Level=DonorType.Bronze, Name="SORENSON LEGACY FOUNDATION", Year="2015"}
             };
-            foreach (Donor d in donors)
+            foreach (Donor d in donor)
             {
-                context.Donors.Add(d);
+                context.Donor.Add(d);
             }
             context.SaveChanges();
 
