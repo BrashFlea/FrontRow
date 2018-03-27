@@ -28,7 +28,15 @@ namespace FrontRowCMS2.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Footer.FirstOrDefaultAsync());
+            Page Page = new Page();
+
+            Page.Footer = await _context.Footer.FirstOrDefaultAsync();
+            Page.SecondaryPage = new SecondaryPage();
+            Page.SecondaryPage.History = await _context.History.FirstOrDefaultAsync();
+            Page.SecondaryPage.Directors = await _context.Persons.Where(p => p.Type != PersonType.Staff).ToListAsync();
+            Page.SecondaryPage.Staff = await _context.Persons.Where(p => p.Type != PersonType.Director).ToListAsync();
+
+            return View(Page);
         }
 
         //GET: EditHistory
@@ -69,7 +77,7 @@ namespace FrontRowCMS2.Controllers
         private void GetImages()
         {
             var webRoot = _env.WebRootPath;
-            var appData = System.IO.Path.Combine(webRoot, "images");
+            var appData = Path.Combine(webRoot, "images");
             var images = new List<SelectListItem>();
             images.Add(new SelectListItem
             {
@@ -78,7 +86,7 @@ namespace FrontRowCMS2.Controllers
             });
             foreach (string file in Directory.EnumerateFiles(appData, "*", SearchOption.AllDirectories))
             {
-                images.Add(new SelectListItem { Text = file.Substring(file.LastIndexOf("\\")+1), Value = file.Substring(file.LastIndexOf("\\")+1) });
+                images.Add(new SelectListItem { Text = file.Substring(file.LastIndexOf("\\") + 1), Value = file.Substring(file.LastIndexOf("\\") + 1) });
             }
             ViewBag.image = images;
         }

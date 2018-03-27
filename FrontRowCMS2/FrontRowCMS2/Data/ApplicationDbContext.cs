@@ -32,6 +32,10 @@ namespace FrontRowCMS2.Data
         public DbSet<Calendar> Calendar { get; set; }
         public DbSet<CalendarMonths> CalendarMonths { get; set; }
         public DbSet<CalendarEvents> CalendarEvents { get; set; }
+        public DbSet<SecondaryHeader> SecondaryHeader { get; set; }
+        public DbSet<SecondaryPage> SecondaryPage { get; set; }
+        public DbSet<Operation> Operation { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder builder)
