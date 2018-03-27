@@ -39,6 +39,66 @@ namespace FrontRowCMS2.Controllers
             return View(Page);
         }
 
+        //GET: EditHeader
+        public async Task<IActionResult> EditHeader()
+        {
+            var header = await _context.SecondaryHeader.FirstOrDefaultAsync();
+            GetImages();
+            return View(header);
+        }
+
+        //POST: EditHeader
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditHeader([Bind("ID,TitleText,PhoneNumber,BackgroundImage,ImageText1,ImageText2")] SecondaryHeader header)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(header);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException ex)
+                {
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persister " +
+                    "see your system administrator for assitance.");
+                }
+            }
+            return View(header);
+        }
+
+        //GET: EditOperation
+        public async Task<IActionResult> EditOperation()
+        {
+            var operation = await _context.Operation.FirstOrDefaultAsync();
+            GetImages();
+            return View(operation);
+        }
+
+        //POST: EditOperation
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditOperation([Bind("ID,TextArea1,TextArea2,TextSubContent")] Operation operation)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(operation);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException ex)
+                {
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persister " +
+                    "see your system administrator for assitance.");
+                }
+            }
+            return View(operation);
+        }
+
         //GET: EditHistory
         public async Task<IActionResult> EditHistory()
         {
@@ -67,6 +127,36 @@ namespace FrontRowCMS2.Controllers
                 }
             }
             return View(history);
+        }
+
+        //GET: EditDonor
+        public async Task<IActionResult> EditDonor()
+        {
+            var donor = await _context.Donor.FirstOrDefaultAsync();
+            GetImages();
+            return View(donor);
+        }
+
+        //POST: EditDonor
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditDonor([Bind("ID,Level,Name,Year")] Donor donor)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(donor);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException ex)
+                {
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persister " +
+                    "see your system administrator for assitance.");
+                }
+            }
+            return View(donor);
         }
 
         public IActionResult Error()

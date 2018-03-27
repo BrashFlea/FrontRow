@@ -12,14 +12,17 @@ namespace FrontRowCMS2.Models.Secondary
         public History History { get; set; }
         public Operation Operation { get; set; }
         public Outreach Outreach { get; set; }
-        public List<Person> Directors { get; set; }
-        public List<Person> Staff { get; set; }
+        public Person Directors { get; set; }
+        public Person Staff { get; set; }
         public Media Media { get; set; }
-        //public List<Donors> Donors { get; set; }
+        public List<Donor> PlatinumDonors { get; set; }
+        public List<Donor> GoldDonors { get; set; }
+        public List<Donor> SilverDonors { get; set; }
+        public List<Donor> BronzeDonors { get; set; }
         public Donate Donate { get; set; }
         public Needs ListOfNeeds { get; set; }
         public Calendar Calendar { get; set; }
-        //public ContactInfo ContactInfo { get; set; }
-        //public Footer Footer { get; set; }
+        public ContactInfo ContactInfo { get; set; }
+        public Footer Footer { get; set; }
     }
 }

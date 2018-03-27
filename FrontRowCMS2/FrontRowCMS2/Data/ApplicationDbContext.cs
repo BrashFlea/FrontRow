@@ -24,19 +24,22 @@ namespace FrontRowCMS2.Data
         //DbSet for Home Page
 
         //DbSet for Secondary Page
+        public DbSet<SecondaryHeader> SecondaryHeader { get; set; }
         public DbSet<History> History { get; set; }
         public DbSet<Person> Persons { get; set; }
+        public DbSet<Operation> Operation { get; set; }
         public DbSet<Outreach> Outreach { get; set; }
         public DbSet<OutreachTable> OutreachTable { get; set; }
         public DbSet<Needs> Needs { get; set; }
         public DbSet<Calendar> Calendar { get; set; }
         public DbSet<CalendarMonths> CalendarMonths { get; set; }
         public DbSet<CalendarEvents> CalendarEvents { get; set; }
+        public DbSet<Donor> Donor { get; set; }
+        public DbSet<Donate> Donate { get; set; }
+        public DbSet<TextSubContent> TextSubContent { get; set; }
         public DbSet<SecondaryHeader> SecondaryHeader { get; set; }
         public DbSet<SecondaryPage> SecondaryPage { get; set; }
         public DbSet<Operation> Operation { get; set; }
-
-
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
