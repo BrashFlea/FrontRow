@@ -80,6 +80,14 @@ namespace FrontRowCMS2.Data
             context.SaveChanges();
 
             //OUTREACH
+            context.Outreach.Add(new Outreach
+            {
+                Image = "outreach_header.jpg",
+                TextArea1 = "STREET",
+                TextArea2 = "OUTREACH",
+                TextArea3 = "Street Outreach is designed to meet the clients where they are on the street to build rapport and encourage youth to access drop-in and shelter services. This program offers, case management, hygiene items, food, sleeping bags, and other essential items as needed. Street Outreach currently take place once per week on Wednesdays. The team visits the same Ogden, Utah locations every week:"
+            });
+            context.SaveChanges();
             var Table = new OutreachTable[]
             {
                 new OutreachTable{ OutreachID = 1, Location = "Jefferson Park" },
@@ -93,13 +101,6 @@ namespace FrontRowCMS2.Data
             {
                 context.OutreachTable.Add(o);
             }
-            context.SaveChanges();
-
-            context.Outreach.Add(new Outreach { Image="outreach_header.jpg",
-                                                TextArea1 = "STREET",
-                                                TextArea2 = "OUTREACH",
-                                                TextArea3 = "Street Outreach is designed to meet the clients where they are on the street to build rapport and encourage youth to access drop-in and shelter services. This program offers, case management, hygiene items, food, sleeping bags, and other essential items as needed. Street Outreach currently take place once per week on Wednesdays. The team visits the same Ogden, Utah locations every week:"
-            });
             context.SaveChanges();
 
             ///DIRECTORS
