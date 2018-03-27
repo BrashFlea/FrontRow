@@ -29,31 +29,36 @@
             </div>
             <div class="form-group">
                 <label asp-for="Image1" class="control-label"></label>
-                <img src="~/images/@Html.DisplayFor(model => model.Image1)" style="max-height:100px;"/>
-                <input asp-for="Image1" class="form-control" />
+                <img id="image1_preview" src="~/images/@Html.DisplayFor(model => model.Image1)" style="max-height:100px;"/>
+                <select id="select_image1" asp-for="Image1" asp-items="ViewBag.image" class="form-control" 
+                        onchange="UpdateImage(this.id,'image1_preview')"></select>
                 <span asp-validation-for="Image1" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Image2" class="control-label"></label>
-                <img src="~/images/@Html.DisplayFor(model => model.Image2)" style="max-height:100px;" />
-                <input asp-for="Image2" class="form-control" />
-                <span asp-validation-for="Image2" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Image3" class="control-label"></label>
-                <img src="~/images/@Html.DisplayFor(model => model.Image3)" style="max-height:100px;" />
-                <input asp-for="Image3" class="form-control" />
-                <span asp-validation-for="Image3" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Caption1" class="control-label"></label>
                 <input asp-for="Caption1" class="form-control" />
                 <span asp-validation-for="Caption1" class="text-danger"></span>
             </div>
+
+            <div class="form-group">
+                <label asp-for="Image2" class="control-label"></label>
+                <img id="image2_preview" src="~/images/@Html.DisplayFor(model => model.Image2)" style="max-height:100px;" />
+                <select id="select_image2" asp-for="Image2" class="form-control" asp-items="ViewBag.image" 
+                        onchange="UpdateImage(this.id,'image2_preview')"></select>
+                <span asp-validation-for="Image2" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="Caption2" class="control-label"></label>
                 <input asp-for="Caption2" class="form-control" />
                 <span asp-validation-for="Caption2" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Image3" class="control-label"></label>
+                <img id="image3_preview" src="~/images/@Html.DisplayFor(model => model.Image3)" style="max-height:100px;" />
+                <select id="select_image3" asp-for="Image3" class="form-control" asp-items="ViewBag.image"
+                        onchange="UpdateImage(this.id,'image3_preview')"></select>
+                <span asp-validation-for="Image3" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Caption3" class="control-label"></label>
@@ -66,21 +71,44 @@
             </div>
         </form>
 
-        <form>
+        @*<form>
             <div>
                 Site Images:
-                <select id="selectImage" name="siteImages" asp-items="ViewBag.image" onchange="UpdateImage()"></select>
+                <select id="selectImage" name="siteImages" asp-items="ViewBag.image" onchange="UpdateImage('sampleImage')"></select>
             </div>
             <div class="text-center" style="margin:20px;">
-                <img id="sampleImage" src="" alt="Web Images" width="300px;" />
+                <img id="sampleImage" src="" alt="Web Images" width="50%;" />
+            </div>
+        </form>*@
+        <form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="UploadImage" asp-route-returnurl="~/Secondary/EditHistory">
+            <div class="form-group">
+                <h6>Upload Images:</h6>
+                <input type="file" name="imageFile"/>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Upload Image" class="btn btn-primary"/>
+            </div>
+        </form>
+
+        <form method="post" asp-controller="Home" asp-action="DeleteImage" asp-route-returnurl="~/Secondary/EditHistory">
+            <div class="form-group">
+                <h6>Delete Images:</h6>
+                Site Images:
+                <select id="selectImage" name="filename" asp-items="ViewBag.image" onchange="UpdateImage(this.id, 'sampleImage')"></select>
+                <div class="text-center" style="margin:20px;">
+                    <img id="sampleImage" src="" alt="Web Images" width="50%;" />
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Delete Image" class="btn btn-danger"/>
             </div>
         </form>
     </div>
 </div>
 <script>
-    function UpdateImage() {
-        var source = document.getElementById("selectImage").value;
-        document.getElementById("sampleImage").src ="../images/" + source;
+    function UpdateImage(selectID, previewID) {
+        var source = document.getElementById(selectID).value;
+        document.getElementById(previewID).src ="../images/" + source;
     
     }
 </script>

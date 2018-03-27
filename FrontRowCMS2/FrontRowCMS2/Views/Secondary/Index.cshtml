@@ -32,8 +32,8 @@
         </div>
     </div>
 
-    @if(@isEditable == "true")
-        {
+    @if (@isEditable == "true")
+    {
             <div class="row text-center">
                 <a class="btn btn-success editableButton" href="~/Secondary/EditHeader" role="button">Edit History Banner</a>
                 <hr />
@@ -43,7 +43,7 @@
     <div class="container-fluid">
         <div class="row history_text">
             <section class="col-xs-12">
-                <p class="mont_regular_22_darkgray">Located in the heart of downtown Ogden, Youth Futures opened Utah's first homeless Residential Support Temporary Youth Shelter on February 20, 2015. Youth Futures provides shelter and drop-in services to all youth ages 12-17, and will not exclude any youth who falls within these age ranges, regardless of circumstance. We provide 14 temporary overnight shelter beds and day-time drop-in services to youth, as well as intensive case management to help youth become re-united with family or self-sufficiently contributing to our community. Weekly outreach efforts assist in building rapport with street youth, ensuring they receive food and other basic necessities and educating them about options to living in unsafe conditions. Youth are guided in a loving, supportive and productive way, encouraging their own personal path for a healthy future.</p>
+                <p class="mont_regular_22_darkgray">@Model.SecondaryPage.History.TextArea1</p>
             </section>
         </div>
     </div>
@@ -51,18 +51,18 @@
     <div class="container-fluid">
         <div class="row history_text_pics">
             <section class="col-xs-12  col-md-4 first_img ">
-                <img src="~/images/history_kristen_scott.jpg" class="img-responsive center-block" title="Kristen and Scott" alt="Kristen and Scott">
-                <p class="mont_light_14_white hist_subtitle">Kristen and Scott</p>
+                <img src="~/images/@(Model.SecondaryPage.History.Image1)" class="img-responsive center-block" title="@(Model.SecondaryPage.History.Caption1)" alt="@(Model.SecondaryPage.History.Caption1)">
+                <p class="mont_light_14_white hist_subtitle">@Model.SecondaryPage.History.Caption1</p>
             </section>
 
             <section class="col-xs-12 col-md-4 second_img">
-                <img src="~/images/history_shelter.jpg" class="img-responsive img-responsive center-block" title="Shelter" alt="Shelter">
-                <p class="mont_light_14_white hist_subtitle">The shelter home</p>
+                <img src="~/images/@(Model.SecondaryPage.History.Image2)" class="img-responsive img-responsive center-block" title="@(Model.SecondaryPage.History.Caption2)" alt="@(Model.SecondaryPage.History.Caption2)">
+                <p class="mont_light_14_white hist_subtitle">@Model.SecondaryPage.History.Caption2</p>
             </section>
 
             <section class="col-xs-12 col-md-4 third_img">
-                <img src="~/images/history_kristen.jpg" class="img-responsive center-block" title="Kristen" alt="Kristen">
-                <p class="mont_light_14_white hist_subtitle">Kristen</p>
+                <img src="~/images/@(Model.SecondaryPage.History.Image3)" class="img-responsive center-block" title="@(Model.SecondaryPage.History.Caption3)" alt="@(Model.SecondaryPage.History.Caption3)">
+                <p class="mont_light_14_white hist_subtitle">@Model.SecondaryPage.History.Caption3</p>
             </section>
         </div>
     </div>
@@ -70,7 +70,7 @@
     <div class="container-fluid">
         <div class="row history_text">
             <section class="col-xs-12">
-                <p class="mont_regular_22_darkgray">Youth Futures was founded by Kristen Mitchell and Scott Catuccio, who had been conceptually planning to provide shelter and case management services to youth for over six years. It was identified that there was a lack of shelter services for the estimated 5,000 youth who experience homelessness for at least one night a year in Utah, so Scott and Kristen began researching other states that provide shelter services to youth. It was quickly identified that the largest barrier to providing services to homeless youth in Utah was a law prohibiting the opening of shelter facilities for youth. </p>
+                <p class="mont_regular_22_darkgray">@Model.SecondaryPage.History.TextArea2</p>
             </section>
         </div>
     </div>
@@ -153,21 +153,15 @@
 
     <div class="container-fluid">
         <div class="row outreach_bullet">
-            <section class="col-xs-12 col-md-6">
-                <ul>
-                    <li>Jefferson Park</li>
-                    <li>Marchall White Center Park</li>
-                    <li>Lorin Farr Skate Park</li>
-                </ul>
-            </section>
+                <ul class="row">
+                    <li class="col-md-6">Jefferson Park</li>
+                    <li class="col-md-6">Marchall White Center Park</li>
+                    <li class="col-md-6">Lorin Farr Skate Park</li>
 
-            <section class="col-xs-12 col-md-6">
-                <ul>
-                    <li>Basketball Court at Bonneville Park</li>
-                    <li>Under the Ogden River Bridge (sporadic)</li>
-                    <li>Lantern House Homeless Shelter</li>
+                    <li class="col-md-6">Basketball Court at Bonneville Park</li>
+                    <li class="col-md-6">Under the Ogden River Bridge (sporadic)</li>
+                    <li class="col-md-6">Lantern House Homeless Shelter</li>
                 </ul>
-            </section>
         </div>
     </div>
 
@@ -222,7 +216,17 @@
 
     <div class="container-fluid">
         <div class="row board_members">
-            <section class="col-xs-12 col-md-4">
+            @foreach(var director in Model.SecondaryPage.Directors)
+            {
+                <div class="col-xs-12 col-md-4">
+                    <p><span class="name">@director.Name</span>
+                    <br />@director.Title1
+                    <br />@director.Title2<br />
+                    <span class="email">@director.Email</span></p>
+                </div>
+
+            }
+            @*<section class="col-xs-12 col-md-4">
                 <p><span class="name">SCOTT CATUCCIO</span><br />Board President<br />President, A3 Utah<br /> <span class="email">scott.catuccio@gmail.com</span></p>
             </section>
 
@@ -232,7 +236,7 @@
 
             <section class="col-xs-12 col-md-4">
                 <p><span class="name">ALYSON DEUSSEN</span><br />Board Secretary<br />Ouelessebougou Utah Alliance<br /><span class="email">alysondeussen@gmail.com</span></p>
-            </section>
+            </section>*@
         </div>
     </div>
 
@@ -247,7 +251,17 @@
 
     <div class="container-fluid">
         <div class="row board_members">
-            <section class="col-xs-12 col-md-4">
+            @foreach(var staff in Model.SecondaryPage.Staff)
+            {
+                <div class="col-xs-12 col-md-4">
+                    <img src="~/images/@(staff.Image)" class="img-responsive" title="@(staff.Name)" alt="@(staff.Name)">
+                    <p><span class="name">@staff.Name</span>
+                    <br />@staff.Title1
+                    <br />@staff.Title2<br /> 
+                    <span class="email">@staff.Email</span></p>
+                </div>
+            }
+            @*<section class="col-xs-12 col-md-4">
                 <img src="~/images/staff_justine.jpg" class="img-responsive" title="Justine Murray" alt="Justine Murray">
                 <p><span class="name">JUSTINE MURRAY</span><br />Program Manager, Youth Futures<br />President, A3 Utah<br /> <span class="email">jmurray@yfut.org</span></p>
             </section>
@@ -260,7 +274,7 @@
             <section class="col-xs-12 col-md-4">
                 <img src="~/images/staff_alyson.jpg" class="img-responsive" title="Alyson Deussen" alt="Alyson Deussen">
                 <p><span class="name">ALYSON DEUSSEN</span><br />Floor Staff Co-Lead, Youth Futures<br />Ouelessebougou Utah Alliance<br /><span class="email">aallred@yfut.org</span></p>
-            </section>
+            </section>*@
         </div>
     </div>
 

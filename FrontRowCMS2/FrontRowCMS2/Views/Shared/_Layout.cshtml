@@ -1,4 +1,4 @@
-﻿@model FrontRowCMS2.Models.Footer
+﻿@model FrontRowCMS2.Models.Page
 @using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
 
@@ -96,37 +96,37 @@
                 <div class="col-md-5">
                     <section class="col-sm-4 footer-section">
                         <p class="quicksand-dark-18-white">Contact</p>
-                        <p class="mont-light-dark-14-email">Email: @Html.DisplayFor(model => model.ContactEmail)</p>
+                        <p class="mont-light-dark-14-email">Email: @Html.DisplayFor(model => model.Footer.ContactEmail)</p>
                         <p class="mont-light-dark-14-email">
                             Phone:
-                            <tel>@Html.DisplayFor(model => model.ContactPhone)</tel>
+                            <tel>@Html.DisplayFor(model => model.Footer.ContactPhone)</tel>
                         </p>
                     </section>
                     <section class="col-sm-4 footer-section">
                         <p class="quicksand-dark-18-white">Mailing Address</p>
                         <p class="mont-light-dark-14-email">Youth Futures<br /> 
-                                                            @Html.DisplayFor(model => model.MailingAddressLine1)<br /> 
-                                                            @Html.DisplayFor(model => model.MailingAddressLine2)</p>
+                                                            @Html.DisplayFor(model => model.Footer.MailingAddressLine1)<br /> 
+                                                            @Html.DisplayFor(model => model.Footer.MailingAddressLine2)</p>
                     </section>
                     <section class="col-sm-4 footer-section">
                         <p class="quicksand-dark-18-white">Shelter Address</p>
                         <p class="mont-light-dark-14-email">Youth Futures<br /> 
-                                                            @Html.DisplayFor(model => model.ShelterAddressLine1)<br /> 
-                                                            @Html.DisplayFor(model => model.ShelterAddressLine2)</p>
+                                                            @Html.DisplayFor(model => model.Footer.ShelterAddressLine1)<br /> 
+                                                            @Html.DisplayFor(model => model.Footer.ShelterAddressLine2)</p>
                     </section>
                 </div>
                 <div class="col-md-2">
                     <section class="footer-section">
-                        <img src="~/images/@Html.DisplayFor(model => model.HomeImage)" alt="Home Image" class="footer-home" />
+                        <img src="~/images/@Html.DisplayFor(model => model.Footer.HomeImage)" alt="Home Image" class="footer-home" />
                     </section>
                 </div>
                 <div class="col-md-5">
                     <section class="footer-section">
                         <div class="social-media">
-                            <a href="@Html.DisplayFor(model => model.InstagramLink)"><img src="~/images/social_instagram.png" alt="Instagram" /></a>
-                            <a href="@Html.DisplayFor(model => model.TwitterLink)"><img src="~/images/social_twitter.png" alt="Twitter" /></a>
-                            <a href="@Html.DisplayFor(model => model.TumblrLink)"><img src="~/images/social_tumblr.png" alt="Tumbler" /></a>
-                            <a href="@Html.DisplayFor(model => model.FacebookLink)"><img src="~/images/social_fb.png" alt="Facebook" /></a>
+                            <a href="@Html.DisplayFor(model => model.Footer.InstagramLink)"><img src="~/images/social_instagram.png" alt="Instagram" /></a>
+                            <a href="@Html.DisplayFor(model => model.Footer.TwitterLink)"><img src="~/images/social_twitter.png" alt="Twitter" /></a>
+                            <a href="@Html.DisplayFor(model => model.Footer.TumblrLink)"><img src="~/images/social_tumblr.png" alt="Tumbler" /></a>
+                            <a href="@Html.DisplayFor(model => model.Footer.FacebookLink)"><img src="~/images/social_fb.png" alt="Facebook" /></a>
                         </div>
                     </section>
                 </div>
