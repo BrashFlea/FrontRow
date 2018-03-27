@@ -1,0 +1,79 @@
+﻿@model FrontRowCMS2.Models.Home.BottomHomePage
+
+@{
+    Layout = "~/Views/Shared/_EditLayout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Edit Bottom Home Page";
+}
+
+<h4>Edit Purpose</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form asp-action="EditBottomHomePage">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="Service1.Title" class="control-label"></label>
+                <input asp-for="Service1.Title" class="form-control" />
+                <span asp-validation-for="Service1.Title" class="text-danger"></span>
+
+                <label asp-for="Service1.Image" class="control-label"></label>
+                <img src="~/images/@Html.DisplayFor(model => model.Service1.Image)" style="max-height:100px;" />
+                <input asp-for="Service1.Image" class="form-control" />
+                <span asp-validation-for="Service1.Image" class="text-danger"></span>
+
+                <label asp-for="Service1.Description" class="control-label"></label>
+                <textarea asp-for="Service1.Description" class="form-control" rows="10">@Html.DisplayFor(model => model.Service1.Description)</textarea>
+                <span asp-validation-for="Service1.Description" class="text-danger"></span>
+
+                <label asp-for="Service1.Link" class="control-label"></label>
+                <input asp-for="Service1.Link" class="form-control" />
+                <span asp-validation-for="Service1.Link" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Service2.Title" class="control-label"></label>
+                <input asp-for="Service2.Title" class="form-control" />
+                <span asp-validation-for="Service2.Title" class="text-danger"></span>
+
+                <label asp-for="Service2.Image" class="control-label"></label>
+                <img src="~/images/@Html.DisplayFor(model => model.Service2.Image)" style="max-height:100px;" />
+                <input asp-for="Service2.Image" class="form-control" />
+                <span asp-validation-for="Service2.Image" class="text-danger"></span>
+
+                <label asp-for="Service2.Description" class="control-label"></label>
+                <textarea asp-for="Service2.Description" class="form-control" rows="10"></textarea>
+                <span asp-validation-for="Service2.Description" class="text-danger"></span>
+
+                <label asp-for="Service2.Link" class="control-label"></label>
+                <input asp-for="Service2.Link" class="form-control" />
+                <span asp-validation-for="Service2.Link" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Service3.Title" class="control-label"></label>
+                <input asp-for="Service3.Title" class="form-control" />
+                <span asp-validation-for="Service3.Title" class="text-danger"></span>
+
+                <label asp-for="Service3.Image" class="control-label"></label>
+                <img src="~/images/@Html.DisplayFor(model => model.Service3.Image)" style="max-height:100px;" />
+                <input asp-for="Service3.Image" class="form-control" />
+                <span asp-validation-for="Service3.Image" class="text-danger"></span>
+
+                <label asp-for="Service3.Description" class="control-label"></label>
+                <textarea asp-for="Service3.Description" class="form-control" rows="10"></textarea>
+                <span asp-validation-for="Service3.Description" class="text-danger"></span>
+
+                <label asp-for="Service3.Link" class="control-label"></label>
+                <input asp-for="Service3.Link" class="form-control" />
+                <span asp-validation-for="Service3.Link" class="text-danger"></span>
+            </div>
+            <div class="form-group text-center">
+                <input type="submit" value="Save" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-danger" role="button">Go Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+

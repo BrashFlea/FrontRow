@@ -8,6 +8,8 @@ namespace FrontRowCMS2.Models.Home
     public class BottomHomePage
     {
         public int ID { get; set; }
-        public LinkSubContent[] linkSubContent { get; set; }
+        public LinkSubContent Service1 { get; set; }
+        public LinkSubContent Service2 { get; set; }
+        public LinkSubContent Service3 { get; set; }
     }
 }

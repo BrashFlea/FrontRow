@@ -14,6 +14,5 @@ namespace FrontRowCMS2.Models.Home
         public string PartnerImage1 { get; set; }
         public string PartnerImage2 { get; set; }
         public string PartnerImage3 { get; set; }
-        public string PartnerImage4 { get; set; }
     }
 }

@@ -69,7 +69,7 @@ namespace FrontRowCMS2.Controllers
         //POST: EditSections
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditServices([Bind("ID", "MainText", "LinkSubContent")] FrontRowCMS2.Models.Home.Services services)
+        public async Task<IActionResult> EditServices([Bind("ID", "MainText", "Service1", "Service2", "Service3")] FrontRowCMS2.Models.Home.Services services)
         {
             if (ModelState.IsValid)
             {
@@ -91,14 +91,14 @@ namespace FrontRowCMS2.Controllers
         //GET: EditPurpose
         public async Task<IActionResult> EditPurpose()
         {
-            var services = await _context.Purpose.FirstOrDefaultAsync();
-            return View(services);
+            var purpose = await _context.Purpose.FirstOrDefaultAsync();
+            return View(purpose);
         }
 
         //POST: EditPurpose
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditPurpose([Bind("ID", "BackgroundImage", "TextArea1", "TextArea2", "PartnerImage1", "PartnerImage2", "PartnerImage3", "PartnerImage4")] Purpose purpose)
+        public async Task<IActionResult> EditPurpose([Bind("ID", "BackgroundImage", "TextArea1", "TextArea2", "PartnerImage1", "PartnerImage2", "PartnerImage3")] Purpose purpose)
         {
             if (ModelState.IsValid)
             {
@@ -115,6 +115,37 @@ namespace FrontRowCMS2.Controllers
                 }
             }
             return View(purpose);
+        }
+
+        public async Task<IActionResult> EditBottomHomePage()
+        {
+            var bottomHomePage = await _context.BottomHomePage.FirstOrDefaultAsync();
+            bottomHomePage.Service1 = await _context.LinkSubContent.Where(c => c.ID == 4).FirstAsync();
+            bottomHomePage.Service2 = await _context.LinkSubContent.Where(c => c.ID == 5).FirstAsync();
+            bottomHomePage.Service3 = await _context.LinkSubContent.Where(c => c.ID == 6).FirstAsync();
+            return View(bottomHomePage);
+        }
+
+        //POST: EditPurpose
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditBottomHomePage([Bind("ID", "Service1", "Service2", "Service3")] BottomHomePage bottomHomePage)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(bottomHomePage);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException ex)
+                {
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persister " +
+                    "see your system administrator for assitance.");
+                }
+            }
+            return View(bottomHomePage);
         }
 
         //GET: EditFooter

@@ -53,8 +53,15 @@ namespace FrontRowCMS2.Data
             context.SaveChanges();
 
 
-            context.Purpose.Add(new Purpose { BackgroundImage = "purpose.png", TextArea1 = "To provide unaccompanied, runaway and homeless youth with a safe and nurturing environment where they can develop the needed skills to become active, healthy, successful members of our future world.", TextArea2 = "7,085 MEALS SERVED. 511 DROP-IN SERVICES. 245 STREET OUTREACH HOURS. 64 SHELTERED YOUTH.", PartnerImage1 = "", PartnerImage2 = "mckaydee_hospital.png", PartnerImage3 = "the_group_logo.png", PartnerImage4 = "giv_development.png" });
+            context.Purpose.Add(new Purpose { BackgroundImage = "purpose.png", TextArea1 = "To provide unaccompanied, runaway and homeless youth with a safe and nurturing environment where they can develop the needed skills to become active, healthy, successful members of our future world.", TextArea2 = "7,085 MEALS SERVED. 511 DROP-IN SERVICES. 245 STREET OUTREACH HOURS. 64 SHELTERED YOUTH.", PartnerImage1 = "mckaydee_hospital.png", PartnerImage2 = "the_group_logo.png", PartnerImage3 = "giv_development.png" });
             context.SaveChanges();
+
+            context.BottomHomePage.Add(new BottomHomePage {
+                Service1 = new LinkSubContent { Title = "Apply To Volunteer", Description = "Make your mark where it matters. Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse.", Image = "hand_icon.png", Link = "/secondary#donateMain" },
+                Service2 = new LinkSubContent { Title = "Youth Stories", Description = "Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse nec tortor urna.", Image = "girl_icon.png", Link = "#" },
+                Service3 = new LinkSubContent { Title = "Events", Description = "Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse nec tortor urna.", Image = "calendar_icon.png", Link = "/secondary#calendarMain" }
+
+            });
 
             #endregion
 
