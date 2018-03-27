@@ -28,7 +28,75 @@ namespace FrontRowCMS2.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Footer.FirstOrDefaultAsync());
+            Page Page = new Page();
+
+            Page.Footer = await _context.Footer.FirstOrDefaultAsync();
+            Page.SecondaryPage = new SecondaryPage();
+            Page.SecondaryPage.History = await _context.History.FirstOrDefaultAsync();
+            Page.SecondaryPage.Directors = await _context.Persons.Where(p => p.Type != PersonType.Staff).ToListAsync();
+            Page.SecondaryPage.Staff = await _context.Persons.Where(p => p.Type != PersonType.Director).ToListAsync();
+
+            return View(Page);
+        }
+
+        //GET: EditHeader
+        public async Task<IActionResult> EditHeader()
+        {
+            var header = await _context.SecondaryHeader.FirstOrDefaultAsync();
+            GetImages();
+            return View(header);
+        }
+
+        //POST: EditHeader
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditHeader([Bind("ID,TitleText,PhoneNumber,BackgroundImage,ImageText1,ImageText2")] SecondaryHeader header)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(header);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException ex)
+                {
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persister " +
+                    "see your system administrator for assitance.");
+                }
+            }
+            return View(header);
+        }
+
+        //GET: EditOperation
+        public async Task<IActionResult> EditOperation()
+        {
+            var operation = await _context.Operation.FirstOrDefaultAsync();
+            GetImages();
+            return View(operation);
+        }
+
+        //POST: EditOperation
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditOperation([Bind("ID,TextArea1,TextArea2,TextSubContent")] Operation operation)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(operation);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException ex)
+                {
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persister " +
+                    "see your system administrator for assitance.");
+                }
+            }
+            return View(operation);
         }
 
         //GET: EditHistory
@@ -61,6 +129,36 @@ namespace FrontRowCMS2.Controllers
             return View(history);
         }
 
+        //GET: EditDonor
+        public async Task<IActionResult> EditDonor()
+        {
+            var donor = await _context.Donor.FirstOrDefaultAsync();
+            GetImages();
+            return View(donor);
+        }
+
+        //POST: EditDonor
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditDonor([Bind("ID,Level,Name,Year")] Donor donor)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(donor);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException ex)
+                {
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persister " +
+                    "see your system administrator for assitance.");
+                }
+            }
+            return View(donor);
+        }
+
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
@@ -69,7 +167,7 @@ namespace FrontRowCMS2.Controllers
         private void GetImages()
         {
             var webRoot = _env.WebRootPath;
-            var appData = System.IO.Path.Combine(webRoot, "images");
+            var appData = Path.Combine(webRoot, "images");
             var images = new List<SelectListItem>();
             images.Add(new SelectListItem
             {
@@ -78,7 +176,7 @@ namespace FrontRowCMS2.Controllers
             });
             foreach (string file in Directory.EnumerateFiles(appData, "*", SearchOption.AllDirectories))
             {
-                images.Add(new SelectListItem { Text = file.Substring(file.LastIndexOf("\\")+1), Value = file.Substring(file.LastIndexOf("\\")+1) });
+                images.Add(new SelectListItem { Text = file.Substring(file.LastIndexOf("\\") + 1), Value = file.Substring(file.LastIndexOf("\\") + 1) });
             }
             ViewBag.image = images;
         }
