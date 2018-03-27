@@ -15,7 +15,7 @@ namespace FrontRowCMS2.Models.Secondary
         public Person Directors { get; set; }
         public Person Staff { get; set; }
         //public Media Media { get; set; }
-        public Donors Donors { get; set; }
+        public List<Donor> Donors { get; set; }
         public Donate Donate { get; set; }
         //public ListOfNeeds ListOfNeeds { get; set; }
         //public Calendar Calendar { get; set; }

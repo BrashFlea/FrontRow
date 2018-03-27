@@ -8,6 +8,6 @@ namespace FrontRowCMS2.Models.Secondary
     public class Donors
     {
         public int ID { get; set; }
-        public Donor Donor { get; set; }
+        public ICollection<Donor> Donor { get; set; }
     }
 }
