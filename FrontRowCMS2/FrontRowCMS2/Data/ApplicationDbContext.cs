@@ -39,6 +39,7 @@ namespace FrontRowCMS2.Data
         public DbSet<Calendar> Calendar { get; set; }
         public DbSet<CalendarMonths> CalendarMonths { get; set; }
         public DbSet<CalendarEvents> CalendarEvents { get; set; }
+        public DbSet<MediaEvent> MediaEvents { get; set; }
         public DbSet<Donor> Donor { get; set; }
         public DbSet<Donate> Donate { get; set; }
         public DbSet<TextSubContent> TextSubContent { get; set; }
