@@ -152,6 +152,17 @@ namespace FrontRowCMS2.Data
             }
             context.SaveChanges();
 
+            //MEDIA
+            context.MediaEvents.Add(new MediaEvent
+            {
+                Title = "America First Provides an 'Assist' to Homeless Shelter",
+                Time = "03/18/2015 10:03 pm",
+                Image = "media_check.jpg",
+                Caption = "Youth Futures",
+                Description = "Yahoo"
+            });
+            context.SaveChanges();
+
             //DONOR
             var donor = new Donor[]
             {
