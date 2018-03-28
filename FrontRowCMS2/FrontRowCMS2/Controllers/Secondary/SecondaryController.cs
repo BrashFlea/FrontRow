@@ -61,6 +61,98 @@ namespace FrontRowCMS2.Controllers
             return View(history);
         }
 
+        //GET: EditOutreach
+        public async Task<IActionResult> EditOutreach()
+        {
+            var outreach = await _context.Outreach.FirstOrDefaultAsync();
+            GetImages();
+            //outreach.OutreachTable = await _context.OutreachTable.ToListAsync();
+            return View(outreach);
+        }
+
+        //POST: EditOutreach
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditOutreach([Bind("ID,Image,TextArea1,TextArea2,TextArea3")] Outreach outreach)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(outreach);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException ex)
+                {
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persister " +
+                    "see your system administrator for assitance.");
+                }
+            }
+            return View(outreach);
+        }
+
+        //GET: EditOutreachTable
+        public async Task<IActionResult> EditOutreachTable()
+        {
+            var outreachTable = await _context.OutreachTable.FirstOrDefaultAsync();
+            //var outreachTable = await _context.OutreachTable.ToListAsync();
+            GetImages();
+            return View(outreachTable);
+        }
+
+        //POST: EditOutreachTable
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditOutreachTable([Bind("ID,OutreachID,Location")] OutreachTable outreachTable)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(outreachTable);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException ex)
+                {
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persister " +
+                    "see your system administrator for assitance.");
+                }
+            }
+            return View(outreachTable);
+        }
+
+        //GET: EditNeeds
+        public async Task<IActionResult> EditNeeds()
+        {
+            var needs = await _context.Needs.FirstOrDefaultAsync();
+            GetImages();
+            return View(needs);
+        }
+
+        //POST: EditNeeds
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditNeeds([Bind("ID,Title,TextArea1,TextArea2,TextArea3")] Needs needs)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(needs);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException ex)
+                {
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persister " +
+                    "see your system administrator for assitance.");
+                }
+            }
+            return View(needs);
+        }
+
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
