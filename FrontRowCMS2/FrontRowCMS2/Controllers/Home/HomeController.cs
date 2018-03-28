@@ -29,6 +29,17 @@ namespace FrontRowCMS2.Controllers
         {
             Page page = new Page();
             page.Footer = await _context.Footer.FirstOrDefaultAsync();
+            page.HomePage = new HomePage();
+            page.HomePage.Header = await _context.Header.FirstOrDefaultAsync();
+            page.HomePage.Purpose = await _context.Purpose.FirstOrDefaultAsync();
+            page.HomePage.Services = await _context.Services.FirstOrDefaultAsync();
+            page.HomePage.Services.Service1 = await _context.LinkSubContent.Where(c => c.ID == 1).FirstAsync();
+            page.HomePage.Services.Service2 = await _context.LinkSubContent.Where(c => c.ID == 2).FirstAsync();
+            page.HomePage.Services.Service3 = await _context.LinkSubContent.Where(c => c.ID == 3).FirstAsync();
+            page.HomePage.BottomHomePage = await _context.BottomHomePage.FirstOrDefaultAsync();
+            page.HomePage.BottomHomePage.Service1 = await _context.LinkSubContent.Where(c => c.ID == 4).FirstAsync();
+            page.HomePage.BottomHomePage.Service2 = await _context.LinkSubContent.Where(c => c.ID == 5).FirstAsync();
+            page.HomePage.BottomHomePage.Service3 = await _context.LinkSubContent.Where(c => c.ID == 6).FirstAsync();
             return View(page);
         }
 

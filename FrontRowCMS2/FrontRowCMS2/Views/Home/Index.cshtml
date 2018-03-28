@@ -16,7 +16,7 @@
                 <p class="header-text-greeting col-xs-12">Hi</p>
             </div>
             <div class="sub-text-box row">
-                <p class="sub-text col-xs-12">14 WARM BEDS. YOUTH 12-17. YOUR TEMPORARY HOME <span class="quicksand-dark-38-lightgreen">:) </span></p>
+                <p class="sub-text col-xs-12">@Html.Raw(Model.HomePage.Header.TitleText)<span class="quicksand-dark-38-lightgreen">:) </span></p>
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
         <div class="col-xs-offset-1 col-xs-11">
             <p class="green-header">
                 <span class="mont-semibold-dark-36 have-questions-heading">Have questions? Send us a text!</span>
-                <span class="quicksand-dark-36-main"> (801) 528-1214</span>
+                <span class="quicksand-dark-36-main">@Model.HomePage.Header.PhoneNumber</span>
             </p>
         </div>
     </div>
@@ -44,7 +44,7 @@
     <div class="row">
         <div class="col-xs-12">
             <h4 class="services-heading">Services</h4>
-            <p class="mont-light-light-22 about-services">Our programming is divided into three main areas. Each program area has specific components to meet the needs of the youth in need.</p>
+            <p class="mont-light-light-22 about-services">@Model.HomePage.Services.MainText</p>
         </div>
     </div>
     <div class="row">
@@ -52,48 +52,48 @@
             <div class="col-lg-4">
                 <article class="panel">
                     <section class="panel-img-container">
-                        <img src="~/images/house_icon.png" alt="House" class="panel-img" />
+                        <img src="~/images/@Model.HomePage.Services.Service1.Image" alt="@Model.HomePage.Services.Service1.Title" class="panel-img" />
                     </section>
                     <section>
-                        <p class="quicksand-light-32 panel-heading">Overnight Shelter</p>
+                        <p class="quicksand-light-32 panel-heading">@Model.HomePage.Services.Service1.Title</p>
                     </section>
                     <section>
-                        <p class="mont-light-light-18 panel-summary">Located in the heart of downtown Ogden, Utah, Youth Futures provides emergency shelter, temporary residence and supportive services for runaway, homeless, unaccompanied and at-risk youth ages 12-17. The shelter is open 24 hours per day.</p>
+                        <p class="mont-light-light-18 panel-summary">@Model.HomePage.Services.Service1.Description</p>
                     </section>
                     <section class="panel-footer">
-                        <p class="quicksand-light-24-green"><a href="secondary#sheltersMain">Learn more ></a></p>
+                        <p class="quicksand-light-24-green"><a href="@Model.HomePage.Services.Service2.Link">Learn more ></a></p>
                     </section>
                 </article>
             </div>
             <div class="col-lg-4">
                 <article class="panel">
                     <section class="panel-img-container">
-                        <img src="~/images/door_icon.png" alt="Door" class="panel-img" />
+                        <img src="~/images/@Model.HomePage.Services.Service2.Image" alt="@Model.HomePage.Services.Service2.Title" class="panel-img" />
                     </section>
                     <section>
-                        <p class="quicksand-light-32 panel-heading">Drop-in Services</p>
+                        <p class="quicksand-light-32 panel-heading">@Model.HomePage.Services.Service2.Title</p>
                     </section>
                     <section>
-                        <p class="mont-light-light-18 panel-summary">Available to any youth ages 12-18. Drop-in services allow for the youth to access food, clothing, hygiene items, laundry facilities, computer stations, and case management. Drop-in hours are 6:30 am to 8:00 pm every day of the week.</p>
+                        <p class="mont-light-light-18 panel-summary">@Model.HomePage.Services.Service2.Description</p>
                     </section>
                     <section class="panel-footer">
-                        <p class="quicksand-light-24-green"><a href="secondary#dropinsMain">Learn more ></a></p>
+                        <p class="quicksand-light-24-green"><a href="@Model.HomePage.Services.Service2.Link">Learn more ></a></p>
                     </section>
                 </article>
             </div>
             <div class="col-lg-4">
                 <article class="panel">
                     <section class="panel-img-container">
-                        <img src="~/images/van_icon.png" alt="Van" class="panel-img van-img" />
+                        <img src="~/images/@Model.HomePage.Services.Service3.Image" alt="@Model.HomePage.Services.Service3.Title" class="panel-img van-img" />
                     </section>
                     <section>
-                        <p class="quicksand-light-32 panel-heading">Street Outreach</p>
+                        <p class="quicksand-light-32 panel-heading">@Model.HomePage.Services.Service3.Title</p>
                     </section>
                     <section>
-                        <p class="mont-light-light-18 panel-summary">Youth Futures’ Street Outreach is conducted once per week and provides outreach and crisis services to youth in Ogden City, Utah.</p>
+                        <p class="mont-light-light-18 panel-summary">@Model.HomePage.Services.Service3.Description</p>
                     </section>
                     <section class="panel-footer">
-                        <p class="quicksand-light-24-green"><a href="secondary#outreachBanner">Learn more ></a></p>
+                        <p class="quicksand-light-24-green"><a href="@Model.HomePage.Services.Service3.Link">Learn more ></a></p>
                     </section>
                 </article>
             </div>
@@ -117,13 +117,14 @@
             </div>
             <div class="row purpose-detail">
                 <div class="col-xs-12 no-padding">
-                    <p class="montlight-dark-32">To provide unaccompanied, runaway and homeless youth with a safe and nurturing environment where they can develop the needed skills to become active, healthy, successful members of our future world.</p>
+                    <p class="montlight-dark-32">@Model.HomePage.Purpose.TextArea1</p>
                 </div>
             </div>
             <div class="row purpose-stats">
                 <div class="col-xs-12">
-                    <p><span class="alt-color">7,085</span> MEALS SERVED. <span class="alt-color">511</span> DROP-IN SERVICES.</p>
-                    <p><span class="alt-color">245</span> STREET OUTREACH HOURS. <span class="alt-color">64</span> SHELTERED YOUTH.</p>
+                    <p>@Html.Raw(Model.HomePage.Purpose.TextArea2)</p>
+                    @*<p><span class="alt-color">7,085</span> MEALS SERVED. <span class="alt-color">511</span> DROP-IN SERVICES.</p>
+                    <p><span class="alt-color">245</span> STREET OUTREACH HOURS. <span class="alt-color">64</span> SHELTERED YOUTH.</p>*@
                 </div>
             </div>
         </section>
@@ -134,17 +135,17 @@
             </div>
             <div class="col-xs-12 col-lg-3 ">
                 <div class="partner-logo">
-                    <img src="~/images/mckaydee_hospital.png" alt="McKay Dee Hospital" class="mckay" />
+                    <img src="~/images/@Model.HomePage.Purpose.PartnerImage1" alt="@Model.HomePage.Purpose.PartnerImage1" class="mckay" />
                 </div>
             </div>
             <div class="col-xs-12 col-lg-3">
                 <div class="partner-logo">
-                    <img src="~/images/the_group_logo.png" alt="The Group Real Estate" class="thegroup" />
+                    <img src="~/images/@Model.HomePage.Purpose.PartnerImage2" alt="@Model.HomePage.Purpose.PartnerImage2" class="thegroup" />
                 </div>
             </div>
             <div class="col-xs-12 col-lg-3">
                 <div class="partner-logo">
-                    <img src="~/images/giv_development.png" alt="GIV Development" class="giv" />
+                    <img src="~/images/@Model.HomePage.Purpose.PartnerImage3" alt="@Model.HomePage.Purpose.PartnerImage3" class="giv" />
                 </div>
             </div>
         </section>
@@ -160,48 +161,48 @@
                 <div class="col-lg-4">
                     <article class="panel">
                         <section class="panel-img-container">
-                            <img src="~/images/hand_icon.png" alt="Volunteer" class="panel-img" />
+                            <img src="~/images/@Model.HomePage.BottomHomePage.Service1.Image" alt="@Model.HomePage.BottomHomePage.Service1.Title" class="panel-img" />
                         </section>
                         <section>
-                            <p class="panel-heading">Apply to Volunteer</p>
+                            <p class="panel-heading">@Model.HomePage.BottomHomePage.Service1.Title</p>
                         </section>
                         <section>
-                            <p class="mont-light-light-22 panel-summary">Make your mark where it matters. Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse.</p>
+                            <p class="mont-light-light-22 panel-summary">@Model.HomePage.BottomHomePage.Service1.Description</p>
                         </section>
                         <section class="panel-footer">
-                            <p class="quicksand-light-24-green"><a href="secondary#">Volunteer Now ></a></p>
+                            <p class="quicksand-light-24-green"><a href="@Model.HomePage.BottomHomePage.Service1.Link">Volunteer Now ></a></p>
                         </section>
                     </article>
                 </div>
                 <div class="col-lg-4">
                     <article class="panel">
                         <section class="panel-img-container">
-                            <img src="~/images/girl_icon.png" alt="Youth Stories" class="panel-img" />
+                            <img src="~/images/@Model.HomePage.BottomHomePage.Service2.Image" alt="@Model.HomePage.BottomHomePage.Service2.Title" class="panel-img" />
                         </section>
                         <section>
-                            <p class="panel-heading">Youth Stories</p>
+                            <p class="panel-heading">@Model.HomePage.BottomHomePage.Service2.Title</p>
                         </section>
                         <section>
-                            <p class="mont-light-light-22 panel-summary">Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse nec tortor urna.</p>
+                            <p class="mont-light-light-22 panel-summary">@Model.HomePage.BottomHomePage.Service2.Description</p>
                         </section>
                         <section class="panel-footer">
-                            <p class="quicksand-light-24-green"><a href="secondary#storiesMain">Read the Stories ></a></p>
+                            <p class="quicksand-light-24-green"><a href="@Model.HomePage.BottomHomePage.Service2.Link">Read the Stories ></a></p>
                         </section>
                     </article>
                 </div>
                 <div class="col-lg-4">
                     <article class="panel">
                         <section class="panel-img-container">
-                            <img src="~/images/calendar_icon.png" alt="Events" class="panel-img" />
+                            <img src="~/images/@Model.HomePage.BottomHomePage.Service3.Image" alt="@Model.HomePage.BottomHomePage.Service3.Title" class="panel-img" />
                         </section>
                         <section>
-                            <p class="panel-heading">Events</p>
+                            <p class="panel-heading">@Model.HomePage.BottomHomePage.Service3.Title</p>
                         </section>
                         <section>
-                            <p class="mont-light-light-22 panel-summary">Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse nec tortor urna.</p>
+                            <p class="mont-light-light-22 panel-summary">@Model.HomePage.BottomHomePage.Service3.Description</p>
                         </section>
                         <section class="panel-footer">
-                            <p class="quicksand-light-24-green"><a href="secondary#eventsMain">View All Events ></a></p>
+                            <p class="quicksand-light-24-green"><a href="@Model.HomePage.BottomHomePage.Service3.Link">View All Events ></a></p>
                         </section>
                     </article>
                 </div>

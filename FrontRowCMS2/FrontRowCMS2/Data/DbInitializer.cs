@@ -51,7 +51,8 @@ namespace FrontRowCMS2.Data
             context.SaveChanges();
 
 
-            context.Purpose.Add(new Purpose { BackgroundImage = "purpose.png", TextArea1 = "To provide unaccompanied, runaway and homeless youth with a safe and nurturing environment where they can develop the needed skills to become active, healthy, successful members of our future world.", TextArea2 = "7,085 MEALS SERVED. 511 DROP-IN SERVICES. 245 STREET OUTREACH HOURS. 64 SHELTERED YOUTH.", PartnerImage1 = "mckaydee_hospital.png", PartnerImage2 = "the_group_logo.png", PartnerImage3 = "giv_development.png" });
+            context.Purpose.Add(new Purpose { BackgroundImage = "purpose.png", TextArea1 = "To provide unaccompanied, runaway and homeless youth with a safe and nurturing environment where they can develop the needed skills to become active, healthy, successful members of our future world.",
+                TextArea2 = "<p><span class=\"alt-color\">7,085</span> MEALS SERVED. <span class=\"alt-color\">511</span> DROP-IN SERVICES.</p><p><span class=\"alt-color\">245</span> STREET OUTREACH HOURS. <span class=\"alt-color\">64</span> SHELTERED YOUTH.</p>", PartnerImage1 = "mckaydee_hospital.png", PartnerImage2 = "the_group_logo.png", PartnerImage3 = "giv_development.png" });
             context.SaveChanges();
 
             context.BottomHomePage.Add(new BottomHomePage {
