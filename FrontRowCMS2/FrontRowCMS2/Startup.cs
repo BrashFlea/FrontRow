@@ -68,6 +68,8 @@ namespace FrontRowCMS2
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            app.UseStatusCodePagesWithRedirects("~/errors/{0}.html");
         }
     }
 }
