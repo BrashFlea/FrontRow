@@ -20,6 +20,21 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+
+    <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
+    <script>
+
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'advlist autolink link lists charmap preview code textcolor colorpicker table',
+            menubar: 'edit view insert table',
+            toolbar: [
+                'undo redo | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent blockquote | removeformat subscript superscript',
+                'bold italic underline | forecolor, backcolor | styleselect formatselect fontsizeselect'
+            ]
+        });
+    </script>
+    
 </head>
 <body>
 

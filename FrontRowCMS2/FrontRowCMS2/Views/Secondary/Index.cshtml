@@ -133,7 +133,7 @@
             <hr />
         </div>
     }
-
+    
     <div class="container-fluid" id="outreachBanner">
         <div class="row outreach_main_img">
             <div class="col-xs-8 text">
@@ -143,7 +143,8 @@
         </div>
     </div>
 
-    <div class="container-fluid">
+    @Html.Raw(Model.SecondaryPage.Outreach.TextArea)
+    @*<div class="container-fluid">
         <div class="row outreach_text">
             <section class="col-xs-12">
                 <p class="mont_regular_22_darkgray">Street Outreach is designed to meet the clients where they are on the street to build rapport and encourage youth to access drop-in and shelter services. This program offers, case management, hygiene items, food, sleeping bags, and other essential items as needed. Street Outreach currently take place once per week on Wednesdays. The team visits the same Ogden, Utah locations every week:</p>
@@ -163,12 +164,12 @@
                     <li class="col-md-6">Lantern House Homeless Shelter</li>
                 </ul>
         </div>
-    </div>
+    </div>*@
 
     @if (@isEditable == "true")
     {
         <div class="row text-center ">
-            <a class="btn btn-success editableButton" href="#" role="button">Edit Outreach Section</a>
+            <a class="btn btn-success editableButton" href="~/secondary/EditOutreach" role="button">Edit Outreach Section</a>
             <hr />
         </div>
     }
@@ -585,7 +586,8 @@
         </div>
     }
 
-    <div class="container-fluid needs">
+    @Html.Raw(Model.SecondaryPage.ListOfNeeds.TextArea)
+    @*<div class="container-fluid needs">
         <div class="row donate_help">
             <div class="col-xs-12">
                 <p>LIST OF NEEDS</p>
@@ -678,12 +680,12 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div>*@
 
     @if (@isEditable == "true")
     {
         <div class="row text-center ">
-            <a class="btn btn-success editableButton" href="#" role="button">Edit Needs Section</a>
+            <a class="btn btn-success editableButton" href="~/secondary/EditNeeds" role="button">Edit Needs Section</a>
             <hr />
         </div>
     }
