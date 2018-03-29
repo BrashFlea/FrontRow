@@ -8,7 +8,7 @@ namespace FrontRowCMS2.Models.Secondary
     public class SecondaryPage
     {
         public int ID { get; set; }
-        public SecondaryHeader secondaryHeader { get; set; }
+        public SecondaryHeader SecondaryHeader { get; set; }
         public History History { get; set; }
         public Operation Operation { get; set; }
         public Outreach Outreach { get; set; }

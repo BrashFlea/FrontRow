@@ -32,6 +32,7 @@ namespace FrontRowCMS2.Controllers
 
             Page.Footer = await _context.Footer.FirstOrDefaultAsync();
             Page.SecondaryPage = new SecondaryPage();
+            Page.SecondaryPage.SecondaryHeader = await _context.SecondaryHeader.FirstOrDefaultAsync();
             Page.SecondaryPage.History = await _context.History.FirstOrDefaultAsync();
             Page.SecondaryPage.Directors = await _context.Persons.Where(p => p.Type != PersonType.Staff).ToListAsync();
             Page.SecondaryPage.Staff = await _context.Persons.Where(p => p.Type != PersonType.Director).ToListAsync();
