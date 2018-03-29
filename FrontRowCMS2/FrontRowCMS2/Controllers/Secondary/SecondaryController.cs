@@ -66,14 +66,13 @@ namespace FrontRowCMS2.Controllers
         {
             var outreach = await _context.Outreach.FirstOrDefaultAsync();
             GetImages();
-            //outreach.OutreachTable = await _context.OutreachTable.ToListAsync();
             return View(outreach);
         }
 
         //POST: EditOutreach
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditOutreach([Bind("ID,Image,TextArea1,TextArea2,TextArea3")] Outreach outreach)
+        public async Task<IActionResult> EditOutreach([Bind("ID,Image,TextArea")] Outreach outreach)
         {
             if (ModelState.IsValid)
             {
@@ -92,37 +91,6 @@ namespace FrontRowCMS2.Controllers
             return View(outreach);
         }
 
-        //GET: EditOutreachTable
-        public async Task<IActionResult> EditOutreachTable()
-        {
-            var outreachTable = await _context.OutreachTable.FirstOrDefaultAsync();
-            //var outreachTable = await _context.OutreachTable.ToListAsync();
-            GetImages();
-            return View(outreachTable);
-        }
-
-        //POST: EditOutreachTable
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditOutreachTable([Bind("ID,OutreachID,Location")] OutreachTable outreachTable)
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(outreachTable);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateException ex)
-                {
-                    ModelState.AddModelError("", "Unable to save changes. " +
-                    "Try again, and if the problem persister " +
-                    "see your system administrator for assitance.");
-                }
-            }
-            return View(outreachTable);
-        }
-
         //GET: EditNeeds
         public async Task<IActionResult> EditNeeds()
         {
@@ -134,7 +102,7 @@ namespace FrontRowCMS2.Controllers
         //POST: EditNeeds
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditNeeds([Bind("ID,Title,TextArea1,TextArea2,TextArea3")] Needs needs)
+        public async Task<IActionResult> EditNeeds([Bind("ID,TextArea")] Needs needs)
         {
             if (ModelState.IsValid)
             {

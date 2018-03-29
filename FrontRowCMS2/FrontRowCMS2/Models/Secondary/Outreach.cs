@@ -9,9 +9,6 @@ namespace FrontRowCMS2.Models.Secondary
     {
         public int ID { get; set; }
         public string Image { get; set; }
-        public string TextArea1 { get; set; }
-        public string TextArea2 { get; set; }
-        public string TextArea3 { get; set; }
-        public ICollection<OutreachTable> OutreachTable { get; set; }
+        public string TextArea { get; set; }
     }
 }

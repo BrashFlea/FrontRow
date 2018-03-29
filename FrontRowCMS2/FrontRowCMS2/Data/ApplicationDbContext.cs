@@ -27,7 +27,6 @@ namespace FrontRowCMS2.Data
         public DbSet<History> History { get; set; }
         public DbSet<Person> Persons { get; set; }
         public DbSet<Outreach> Outreach { get; set; }
-        public DbSet<OutreachTable> OutreachTable { get; set; }
         public DbSet<Needs> Needs { get; set; }
         public DbSet<Calendar> Calendar { get; set; }
         public DbSet<CalendarMonths> CalendarMonths { get; set; }
