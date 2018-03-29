@@ -33,8 +33,11 @@ namespace FrontRowCMS2.Controllers
             Page.Footer = await _context.Footer.FirstOrDefaultAsync();
             Page.SecondaryPage = new SecondaryPage();
             Page.SecondaryPage.History = await _context.History.FirstOrDefaultAsync();
+            Page.SecondaryPage.Outreach = await _context.Outreach.FirstOrDefaultAsync();
             Page.SecondaryPage.Directors = await _context.Persons.Where(p => p.Type != PersonType.Staff).ToListAsync();
             Page.SecondaryPage.Staff = await _context.Persons.Where(p => p.Type != PersonType.Director).ToListAsync();
+
+            Page.SecondaryPage.ListOfNeeds = await _context.Needs.FirstOrDefaultAsync();
 
             return View(Page);
         }
