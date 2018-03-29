@@ -35,6 +35,7 @@ namespace FrontRowCMS2.Controllers
             Page.SecondaryPage.History = await _context.History.FirstOrDefaultAsync();
             Page.SecondaryPage.Directors = await _context.Persons.Where(p => p.Type != PersonType.Staff).ToListAsync();
             Page.SecondaryPage.Staff = await _context.Persons.Where(p => p.Type != PersonType.Director).ToListAsync();
+            Page.SecondaryPage.MediaEvent = await _context.MediaEvent.FirstOrDefaultAsync();
 
             return View(Page);
         }
@@ -132,7 +133,7 @@ namespace FrontRowCMS2.Controllers
         //GET: EditMediaEvent
         public async Task<IActionResult> EditMediaEvent()
         {
-            var mediaEvent = await _context.MediaEvents.FirstOrDefaultAsync();
+            var mediaEvent = await _context.MediaEvent.FirstOrDefaultAsync();
             GetImages();
             return View(mediaEvent);
         }
@@ -140,7 +141,7 @@ namespace FrontRowCMS2.Controllers
         //POST: EditMediaEvent
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditMediaEvent([Bind("ID,Title,Time,Image,Caption,Description")] MediaEvent mediaEvent)
+        public async Task<IActionResult> EditMediaEvent([Bind("ID,Title,Time,Image,Image_Title,Caption,Description1,Description2")] MediaEvent mediaEvent)
         {
             if (ModelState.IsValid)
             {

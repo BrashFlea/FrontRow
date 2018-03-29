@@ -14,7 +14,7 @@ namespace FrontRowCMS2.Models.Secondary
         public Outreach Outreach { get; set; }
         public List<Person> Directors { get; set; }
         public List<Person> Staff { get; set; }
-        public List<MediaEvent> MediaEvents { get; set; }
+        public MediaEvent MediaEvent { get; set; }
         public List<Donor> PlatinumDonors { get; set; }
         public List<Donor> GoldDonors { get; set; }
         public List<Donor> SilverDonors { get; set; }
