@@ -34,11 +34,11 @@
 
     @if (@isEditable == "true")
     {
-            <div class="row text-center">
-                <a class="btn btn-success editableButton" href="~/Secondary/EditHeader" role="button">Edit History Banner</a>
-                <hr />
-            </div>
-        }
+        <div class="row text-center">
+            <a class="btn btn-success editableButton" href="~/Secondary/EditHeader" role="button">Edit History Banner</a>
+            <hr />
+        </div>
+    }
 
     <div class="container-fluid">
         <div class="row history_text">
@@ -153,15 +153,15 @@
 
     <div class="container-fluid">
         <div class="row outreach_bullet">
-                <ul class="row">
-                    <li class="col-md-6">Jefferson Park</li>
-                    <li class="col-md-6">Marchall White Center Park</li>
-                    <li class="col-md-6">Lorin Farr Skate Park</li>
+            <ul class="row">
+                <li class="col-md-6">Jefferson Park</li>
+                <li class="col-md-6">Marchall White Center Park</li>
+                <li class="col-md-6">Lorin Farr Skate Park</li>
 
-                    <li class="col-md-6">Basketball Court at Bonneville Park</li>
-                    <li class="col-md-6">Under the Ogden River Bridge (sporadic)</li>
-                    <li class="col-md-6">Lantern House Homeless Shelter</li>
-                </ul>
+                <li class="col-md-6">Basketball Court at Bonneville Park</li>
+                <li class="col-md-6">Under the Ogden River Bridge (sporadic)</li>
+                <li class="col-md-6">Lantern House Homeless Shelter</li>
+            </ul>
         </div>
     </div>
 
@@ -216,27 +216,18 @@
 
     <div class="container-fluid">
         <div class="row board_members">
-            @foreach(var director in Model.SecondaryPage.Directors)
+            @foreach (var director in Model.SecondaryPage.Directors)
             {
                 <div class="col-xs-12 col-md-4">
-                    <p><span class="name">@director.Name</span>
-                    <br />@director.Title1
-                    <br />@director.Title2<br />
-                    <span class="email">@director.Email</span></p>
+                    <p>
+                        <span class="name">@director.Name</span>
+                        <br />@director.Title1
+                        <br />@director.Title2<br />
+                        <span class="email">@director.Email</span>
+                    </p>
                 </div>
 
             }
-            @*<section class="col-xs-12 col-md-4">
-                <p><span class="name">SCOTT CATUCCIO</span><br />Board President<br />President, A3 Utah<br /> <span class="email">scott.catuccio@gmail.com</span></p>
-            </section>
-
-            <section class="col-xs-12 col-md-4">
-                <p><span class="name">KRISTEN MITCHELL</span><br />Board Vice President<br />Executive Director, Youth Futures<br /><span class="email">kristen@yfut.org</span> </p>
-            </section>
-
-            <section class="col-xs-12 col-md-4">
-                <p><span class="name">ALYSON DEUSSEN</span><br />Board Secretary<br />Ouelessebougou Utah Alliance<br /><span class="email">alysondeussen@gmail.com</span></p>
-            </section>*@
         </div>
     </div>
 
@@ -251,30 +242,18 @@
 
     <div class="container-fluid">
         <div class="row board_members">
-            @foreach(var staff in Model.SecondaryPage.Staff)
+            @foreach (var staff in Model.SecondaryPage.Staff)
             {
                 <div class="col-xs-12 col-md-4">
                     <img src="~/images/@(staff.Image)" class="img-responsive" title="@(staff.Name)" alt="@(staff.Name)">
-                    <p><span class="name">@staff.Name</span>
-                    <br />@staff.Title1
-                    <br />@staff.Title2<br /> 
-                    <span class="email">@staff.Email</span></p>
+                    <p>
+                        <span class="name">@staff.Name</span>
+                        <br />@staff.Title1
+                        <br />@staff.Title2<br />
+                        <span class="email">@staff.Email</span>
+                    </p>
                 </div>
             }
-            @*<section class="col-xs-12 col-md-4">
-                <img src="~/images/staff_justine.jpg" class="img-responsive" title="Justine Murray" alt="Justine Murray">
-                <p><span class="name">JUSTINE MURRAY</span><br />Program Manager, Youth Futures<br />President, A3 Utah<br /> <span class="email">jmurray@yfut.org</span></p>
-            </section>
-
-            <section class="col-xs-12 col-md-4">
-                <img src="~/images/staff_susan.jpg" class="img-responsive" title="Susan McBride" alt="Susan McBride">
-                <p><span class="name">SUSAN MCBRIDE</span><br />Floor Staff Co-Lead, Youth Futures<br />Executive Director, Youth Futures<br /><span class="email">kristen@yfut.org</span> </p>
-            </section>
-
-            <section class="col-xs-12 col-md-4">
-                <img src="~/images/staff_alyson.jpg" class="img-responsive" title="Alyson Deussen" alt="Alyson Deussen">
-                <p><span class="name">ALYSON DEUSSEN</span><br />Floor Staff Co-Lead, Youth Futures<br />Ouelessebougou Utah Alliance<br /><span class="email">aallred@yfut.org</span></p>
-            </section>*@
         </div>
     </div>
 
@@ -300,7 +279,7 @@
             <div class="col-xs-12 ">
                 <p class="title">@Model.SecondaryPage.MediaEvent.Title</p>
                 <p class="mont_regular_22_darkgray time">@Model.SecondaryPage.MediaEvent.Time</p>
-            <a class="link" href="#">inShare</a>
+                <a class="link" href="#">inShare</a>
             </div>
         </div>
     </div>
@@ -348,6 +327,7 @@
         </div>
     </div>
 
+
     <div class="container-fluid">
         <div class="row donor_subheader">
             <div class="col-xs-12 ">
@@ -356,42 +336,15 @@
         </div>
     </div>
 
-    <div class="container-fluid">
-        <div class="row donor_list">
+    <div class="container-fluid row donor_list">
+        @foreach (var platDonor in Model.SecondaryPage.PlatinumDonors)
+        {
             <div class="col-xs-4 donor_box plat">
-                <p class="donor_name">MILLER FAMILY FOUNDATION LARRY H. & GAIL</p>
-                <p class="year">2015 & 2016</p>
+                <p class="donor_name">@platDonor.Name</p>
+                <p class="year">@platDonor.Year</p>
             </div>
 
-            <div class="col-xs-4 donor_box plat">
-                <p class="donor_name">IVY LANE PEDIATRICS</p>
-                <p class="year">2016</p>
-            </div>
-
-            <div class="col-xs-4 donor_box plat">
-                <p class="donor_name">SORENSON LEGACY FOUNDATION</p>
-                <p class="year">2015</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="row donor_list">
-            <div class="col-xs-4 donor_box plat">
-                <p class="donor_name">MILLER FAMILY FOUNDATION LARRY H. & GAIL</p>
-                <p class="year">2015 & 2016</p>
-            </div>
-
-            <div class="col-xs-4 donor_box plat">
-                <p class="donor_name">IVY LANE PEDIATRICS</p>
-                <p class="year">2016</p>
-            </div>
-
-            <div class="col-xs-4 donor_box plat">
-                <p class="donor_name">SORENSON LEGACY FOUNDATION</p>
-                <p class="year">2015</p>
-            </div>
-        </div>
+        }
     </div>
 
     <div class="container-fluid">
@@ -402,42 +355,15 @@
         </div>
     </div>
 
-    <div class="container-fluid">
-        <div class="row donor_list">
-            <div class="col-xs-4 donor_box gold">
-                <p class="donor_name">MILLER FAMILY FOUNDATION LARRY H. & GAIL</p>
-                <p class="year">2015 & 2016</p>
-            </div>
-
-            <div class="col-xs-4 donor_box gold">
-                <p class="donor_name">IVY LANE PEDIATRICS</p>
-                <p class="year">2016</p>
-            </div>
-
-            <div class="col-xs-4 donor_box gold">
-                <p class="donor_name">SORENSON LEGACY FOUNDATION</p>
-                <p class="year">2015</p>
-            </div>
+    <div class="container-fluid row donor_list">
+        @foreach (var goldDonor in Model.SecondaryPage.GoldDonors)
+        {
+        <div class="col-xs-4 donor_box gold">
+            <p class="donor_name">@goldDonor.Name</p>
+            <p class="year">@goldDonor.Year</p>
         </div>
-    </div>
 
-    <div class="container-fluid">
-        <div class="row donor_list">
-            <div class="col-xs-4 donor_box gold">
-                <p class="donor_name">MILLER FAMILY FOUNDATION LARRY H. & GAIL</p>
-                <p class="year">2015 & 2016</p>
-            </div>
-
-            <div class="col-xs-4 donor_box gold">
-                <p class="donor_name">IVY LANE PEDIATRICS</p>
-                <p class="year">2016</p>
-            </div>
-
-            <div class="col-xs-4 donor_box gold">
-                <p class="donor_name">SORENSON LEGACY FOUNDATION</p>
-                <p class="year">2015</p>
-            </div>
-        </div>
+        }
     </div>
 
     <div class="container-fluid">
@@ -448,42 +374,15 @@
         </div>
     </div>
 
-    <div class="container-fluid">
-        <div class="row donor_list">
-            <div class="col-xs-4 donor_box silver">
-                <p class="donor_name">MILLER FAMILY FOUNDATION LARRY H. & GAIL</p>
-                <p class="year">2015 & 2016</p>
-            </div>
-
-            <div class="col-xs-4 donor_box silver">
-                <p class="donor_name">IVY LANE PEDIATRICS</p>
-                <p class="year">2016</p>
-            </div>
-
-            <div class="col-xs-4 donor_box silver">
-                <p class="donor_name">SORENSON LEGACY FOUNDATION</p>
-                <p class="year">2015</p>
-            </div>
+    <div class="container-fluid row donor_list">
+        @foreach (var silverDonor in Model.SecondaryPage.SilverDonors)
+        {
+        <div class="col-xs-4 donor_box silver">
+            <p class="donor_name">@silverDonor.Name</p>
+            <p class="year">@silverDonor.Year</p>
         </div>
-    </div>
 
-    <div class="container-fluid">
-        <div class="row donor_list">
-            <div class="col-xs-4 donor_box silver">
-                <p class="donor_name">MILLER FAMILY FOUNDATION LARRY H. & GAIL</p>
-                <p class="year">2015 & 2016</p>
-            </div>
-
-            <div class="col-xs-4 donor_box silver">
-                <p class="donor_name">IVY LANE PEDIATRICS</p>
-                <p class="year">2016</p>
-            </div>
-
-            <div class="col-xs-4 donor_box silver">
-                <p class="donor_name">SORENSON LEGACY FOUNDATION</p>
-                <p class="year">2015</p>
-            </div>
-        </div>
+        }
     </div>
 
     <div class="container-fluid">
@@ -494,42 +393,15 @@
         </div>
     </div>
 
-    <div class="container-fluid">
-        <div class="row donor_list">
-            <div class="col-xs-4 donor_box bronze">
-                <p class="donor_name">MILLER FAMILY FOUNDATION LARRY H. & GAIL</p>
-                <p class="year">2015 & 2016</p>
-            </div>
-
-            <div class="col-xs-4 donor_box bronze">
-                <p class="donor_name">IVY LANE PEDIATRICS</p>
-                <p class="year">2016</p>
-            </div>
-
-            <div class="col-xs-4 donor_box bronze">
-                <p class="donor_name">SORENSON LEGACY FOUNDATION</p>
-                <p class="year">2015</p>
-            </div>
+    <div class="container-fluid row donor_list">
+        @foreach (var bronzeDonor in Model.SecondaryPage.BronzeDonors)
+        {
+        <div class="col-xs-4 donor_box bronze">
+            <p class="donor_name">@bronzeDonor.Name</p>
+            <p class="year">@bronzeDonor.Year</p>
         </div>
-    </div>
 
-    <div class="container-fluid">
-        <div class="row donor_list bronze">
-            <div class="col-xs-4 donor_box bronze">
-                <p class="donor_name">MILLER FAMILY FOUNDATION LARRY H. & GAIL</p>
-                <p class="year">2015 & 2016</p>
-            </div>
-
-            <div class="col-xs-4 donor_box bronze">
-                <p class="donor_name">IVY LANE PEDIATRICS</p>
-                <p class="year">2016</p>
-            </div>
-
-            <div class="col-xs-4 donor_box bronze">
-                <p class="donor_name">SORENSON LEGACY FOUNDATION</p>
-                <p class="year">2015</p>
-            </div>
-        </div>
+        }
     </div>
 
     @if (@isEditable == "true")
@@ -584,7 +456,7 @@
     @if (@isEditable == "true")
     {
         <div class="row text-center ">
-            <a class="btn btn-success editableButton" href="#" role="button">Edit Donate Section</a>
+            <a class="btn btn-success editableButton" href="~/Secondary/EditDonate" role="button">Edit Donate Section</a>
             <hr />
         </div>
     }

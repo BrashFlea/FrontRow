@@ -37,6 +37,10 @@ namespace FrontRowCMS2.Controllers
             Page.SecondaryPage.Directors = await _context.Persons.Where(p => p.Type != PersonType.Staff).ToListAsync();
             Page.SecondaryPage.Staff = await _context.Persons.Where(p => p.Type != PersonType.Director).ToListAsync();
             Page.SecondaryPage.MediaEvent = await _context.MediaEvent.FirstOrDefaultAsync();
+            Page.SecondaryPage.PlatinumDonors = await _context.Donor.Where(p => p.Level == DonorType.Platinum).ToListAsync();
+            Page.SecondaryPage.GoldDonors = await _context.Donor.Where(p => p.Level == DonorType.Gold).ToListAsync();
+            Page.SecondaryPage.SilverDonors = await _context.Donor.Where(p => p.Level == DonorType.Silver).ToListAsync();
+            Page.SecondaryPage.BronzeDonors = await _context.Donor.Where(p => p.Level == DonorType.Bronze).ToListAsync();
 
             return View(Page);
         }

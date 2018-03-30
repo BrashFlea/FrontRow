@@ -210,18 +210,11 @@ namespace FrontRowCMS2.Data
             context.Donate.Add(new Donate
             {
                 TextArea1 = "HOW CAN YOU HELP?",
-                TextArea2 = "Your generosity helps keep the doors open and the lights on, providing a sanctuary for those in need. Please consider a donation."
+                TextArea2 = "Your generosity helps keep the doors open and the lights on, providing a sanctuary for those in need. Please consider a donation.",
+                TextSubContent1 = new TextSubContent { Image = "donate_dollar.svg", Description = "Monetary donations are our biggest need right now. Recurring PayPal donations can be scheduled from our website, even $10 makes a difference.", ContentType = "Donate" },
+                TextSubContent2 = new TextSubContent { Image = "shoppingcart_icon.png", Description = "Donate through rewards programs: Amazon Smile, Smiths Community Rewards, or United Way, Federal and State Employee contributions, LoveUTGiveUT", ContentType = "Donate" },
+                TextSubContent3 = new TextSubContent { Image = "donate_hand.svg", Description = "Donate your time as a volunteer to help with needs around the shelter! Sign up here.", ContentType = "Donate" }
             });
-            var DonateSubContent = new TextSubContent[]
-            {
-                new TextSubContent{Image="donate_dollar.svg", Description="Monetary donations are our biggest need right now. Recurring PayPal donations can be scheduled from our website, even $10 makes a difference.", ContentType="Donate"},
-                new TextSubContent{Image="shoppingcart_icon.png", Description="Donate through rewards programs: Amazon Smile, Smiths Community Rewards, or United Way, Federal and State Employee contributions, LoveUTGiveUT", ContentType="Donate"},
-                new TextSubContent{Image="donate_hand.svg", Description="Donate your time as a volunteer to help with needs around the shelter! Sign up here.", ContentType="Donate"}
-            };
-            foreach (TextSubContent t in DonateSubContent)
-            {
-                context.TextSubContent.Add(t);
-            }
             context.SaveChanges();
 
             //LIST OF NEEDS
