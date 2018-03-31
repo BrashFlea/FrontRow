@@ -41,6 +41,14 @@ namespace FrontRowCMS2.Controllers
             Page.SecondaryPage.GoldDonors = await _context.Donor.Where(p => p.Level == DonorType.Gold).ToListAsync();
             Page.SecondaryPage.SilverDonors = await _context.Donor.Where(p => p.Level == DonorType.Silver).ToListAsync();
             Page.SecondaryPage.BronzeDonors = await _context.Donor.Where(p => p.Level == DonorType.Bronze).ToListAsync();
+            Page.SecondaryPage.Operation = await _context.Operation.FirstOrDefaultAsync();
+            Page.SecondaryPage.Operation.Operation1 = await _context.TextSubContent.Where(c => c.ID == 1).FirstAsync();
+            Page.SecondaryPage.Operation.Operation2 = await _context.TextSubContent.Where(c => c.ID == 2).FirstAsync();
+            Page.SecondaryPage.Operation.Operation3 = await _context.TextSubContent.Where(c => c.ID == 3).FirstAsync();
+            Page.SecondaryPage.Donate = await _context.Donate.FirstOrDefaultAsync();
+            Page.SecondaryPage.Donate.Donate1 = await _context.TextSubContent.Where(c => c.ID == 4).FirstAsync();
+            Page.SecondaryPage.Donate.Donate2 = await _context.TextSubContent.Where(c => c.ID == 5).FirstAsync();
+            Page.SecondaryPage.Donate.Donate2 = await _context.TextSubContent.Where(c => c.ID == 6).FirstAsync();
 
             return View(Page);
         }
@@ -89,7 +97,7 @@ namespace FrontRowCMS2.Controllers
         //POST: EditOperation
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditOperation([Bind("ID,TextArea1,TextArea2,TextSubContent1,TextSubContent2,TextSubContent3")] Operation operation)
+        public async Task<IActionResult> EditOperation([Bind("ID,TextArea1,TextArea2,Operation1,Operation2,Operation3")] Operation operation)
         {
             if (ModelState.IsValid)
             {
@@ -182,7 +190,7 @@ namespace FrontRowCMS2.Controllers
         //POST: EditDonate
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditDonate([Bind("ID,TextArea1,TextArea2,TextSubContent1,TextSubContent2,TextSubContent3")] Donate donate)
+        public async Task<IActionResult> EditDonate([Bind("ID,TextArea1,TextArea2,Donate1,Donate2,Donate3")] Donate donate)
         {
             if (ModelState.IsValid)
             {

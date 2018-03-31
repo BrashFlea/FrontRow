@@ -94,7 +94,7 @@
     <div class="container-fluid">
         <div class="row history_text">
             <section class="col-xs-12">
-                <p class="mont_regular_22_darkgray">During the 2014 Legislative Session, HB132 was passed, which allowed for rewriting the prohibitive law and drafting licensing procedures for residential support programs for temporary homeless youth shelter in Utah. Youth Futures and other homeless youth service providers participated in the rules writing process. The licensing rules enrolled on October 22, 2014, and the founders began to set-up the facility for licensing. Youth Futures received the first license for homeless youth shelter granted in the State of Utah under the new law. </p>
+                <p class="mont_regular_22_darkgray">@Model.SecondaryPage.Operation.TextArea1</p>
             </section>
         </div>
     </div>
@@ -102,7 +102,7 @@
     <div class="container-fluid">
         <div class="row history_green_text">
             <section class="col-xs-12">
-                <p class="mont_light_32_white">During the first full year of operations (February 20, 2015-March 31, 2016), our Residential Support Temporary Youth Shelter has:</p>
+                <p class="mont_light_32_white">@Model.SecondaryPage.Operation.TextArea2</p>
             </section>
         </div>
     </div>
@@ -110,18 +110,18 @@
     <div class="container-fluid">
         <section class="row more">
             <div class="col-xs-12 col-md-4 more_volunteer">
-                <img src="~/images/history_meal.svg" title="Meal" alt="Meal">
-                <p class="vol_p mont_light_18_darkgray">Served <span class="green">7,085</span> meals; 3 meals a day and 2 snacks for shelter and drop-in youth. Opened the resource room <span class="green">354</span> times with access to basic nec-essities including clothing, hygiene items, back packs, blankets, sleeping bags, basic medical supplies, etc.</p>
+                <img src="~/images/@(Model.SecondaryPage.Operation.Operation1.Image)" title="Meal" alt="Meal">
+                <p class="vol_p mont_light_18_darkgray">@(Model.SecondaryPage.Operation.Operation1.Description)</p>
             </div>
 
             <div class="col-xs-12 col-md-4 more_stories">
-                <img src="~/images/history_hand.svg" title="Outreach Hand" alt="Hand">
-                <p class="youth_p mont_light_18_darkgray">Conducted more than <span class="green">245</span> street outreach hours and provided items from the resource room to street youth.</p>
+                <img src="~/images/@(Model.SecondaryPage.Operation.Operation2.Image)" title="Outreach Hand" alt="Hand">
+                <p class="youth_p mont_light_18_darkgray">@(Model.SecondaryPage.Operation.Operation2.Description)</p>
             </div>
 
             <div class="col-xs-12 col-md-4 more_events">
-                <img src="~/images/house_icon2.png" title="House" alt="House">
-                <p class="events_p mont_light_18_darkgray">Provided <span class="green">1,535</span> shelter night stays and <span class="green">511</span> drop in services including case management, connections to health care, mental health care and group therapy, facilitation with other youth service providers, computer access, showers, laundry facilities, etc.</p>
+                <img src="~/images/@(Model.SecondaryPage.Operation.Operation3.Image)" title="House" alt="House">
+                <p class="events_p mont_light_18_darkgray">@(Model.SecondaryPage.Operation.Operation3.Description)</p>
             </div>
         </section>
     </div>
@@ -168,7 +168,7 @@
     @if (@isEditable == "true")
     {
         <div class="row text-center ">
-            <a class="btn btn-success editableButton" href="#" role="button">Edit Outreach Section</a>
+            <a class="btn btn-success editableButton" href="editOperation" role="button">Edit Outreach Section</a>
             <hr />
         </div>
     }
@@ -422,33 +422,30 @@
 
         <div class="row donate_help">
             <div class="col-xs-12">
-                <p>HOW CAN YOU HELP?</p>
+                <p>@Model.SecondaryPage.Donate.TextArea1</p>
             </div>
         </div>
 
         <div class="row media_text">
             <div class="col-xs-12">
-                <p class="mont_regular_22_darkgray">	Your generosity helps keep the doors open and the lights on, providing a sanctuary for those in need. Please consider a donation. </p>
+                <p class="mont_regular_22_darkgray">@Model.SecondaryPage.Donate.TextArea2</p>
             </div>
         </div>
 
         <section class="row more">
             <div class="col-xs-12 col-lg-4 more_volunteer">
-                <img src="~/images/donate_dollar.svg" title="Dollar" alt="Dollar">
-                <p class="vol_p mont_light_18_darkgray">Monetary donations are our biggest need right now. Recurring <span class="green"><a href="#">PayPal</a></span> donations can be scheduled from our website, even $10 makes a difference. </p>
+                <img src="~/images/@(Model.SecondaryPage.Donate.Donate1.Image)" title="Dollar" alt="Dollar">
+                <p class="vol_p mont_light_18_darkgray">@Model.SecondaryPage.Donate.Donate1.Description</p>
             </div>
 
             <div class="col-xs-12 col-lg-4 more_stories">
-                <img src="~/images/shoppingcart_icon.png" title="Cart" alt="Cart">
-                <p class="youth_p mont_light_18_darkgray">
-                    Donate through rewards programs: <span class="green"><a href="#">Amazon Smile,</a></span> <span class="green"><a href="#">Smiths Community Rewards,</a></span> or <span class="green"><a href="#">United Way,</a></span> <span class="green"><a href="#">Federal and State Employee contributions,</a></span>
-                    <span class="green"><a href="#">LoveUTGiveUT</a></span>
-                </p>
+                <img src="~/images/@(Model.SecondaryPage.Donate.Donate2.Image)" title="Cart" alt="Cart">
+                <p class="youth_p mont_light_18_darkgray">@Model.SecondaryPage.Donate.Donate2.Description</p>
             </div>
 
             <div class="col-xs-12 col-lg-4 more_events">
-                <img src="~/images/donate_hand.svg" title="Hand" alt="Hand">
-                <p class="events_p mont_light_18_darkgray">Donate your time as a volunteer to help with needs around the shelter! <span class="green"><a href="#">Sign up here.</a></span></p>
+                <img src="~/images/@(Model.SecondaryPage.Donate.Donate3.Image)" title="Hand" alt="Hand">
+                <p class="events_p mont_light_18_darkgray">@Model.SecondaryPage.Donate.Donate2.Description</p>
             </div>
         </section>
     </div>
