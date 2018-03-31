@@ -79,6 +79,9 @@ namespace FrontRowCMS2.Controllers
         public async Task<IActionResult> EditOperation()
         {
             var operation = await _context.Operation.FirstOrDefaultAsync();
+            operation.Operation1 = await _context.TextSubContent.Where(c => c.ID == 1).FirstAsync();
+            operation.Operation2 = await _context.TextSubContent.Where(c => c.ID == 2).FirstAsync();
+            operation.Operation3 = await _context.TextSubContent.Where(c => c.ID == 3).FirstAsync();
             GetImages();
             return View(operation);
         }
@@ -86,7 +89,7 @@ namespace FrontRowCMS2.Controllers
         //POST: EditOperation
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditOperation([Bind("ID,TextArea1,TextArea2,TextSubContent")] Operation operation)
+        public async Task<IActionResult> EditOperation([Bind("ID,TextArea1,TextArea2,TextSubContent1,TextSubContent2,TextSubContent3")] Operation operation)
         {
             if (ModelState.IsValid)
             {
@@ -163,6 +166,39 @@ namespace FrontRowCMS2.Controllers
                 }
             }
             return View(mediaEvent);
+        }
+
+        //GET: EditDonate
+        public async Task<IActionResult> EditDonate()
+        {
+            var donate = await _context.Donate.FirstOrDefaultAsync();
+            donate.Donate1 = await _context.TextSubContent.Where(c => c.ID == 4).FirstAsync();
+            donate.Donate2 = await _context.TextSubContent.Where(c => c.ID == 5).FirstAsync();
+            donate.Donate3 = await _context.TextSubContent.Where(c => c.ID == 6).FirstAsync();
+            GetImages();
+            return View(donate);
+        }
+
+        //POST: EditDonate
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditDonate([Bind("ID,TextArea1,TextArea2,TextSubContent1,TextSubContent2,TextSubContent3")] Donate donate)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(donate);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException ex)
+                {
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persister " +
+                    "see your system administrator for assitance.");
+                }
+            }
+            return View(donate);
         }
 
         public IActionResult Error()
