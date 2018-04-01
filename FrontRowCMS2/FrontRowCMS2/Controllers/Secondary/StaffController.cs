@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace FrontRowCMS2.Controllers
 {
+    [Authorize]
     public class StaffController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -22,14 +23,12 @@ namespace FrontRowCMS2.Controllers
         }
 
         //GET: Staff
-        [Authorize]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Persons.ToListAsync());
         }
 
         //GET: Staff/Details/5
-        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -47,7 +46,6 @@ namespace FrontRowCMS2.Controllers
         }
 
         //GET: Staff/Create
-        [Authorize]
         public IActionResult Create()
         {
             SetPersonTypes();
@@ -56,7 +54,6 @@ namespace FrontRowCMS2.Controllers
 
         //POST: Staff/Create
         [HttpPost]
-        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Image", "Name", "Title1", "Title2", "Email", "Type")] Person person)
         {
@@ -81,7 +78,6 @@ namespace FrontRowCMS2.Controllers
         }
 
         //GET: Students/Edit/5
-        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -100,7 +96,6 @@ namespace FrontRowCMS2.Controllers
 
         //POST: Students/Edit/5
         [HttpPost]
-        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int? id, [Bind("ID", "Image", "Name", "Title1", "Title2", "Email", "Type")] Person person)
         {
@@ -134,7 +129,6 @@ namespace FrontRowCMS2.Controllers
         }
 
         //GET: Staff/Delete/5
-        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -152,7 +146,6 @@ namespace FrontRowCMS2.Controllers
         }
 
         //POST: Staff/Delete/5
-        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

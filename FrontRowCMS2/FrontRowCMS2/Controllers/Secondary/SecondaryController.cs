@@ -221,6 +221,7 @@ namespace FrontRowCMS2.Controllers
         }
 
         //GET: EditMediaEvent
+        [Authorize]
         public async Task<IActionResult> EditMediaEvent()
         {
             var mediaEvent = await _context.MediaEvent.FirstOrDefaultAsync();
@@ -252,6 +253,7 @@ namespace FrontRowCMS2.Controllers
         }
 
         //GET: EditDonate
+        [Authorize]
         public async Task<IActionResult> EditDonate()
         {
             var donate = await _context.Donate.FirstOrDefaultAsync();
@@ -264,6 +266,7 @@ namespace FrontRowCMS2.Controllers
 
         //POST: EditDonate
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditDonate([Bind("ID,TextArea1,TextArea2,Donate1,Donate2,Donate3")] Donate donate)
         {
