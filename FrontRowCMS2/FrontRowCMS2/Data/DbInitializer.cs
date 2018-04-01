@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 using FrontRowCMS2.Models;
 using FrontRowCMS2.Models.Home;
 using FrontRowCMS2.Models.Secondary;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace FrontRowCMS2.Data
 {
     public class DbInitializer
     {
-        public static void Initialize(ApplicationDbContext context)
+        public static void Initialize(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             //TODO: REMOVE BEFORE PRODUCTION
             context.Database.EnsureDeleted();
@@ -32,7 +34,15 @@ namespace FrontRowCMS2.Data
             context.SaveChanges();
 
             ///USERS
-            //context.User.Add(new User { Username = "admin", Password = "", Email = "admin@yfut.org" });
+            var user = new ApplicationUser
+            {
+                Email = "admin@test.com",
+                UserName = "admin@test.com"
+            };
+
+            userManager.CreateAsync(user, "Test123$");
+
+            context.SaveChangesAsync();
 
             #endregion
 

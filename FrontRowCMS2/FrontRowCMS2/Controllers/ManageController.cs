@@ -17,7 +17,7 @@ using FrontRowCMS2.Services;
 namespace FrontRowCMS2.Controllers
 {
     [Authorize]
-    [Route("[controller]/[action]")]
+    //[Route("[controller]/[action]")]
     public class ManageController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;

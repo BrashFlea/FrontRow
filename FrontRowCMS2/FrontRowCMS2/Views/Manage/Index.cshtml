@@ -1,5 +1,6 @@
 ﻿@model IndexViewModel
 @{
+    Layout = "~/Views/Shared/_EditLayout.cshtml";
     ViewData["Title"] = "Profile";
     ViewData.AddActivePage(ManageNavPages.Index);
 }
@@ -37,6 +38,9 @@
             </div>
             <button type="submit" class="btn btn-default">Save</button>
         </form>
+        <div>
+            <a href="~/Manage/ChangePassword">Change Your Password</a>
+        </div>
     </div>
 </div>
 

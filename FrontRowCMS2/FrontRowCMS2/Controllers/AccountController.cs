@@ -13,6 +13,7 @@ using Microsoft.Extensions.Options;
 using FrontRowCMS2.Models;
 using FrontRowCMS2.Models.AccountViewModels;
 using FrontRowCMS2.Services;
+using Microsoft.AspNetCore.Http;
 
 namespace FrontRowCMS2.Controllers
 {
@@ -246,6 +247,7 @@ namespace FrontRowCMS2.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
+            HttpContext.Session.SetString("isEditable", "false");
             _logger.LogInformation("User logged out.");
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
