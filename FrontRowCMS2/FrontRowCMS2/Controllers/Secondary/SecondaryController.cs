@@ -34,6 +34,7 @@ namespace FrontRowCMS2.Controllers
             Page.SecondaryPage = new SecondaryPage();
             Page.SecondaryPage.SecondaryHeader = await _context.SecondaryHeader.FirstOrDefaultAsync();
             Page.SecondaryPage.History = await _context.History.FirstOrDefaultAsync();
+            Page.SecondaryPage.Outreach = await _context.Outreach.FirstOrDefaultAsync();
             Page.SecondaryPage.Directors = await _context.Persons.Where(p => p.Type != PersonType.Staff).ToListAsync();
             Page.SecondaryPage.Staff = await _context.Persons.Where(p => p.Type != PersonType.Director).ToListAsync();
             Page.SecondaryPage.MediaEvent = await _context.MediaEvent.FirstOrDefaultAsync();
@@ -49,6 +50,8 @@ namespace FrontRowCMS2.Controllers
             Page.SecondaryPage.Donate.Donate1 = await _context.TextSubContent.Where(c => c.ID == 4).FirstAsync();
             Page.SecondaryPage.Donate.Donate2 = await _context.TextSubContent.Where(c => c.ID == 5).FirstAsync();
             Page.SecondaryPage.Donate.Donate2 = await _context.TextSubContent.Where(c => c.ID == 6).FirstAsync();
+
+            Page.SecondaryPage.ListOfNeeds = await _context.Needs.FirstOrDefaultAsync();
 
             return View(Page);
         }
@@ -145,6 +148,69 @@ namespace FrontRowCMS2.Controllers
             }
             return View(history);
         }
+
+        //GET: EditOutreach
+        public async Task<IActionResult> EditOutreach()
+        {
+            var outreach = await _context.Outreach.FirstOrDefaultAsync();
+            GetImages();
+            return View(outreach);
+        }
+
+        //POST: EditOutreach
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditOutreach([Bind("ID,Image,TextArea")] Outreach outreach)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(outreach);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException ex)
+                {
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persister " +
+                    "see your system administrator for assitance.");
+                }
+            }
+            return View(outreach);
+        }
+
+        //GET: EditNeeds
+        public async Task<IActionResult> EditNeeds()
+        {
+            var needs = await _context.Needs.FirstOrDefaultAsync();
+            GetImages();
+            return View(needs);
+        }
+
+        //POST: EditNeeds
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditNeeds([Bind("ID,TextArea")] Needs needs)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(needs);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException ex)
+                {
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persister " +
+                    "see your system administrator for assitance.");
+                }
+            }
+            return View(needs);
+        }
+
+        //GET: EditDonor
+        public async Task<IActionResult> EditDonor()
 
         //GET: EditMediaEvent
         public async Task<IActionResult> EditMediaEvent()
