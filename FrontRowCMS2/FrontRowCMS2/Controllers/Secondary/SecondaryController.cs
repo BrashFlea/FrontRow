@@ -209,9 +209,6 @@ namespace FrontRowCMS2.Controllers
             return View(needs);
         }
 
-        //GET: EditDonor
-        public async Task<IActionResult> EditDonor()
-
         //GET: EditMediaEvent
         public async Task<IActionResult> EditMediaEvent()
         {
