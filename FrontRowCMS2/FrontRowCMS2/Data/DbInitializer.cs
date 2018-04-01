@@ -98,18 +98,11 @@ namespace FrontRowCMS2.Data
             context.Operation.Add(new Operation
             {
                 TextArea1 = "During the 2014 Legislative Session, HB132 was passed, which allowed for rewriting the prohibitive law and drafting licensing procedures for residential support programs for temporary homeless youth shelter in Utah. Youth Futures and other homeless youth service providers participated in the rules writing process. The licensing rules enrolled on October 22, 2014, and the founders began to set-up the facility for licensing. Youth Futures received the first license for homeless youth shelter granted in the State of Utah under the new law. ",
-                TextArea2 = "During the first full year of operations (February 20, 2015-March 31, 2016), our Residential Support Temporary Youth Shelter has:"
+                TextArea2 = "During the first full year of operations (February 20, 2015-March 31, 2016), our Residential Support Temporary Youth Shelter has:",
+                Operation1 = new TextSubContent { Image = "history_meal.svg", Description = "Served 7,085 meals; 3 meals a day and 2 snacks for shelter and drop-in youth. Opened the resource room 354 times with access to basic nec-essities including clothing, hygiene items, back packs, blankets, sleeping bags, basic medical supplies, etc.", ContentType = "Operation" },
+                Operation2 = new TextSubContent { Image = "history_hand.svg", Description = "Conducted more than 245 street outreach hours and provided items from the resource room to street youth.", ContentType = "Operation" },
+                Operation3 = new TextSubContent { Image = "house_icon2.png", Description = "Provided 1,535 shelter night stays and 511 drop in services including case management, connections to health care, mental health care and group therapy, facilitation with other youth service providers, computer access, showers, laundry facilities, etc.", ContentType = "Operation" }
             });
-            var OperationSubContent = new TextSubContent[]
-            {
-                new TextSubContent{Image="history_meal.svg", Description="Served 7,085 meals; 3 meals a day and 2 snacks for shelter and drop-in youth. Opened the resource room 354 times with access to basic nec-essities including clothing, hygiene items, back packs, blankets, sleeping bags, basic medical supplies, etc.", ContentType="Operation"},
-                new TextSubContent{Image="history_hand.svg", Description="Conducted more than 245 street outreach hours and provided items from the resource room to street youth.", ContentType="Operation"},
-                new TextSubContent{Image="house_icon2.png", Description="Provided 1,535 shelter night stays and 511 drop in services including case management, connections to health care, mental health care and group therapy, facilitation with other youth service providers, computer access, showers, laundry facilities, etc.", ContentType="Operation"}
-            };
-            foreach (TextSubContent t in OperationSubContent)
-            {
-                context.TextSubContent.Add(t);
-            }
             context.SaveChanges();
 
             //OUTREACH
@@ -147,13 +140,15 @@ namespace FrontRowCMS2.Data
             context.SaveChanges();
 
             //MEDIA
-            context.MediaEvents.Add(new MediaEvent
+            context.MediaEvent.Add(new MediaEvent
             {
                 Title = "America First Provides an 'Assist' to Homeless Shelter",
                 Time = "03/18/2015 10:03 pm",
                 Image = "media_check.jpg",
-                Caption = "Youth Futures",
-                Description = "Yahoo"
+                Image_Title = "America First Check",
+                Caption = "At right, from left to right: Kristen Mitchell, executive director of Youth Futures Utah and Scott Tuccio, president of the Board of Directorsof Youth Futures Utah, stand with Nicole Cypers, public relations and social media manager for America First Credit Union, at the Weber State basketball game for a check presentation in the amount of $3,400 on Saturday, March 7 at Weber State University.",
+                Description1 = "OGDEN, Utah--America First Credit Union awarded Youth Futures Utah, a homeless shelter for youth, with $3,400 during the Weber State University basketball game. America First paid the organization $10 for each assist the Weber State University basketball team completed throughout the 2014 – 2015 season. With 340 assists, the donation amounted to $3,400 in total for the newly-opened youth homeless organization, located in Ogden, Utah.",
+                Description2 = "Youth Futures Utah is a 501(c)3 organization committed to the well-being of the youth of Utah. The mission of Youth Futures Utah is to provide shelter, support, resources and guidance to homeless, unaccompanied and runaway youth in Utah. Youth Futures connects each youth with food, housing and resources to build the skills needed to support a healthy future."
             });
             context.SaveChanges();
 
@@ -202,18 +197,11 @@ namespace FrontRowCMS2.Data
             context.Donate.Add(new Donate
             {
                 TextArea1 = "HOW CAN YOU HELP?",
-                TextArea2 = "Your generosity helps keep the doors open and the lights on, providing a sanctuary for those in need. Please consider a donation."
+                TextArea2 = "	Your generosity helps keep the doors open and the lights on, providing a sanctuary for those in need. Please consider a donation. ",
+                Donate1 = new TextSubContent { Image = "donate_dollar.svg", Description = "Monetary donations are our biggest need right now. Recurring PayPal donations can be scheduled from our website, even $10 makes a difference.", ContentType = "Donate" },
+                Donate2 = new TextSubContent { Image = "shoppingcart_icon.png", Description = "Donate through rewards programs: Amazon Smile, Smiths Community Rewards, or United Way, Federal and State Employee contributions, LoveUTGiveUT", ContentType = "Donate" },
+                Donate3 = new TextSubContent { Image = "donate_hand.svg", Description = "Donate your time as a volunteer to help with needs around the shelter! Sign up here.", ContentType = "Donate" }
             });
-            var DonateSubContent = new TextSubContent[]
-            {
-                new TextSubContent{Image="donate_dollar.svg", Description="Monetary donations are our biggest need right now. Recurring PayPal donations can be scheduled from our website, even $10 makes a difference.", ContentType="Donate"},
-                new TextSubContent{Image="shoppingcart_icon.png", Description="Donate through rewards programs: Amazon Smile, Smiths Community Rewards, or United Way, Federal and State Employee contributions, LoveUTGiveUT", ContentType="Donate"},
-                new TextSubContent{Image="donate_hand.svg", Description="Donate your time as a volunteer to help with needs around the shelter! Sign up here.", ContentType="Donate"}
-            };
-            foreach (TextSubContent t in DonateSubContent)
-            {
-                context.TextSubContent.Add(t);
-            }
             context.SaveChanges();
 
             //LIST OF NEEDS

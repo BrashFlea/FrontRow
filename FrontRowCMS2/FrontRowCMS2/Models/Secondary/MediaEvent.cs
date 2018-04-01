@@ -11,7 +11,9 @@ namespace FrontRowCMS2.Models.Secondary
         public string Title { get; set; }
         public string Time { get; set; }
         public string Image { get; set; }
+        public string Image_Title { get; set; }
         public string Caption { get; set; }
-        public string Description { get; set; }
+        public string Description1 { get; set; }
+        public string Description2 { get; set; }
     }
 }

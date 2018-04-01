@@ -10,6 +10,8 @@ namespace FrontRowCMS2.Models.Secondary
         public int ID { get; set; }
         public string TextArea1 { get; set; }
         public string TextArea2 { get; set; }
-        public TextSubContent TextSubContent { get; set; }
+        public TextSubContent Donate1 { get; set; }
+        public TextSubContent Donate2 { get; set; }
+        public TextSubContent Donate3 { get; set; }
     }
 }
