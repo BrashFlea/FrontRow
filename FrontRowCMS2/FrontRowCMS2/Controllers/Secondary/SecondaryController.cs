@@ -32,10 +32,24 @@ namespace FrontRowCMS2.Controllers
 
             Page.Footer = await _context.Footer.FirstOrDefaultAsync();
             Page.SecondaryPage = new SecondaryPage();
+            Page.SecondaryPage.SecondaryHeader = await _context.SecondaryHeader.FirstOrDefaultAsync();
             Page.SecondaryPage.History = await _context.History.FirstOrDefaultAsync();
             Page.SecondaryPage.Outreach = await _context.Outreach.FirstOrDefaultAsync();
             Page.SecondaryPage.Directors = await _context.Persons.Where(p => p.Type != PersonType.Staff).ToListAsync();
             Page.SecondaryPage.Staff = await _context.Persons.Where(p => p.Type != PersonType.Director).ToListAsync();
+            Page.SecondaryPage.MediaEvent = await _context.MediaEvent.FirstOrDefaultAsync();
+            Page.SecondaryPage.PlatinumDonors = await _context.Donor.Where(p => p.Level == DonorType.Platinum).ToListAsync();
+            Page.SecondaryPage.GoldDonors = await _context.Donor.Where(p => p.Level == DonorType.Gold).ToListAsync();
+            Page.SecondaryPage.SilverDonors = await _context.Donor.Where(p => p.Level == DonorType.Silver).ToListAsync();
+            Page.SecondaryPage.BronzeDonors = await _context.Donor.Where(p => p.Level == DonorType.Bronze).ToListAsync();
+            Page.SecondaryPage.Operation = await _context.Operation.FirstOrDefaultAsync();
+            Page.SecondaryPage.Operation.Operation1 = await _context.TextSubContent.Where(c => c.ID == 1).FirstAsync();
+            Page.SecondaryPage.Operation.Operation2 = await _context.TextSubContent.Where(c => c.ID == 2).FirstAsync();
+            Page.SecondaryPage.Operation.Operation3 = await _context.TextSubContent.Where(c => c.ID == 3).FirstAsync();
+            Page.SecondaryPage.Donate = await _context.Donate.FirstOrDefaultAsync();
+            Page.SecondaryPage.Donate.Donate1 = await _context.TextSubContent.Where(c => c.ID == 4).FirstAsync();
+            Page.SecondaryPage.Donate.Donate2 = await _context.TextSubContent.Where(c => c.ID == 5).FirstAsync();
+            Page.SecondaryPage.Donate.Donate2 = await _context.TextSubContent.Where(c => c.ID == 6).FirstAsync();
 
             Page.SecondaryPage.ListOfNeeds = await _context.Needs.FirstOrDefaultAsync();
 
@@ -76,6 +90,9 @@ namespace FrontRowCMS2.Controllers
         public async Task<IActionResult> EditOperation()
         {
             var operation = await _context.Operation.FirstOrDefaultAsync();
+            operation.Operation1 = await _context.TextSubContent.Where(c => c.ID == 1).FirstAsync();
+            operation.Operation2 = await _context.TextSubContent.Where(c => c.ID == 2).FirstAsync();
+            operation.Operation3 = await _context.TextSubContent.Where(c => c.ID == 3).FirstAsync();
             GetImages();
             return View(operation);
         }
@@ -83,7 +100,7 @@ namespace FrontRowCMS2.Controllers
         //POST: EditOperation
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditOperation([Bind("ID,TextArea1,TextArea2,TextSubContent")] Operation operation)
+        public async Task<IActionResult> EditOperation([Bind("ID,TextArea1,TextArea2,Operation1,Operation2,Operation3")] Operation operation)
         {
             if (ModelState.IsValid)
             {
@@ -194,22 +211,25 @@ namespace FrontRowCMS2.Controllers
 
         //GET: EditDonor
         public async Task<IActionResult> EditDonor()
+
+        //GET: EditMediaEvent
+        public async Task<IActionResult> EditMediaEvent()
         {
-            var donor = await _context.Donor.FirstOrDefaultAsync();
+            var mediaEvent = await _context.MediaEvent.FirstOrDefaultAsync();
             GetImages();
-            return View(donor);
+            return View(mediaEvent);
         }
 
-        //POST: EditDonor
+        //POST: EditMediaEvent
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditDonor([Bind("ID,Level,Name,Year")] Donor donor)
+        public async Task<IActionResult> EditMediaEvent([Bind("ID,Title,Time,Image,Image_Title,Caption,Description1,Description2")] MediaEvent mediaEvent)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(donor);
+                    _context.Update(mediaEvent);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateException ex)
@@ -219,7 +239,40 @@ namespace FrontRowCMS2.Controllers
                     "see your system administrator for assitance.");
                 }
             }
-            return View(donor);
+            return View(mediaEvent);
+        }
+
+        //GET: EditDonate
+        public async Task<IActionResult> EditDonate()
+        {
+            var donate = await _context.Donate.FirstOrDefaultAsync();
+            donate.Donate1 = await _context.TextSubContent.Where(c => c.ID == 4).FirstAsync();
+            donate.Donate2 = await _context.TextSubContent.Where(c => c.ID == 5).FirstAsync();
+            donate.Donate3 = await _context.TextSubContent.Where(c => c.ID == 6).FirstAsync();
+            GetImages();
+            return View(donate);
+        }
+
+        //POST: EditDonate
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditDonate([Bind("ID,TextArea1,TextArea2,Donate1,Donate2,Donate3")] Donate donate)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(donate);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException ex)
+                {
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persister " +
+                    "see your system administrator for assitance.");
+                }
+            }
+            return View(donate);
         }
 
         public IActionResult Error()

@@ -8,13 +8,13 @@ namespace FrontRowCMS2.Models.Secondary
     public class SecondaryPage
     {
         public int ID { get; set; }
-        public SecondaryHeader secondaryHeader { get; set; }
+        public SecondaryHeader SecondaryHeader { get; set; }
         public History History { get; set; }
         public Operation Operation { get; set; }
         public Outreach Outreach { get; set; }
         public List<Person> Directors { get; set; }
         public List<Person> Staff { get; set; }
-        public List<MediaEvent> MediaEvents { get; set; }
+        public MediaEvent MediaEvent { get; set; }
         public List<Donor> PlatinumDonors { get; set; }
         public List<Donor> GoldDonors { get; set; }
         public List<Donor> SilverDonors { get; set; }
