@@ -260,10 +260,11 @@
 
     @if (@isEditable == "true")
     {
-        <div class="row text-center ">
-            <a class="btn btn-success editableButton" href="~/Staff" role="button">Edit Directors & Staff</a>
-            <hr />
-        </div>
+    <div class="row text-center ">
+        <a class="btn btn-success editableButton" href="~/Staff/Create" role="button">Add Directors & Staff</a>
+        <a class="btn btn-success editableButton" href="~/Staff" role="button">Edit Directors & Staff</a>
+        <hr />
+    </div>
     }
 
     <div class="container-fluid" id="mediaMain">
@@ -407,10 +408,11 @@
 
     @if (@isEditable == "true")
     {
-        <div class="row text-center ">
-            <a class="btn btn-success editableButton" href="~/Donor" role="button">Edit Donors Section</a>
-            <hr />
-        </div>
+    <div class="row text-center">
+        <a class="btn btn-success editableButton" href="~/Donor/Create" role="button">Add New Donor</a>
+        <a class="btn btn-success editableButton" href="~/Donor" role="button">Edit Donors</a>
+        <hr />
+    </div>
     }
 
     <div class="container-fluid" id="donateMain">
