@@ -49,7 +49,7 @@ namespace FrontRowCMS2.Controllers
             Page.SecondaryPage.Donate = await _context.Donate.FirstOrDefaultAsync();
             Page.SecondaryPage.Donate.Donate1 = await _context.TextSubContent.Where(c => c.ID == 4).FirstAsync();
             Page.SecondaryPage.Donate.Donate2 = await _context.TextSubContent.Where(c => c.ID == 5).FirstAsync();
-            Page.SecondaryPage.Donate.Donate2 = await _context.TextSubContent.Where(c => c.ID == 6).FirstAsync();
+            Page.SecondaryPage.Donate.Donate3 = await _context.TextSubContent.Where(c => c.ID == 6).FirstAsync();
 
             Page.SecondaryPage.ListOfNeeds = await _context.Needs.FirstOrDefaultAsync();
 
