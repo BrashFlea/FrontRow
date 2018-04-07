@@ -22,7 +22,7 @@ namespace FrontRowCMS2.Models.Secondary
         public Donate Donate { get; set; }
         public Needs ListOfNeeds { get; set; }
         public Calendar Calendar { get; set; }
-        //public ContactInfo ContactInfo { get; set; }
+        public ContactInfo ContactInfo { get; set; }
         public Footer Footer { get; set; }
     }
 }

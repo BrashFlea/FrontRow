@@ -219,6 +219,15 @@ namespace FrontRowCMS2.Data
             });
 
 
+            //ContactInfo
+            context.ContactInfo.Add(new ContactInfo
+            {
+                Header1 = "CALL US",
+                PhoneNumber = "Tel: 801-528-1214",
+                Header2 = "COME SEE US",
+                AddressLine1 = "60 Adams Ave. Ogden, UT",
+                AddressLine2 = "Ogden, Utah, 84401"
+            });
             #endregion
 
 
