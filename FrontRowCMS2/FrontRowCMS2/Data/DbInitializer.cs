@@ -228,6 +228,8 @@ namespace FrontRowCMS2.Data
                 AddressLine1 = "60 Adams Ave. Ogden, UT",
                 AddressLine2 = "Ogden, Utah, 84401"
             });
+            context.SaveChanges();
+
             #endregion
 
 
