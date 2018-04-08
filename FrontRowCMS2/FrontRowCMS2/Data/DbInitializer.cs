@@ -225,8 +225,8 @@ namespace FrontRowCMS2.Data
                 Header1 = "CALL US",
                 PhoneNumber = "Tel: 801-528-1214",
                 Header2 = "COME SEE US",
-                AddressLine1 = "60 Adams Ave. Ogden, UT",
-                AddressLine2 = "Ogden, Utah, 84401"
+                AddressLine1 = "2760 S. Adams Ave. Ogden, UT",
+                AddressLine2 = "Ogden, Utah, 84403"
             });
             context.SaveChanges();
 
