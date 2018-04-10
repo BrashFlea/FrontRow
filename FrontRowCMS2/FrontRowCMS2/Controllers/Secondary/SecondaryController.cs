@@ -11,6 +11,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 
 namespace FrontRowCMS2.Controllers
 {
@@ -28,6 +30,15 @@ namespace FrontRowCMS2.Controllers
 
         public async Task<IActionResult> Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                HttpContext.Session.SetString("isEditable", "true");
+            }
+            else
+            {
+                HttpContext.Session.SetString("isEditable", "false");
+            }
+
             Page Page = new Page();
 
             Page.Footer = await _context.Footer.FirstOrDefaultAsync();
@@ -57,6 +68,7 @@ namespace FrontRowCMS2.Controllers
         }
 
         //GET: EditHeader
+        [Authorize]
         public async Task<IActionResult> EditHeader()
         {
             var header = await _context.SecondaryHeader.FirstOrDefaultAsync();
@@ -66,6 +78,7 @@ namespace FrontRowCMS2.Controllers
 
         //POST: EditHeader
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditHeader([Bind("ID,TitleText,PhoneNumber,BackgroundImage,ImageText1,ImageText2")] SecondaryHeader header)
         {
@@ -87,6 +100,7 @@ namespace FrontRowCMS2.Controllers
         }
 
         //GET: EditOperation
+        [Authorize]
         public async Task<IActionResult> EditOperation()
         {
             var operation = await _context.Operation.FirstOrDefaultAsync();
@@ -99,6 +113,7 @@ namespace FrontRowCMS2.Controllers
 
         //POST: EditOperation
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditOperation([Bind("ID,TextArea1,TextArea2,Operation1,Operation2,Operation3")] Operation operation)
         {
@@ -120,6 +135,7 @@ namespace FrontRowCMS2.Controllers
         }
 
         //GET: EditHistory
+        [Authorize]
         public async Task<IActionResult> EditHistory()
         {
             var history = await _context.History.FirstOrDefaultAsync();
@@ -129,6 +145,7 @@ namespace FrontRowCMS2.Controllers
 
         //POST: EditHistory
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditHistory([Bind("ID,TextArea1,TextArea2,Image1,Image2,Image3,Caption1,Caption2,Caption3")] History history)
         {
@@ -150,6 +167,7 @@ namespace FrontRowCMS2.Controllers
         }
 
         //GET: EditOutreach
+        [Authorize]
         public async Task<IActionResult> EditOutreach()
         {
             var outreach = await _context.Outreach.FirstOrDefaultAsync();
@@ -159,6 +177,7 @@ namespace FrontRowCMS2.Controllers
 
         //POST: EditOutreach
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditOutreach([Bind("ID,Image,TextArea")] Outreach outreach)
         {
@@ -180,6 +199,7 @@ namespace FrontRowCMS2.Controllers
         }
 
         //GET: EditNeeds
+        [Authorize]
         public async Task<IActionResult> EditNeeds()
         {
             var needs = await _context.Needs.FirstOrDefaultAsync();
@@ -189,6 +209,7 @@ namespace FrontRowCMS2.Controllers
 
         //POST: EditNeeds
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditNeeds([Bind("ID,TextArea")] Needs needs)
         {
@@ -210,6 +231,7 @@ namespace FrontRowCMS2.Controllers
         }
 
         //GET: EditMediaEvent
+        [Authorize]
         public async Task<IActionResult> EditMediaEvent()
         {
             var mediaEvent = await _context.MediaEvent.FirstOrDefaultAsync();
@@ -219,6 +241,7 @@ namespace FrontRowCMS2.Controllers
 
         //POST: EditMediaEvent
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditMediaEvent([Bind("ID,Title,Time,Image,Image_Title,Caption,Description1,Description2")] MediaEvent mediaEvent)
         {
@@ -240,6 +263,7 @@ namespace FrontRowCMS2.Controllers
         }
 
         //GET: EditDonate
+        [Authorize]
         public async Task<IActionResult> EditDonate()
         {
             var donate = await _context.Donate.FirstOrDefaultAsync();
@@ -252,6 +276,7 @@ namespace FrontRowCMS2.Controllers
 
         //POST: EditDonate
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditDonate([Bind("ID,TextArea1,TextArea2,Donate1,Donate2,Donate3")] Donate donate)
         {

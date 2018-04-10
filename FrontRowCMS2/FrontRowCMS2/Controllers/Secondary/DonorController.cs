@@ -8,9 +8,11 @@ using FrontRowCMS2.Models;
 using Microsoft.EntityFrameworkCore;
 using FrontRowCMS2.Models.Secondary;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FrontRowCMS2.Controllers
 {
+    [Authorize]
     public class DonorController : Controller
     {
         private readonly ApplicationDbContext _context;

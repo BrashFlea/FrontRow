@@ -11,6 +11,8 @@ using FrontRowCMS2.Data;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace FrontRowCMS2.Controllers
 {
@@ -27,6 +29,15 @@ namespace FrontRowCMS2.Controllers
 
         public async Task<IActionResult> Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                HttpContext.Session.SetString("isEditable", "true");
+            }
+            else
+            {
+                HttpContext.Session.SetString("isEditable", "false");
+            }
+
             Page page = new Page();
             page.Footer = await _context.Footer.FirstOrDefaultAsync();
             page.HomePage = new HomePage();
@@ -44,6 +55,7 @@ namespace FrontRowCMS2.Controllers
         }
 
         //GET: EditHeader
+        [Authorize]
         public async Task<IActionResult> EditHeader()
         {
             var header = await _context.Header.FirstOrDefaultAsync();
@@ -52,6 +64,7 @@ namespace FrontRowCMS2.Controllers
 
         //POST: EditHeader
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditHeader([Bind("ID", "TitleText", "PhoneNumber", "BackgroundImage")] Header header)
         {
@@ -73,6 +86,7 @@ namespace FrontRowCMS2.Controllers
         }
 
         //GET: EditServices
+        [Authorize]
         public async Task<IActionResult> EditServices()
         {
             var services = await _context.Services.FirstOrDefaultAsync();
@@ -84,6 +98,7 @@ namespace FrontRowCMS2.Controllers
 
         //POST: EditSections
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditServices([Bind("ID", "MainText", "Service1", "Service2", "Service3")] FrontRowCMS2.Models.Home.Services services)
         {
@@ -105,6 +120,7 @@ namespace FrontRowCMS2.Controllers
         }
 
         //GET: EditPurpose
+        [Authorize]
         public async Task<IActionResult> EditPurpose()
         {
             var purpose = await _context.Purpose.FirstOrDefaultAsync();
@@ -113,6 +129,7 @@ namespace FrontRowCMS2.Controllers
 
         //POST: EditPurpose
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditPurpose([Bind("ID", "BackgroundImage", "TextArea1", "TextArea2", "PartnerImage1", "PartnerImage2", "PartnerImage3")] Purpose purpose)
         {
@@ -133,6 +150,7 @@ namespace FrontRowCMS2.Controllers
             return View(purpose);
         }
 
+        [Authorize]
         public async Task<IActionResult> EditBottomHomePage()
         {
             var bottomHomePage = await _context.BottomHomePage.FirstOrDefaultAsync();
@@ -144,6 +162,7 @@ namespace FrontRowCMS2.Controllers
 
         //POST: EditPurpose
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditBottomHomePage([Bind("ID", "Service1", "Service2", "Service3")] BottomHomePage bottomHomePage)
         {
@@ -165,6 +184,7 @@ namespace FrontRowCMS2.Controllers
         }
 
         //GET: EditFooter
+        [Authorize]
         public async Task<IActionResult> EditFooter()
         {
             var footer = await _context.Footer.FirstOrDefaultAsync();
@@ -173,6 +193,7 @@ namespace FrontRowCMS2.Controllers
 
         //POST: EditFooter
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditFooter([Bind("ID", "ContactEmail", "ContactPhone", "MailingAddressLine1", "MailingAddressLine2", "ShelterAddressLine1", "ShelterAddressLine2", "HomeImage", "InstagramLink", "TwitterLink", "TumblrLink", "FacebookLink")] Footer footer)
         {
@@ -194,6 +215,7 @@ namespace FrontRowCMS2.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> UploadImage(string returnurl, IFormFile imageFile)
         {
@@ -216,6 +238,7 @@ namespace FrontRowCMS2.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteImage(string returnurl, string filename)
         {
@@ -229,17 +252,6 @@ namespace FrontRowCMS2.Controllers
                 }
             }
             return Redirect(returnurl);
-        }
-
-        public IActionResult Login()
-        {
-            HttpContext.Session.SetString("isEditable", "true");
-            return RedirectToAction(nameof(HomeController.Index), "Home");
-        }
-        public IActionResult Logout()
-        {
-            HttpContext.Session.SetString("isEditable", "false");
-            return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
         public IActionResult Error()

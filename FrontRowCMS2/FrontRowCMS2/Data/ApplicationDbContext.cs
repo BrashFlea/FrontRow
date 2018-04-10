@@ -18,7 +18,6 @@ namespace FrontRowCMS2.Data
         }
 
         //Site-wide DbSet
-        public DbSet<User> User { get; set; }
         public DbSet<Footer> Footer { get; set; }
 
         //DbSet for Home Page

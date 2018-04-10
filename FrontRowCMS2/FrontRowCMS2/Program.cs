@@ -9,6 +9,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using FrontRowCMS2.Data;
+using FrontRowCMS2.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace FrontRowCMS2
 {
@@ -26,7 +28,8 @@ namespace FrontRowCMS2
                 try
                 {
                     var context = services.GetRequiredService<ApplicationDbContext>();
-                    DbInitializer.Initialize(context);
+                    var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+                    DbInitializer.Initialize(context, userManager);
                 }
                 catch (Exception ex)
                 {

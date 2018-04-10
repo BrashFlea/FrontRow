@@ -137,15 +137,15 @@
 
             @if (isEditable == "true")
                 {
-                    <div class="text-center loginLink">
-                        <a href="~/home/logout" class="">Logout</a>
-                    </div>
-
+                    <form method="post" action="~/Account/Logout" class="text-center">
+                        <button type="submit" href="~/Account/Logout" class="btn btn-warning">Logout</button>
+                        <a href="~/Manage/" class="btn btn-info">Manage Account</a>
+                    </form>
                 }
                 else
                 {
                     <div class="text-center loginLink">
-                        <a href="~/home/login" class="">Login</a>
+                        <a href="~/Account/Login" class="">Login</a>
                     </div>
                 }
 
