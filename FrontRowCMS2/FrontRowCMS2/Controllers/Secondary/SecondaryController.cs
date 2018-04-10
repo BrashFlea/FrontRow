@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 
 namespace FrontRowCMS2.Controllers
 {
@@ -29,6 +30,15 @@ namespace FrontRowCMS2.Controllers
 
         public async Task<IActionResult> Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                HttpContext.Session.SetString("isEditable", "true");
+            }
+            else
+            {
+                HttpContext.Session.SetString("isEditable", "false");
+            }
+
             Page Page = new Page();
 
             Page.Footer = await _context.Footer.FirstOrDefaultAsync();

@@ -33,7 +33,10 @@ namespace FrontRowCMS2.Controllers
             {
                 HttpContext.Session.SetString("isEditable", "true");
             }
-
+            else
+            {
+                HttpContext.Session.SetString("isEditable", "false");
+            }
 
             Page page = new Page();
             page.Footer = await _context.Footer.FirstOrDefaultAsync();
@@ -250,17 +253,6 @@ namespace FrontRowCMS2.Controllers
             }
             return Redirect(returnurl);
         }
-
-        //public IActionResult Login()
-        //{
-        //    HttpContext.Session.SetString("isEditable", "true");
-        //    return RedirectToAction(nameof(HomeController.Index), "Home");
-        //}
-        //public IActionResult Logout()
-        //{
-        //    HttpContext.Session.SetString("isEditable", "false");
-        //    return RedirectToAction(nameof(HomeController.Index), "Home");
-        //}
 
         public IActionResult Error()
         {
