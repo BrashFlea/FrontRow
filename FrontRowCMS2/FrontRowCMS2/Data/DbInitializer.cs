@@ -29,7 +29,7 @@ namespace FrontRowCMS2.Data
             ///FOOTER
             context.Footer.Add(new Footer { ContactEmail = "info@yfut.org", ContactPhone = "801-528-1214", MailingAddressLine1 = "POB 160301", MailingAddressLine2 = "Clearfield, UT 84016",
                 ShelterAddressLine1 = "2760 S. Adams Ave", ShelterAddressLine2 = "Ogden, UT 84403", HomeImage = "page_1.png", InstagramLink = "",
-                TwitterLink = "", TumblrLink = "", FacebookLink = ""
+                TwitterLink = "", TumblrLink = "", FacebookLink = "https://www.facebook.com/YouthFuturesUT/"
             });
             context.SaveChanges();
 
