@@ -67,7 +67,7 @@ namespace FrontRowCMS2.Data
 
             context.BottomHomePage.Add(new BottomHomePage {
                 Service1 = new LinkSubContent { Title = "Apply To Volunteer", Description = "Make your mark where it matters. Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse.", Image = "hand_icon.png", Link = "/secondary#donateMain" },
-                Service2 = new LinkSubContent { Title = "Youth Stories", Description = "Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse nec tortor urna.", Image = "girl_icon.png", Link = "#" },
+                Service2 = new LinkSubContent { Title = "Youth Stories", Description = "Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse nec tortor urna.", Image = "girl_icon.png", Link = "/secondary#storiesMain" },
                 Service3 = new LinkSubContent { Title = "Events", Description = "Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse nec tortor urna.", Image = "calendar_icon.png", Link = "/secondary#eventsMain" }
 
             });
