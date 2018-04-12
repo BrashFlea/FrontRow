@@ -29,7 +29,7 @@ namespace FrontRowCMS2.Data
             ///FOOTER
             context.Footer.Add(new Footer { ContactEmail = "info@yfut.org", ContactPhone = "801-528-1214", MailingAddressLine1 = "POB 160301", MailingAddressLine2 = "Clearfield, UT 84016",
                 ShelterAddressLine1 = "2760 S. Adams Ave", ShelterAddressLine2 = "Ogden, UT 84403", HomeImage = "page_1.png", InstagramLink = "",
-                TwitterLink = "", TumblrLink = "", FacebookLink = ""
+                TwitterLink = "https://twitter.com/youthfuturesut?lang=en", TumblrLink = "", FacebookLink = "https://www.facebook.com/YouthFuturesUT/"
             });
             context.SaveChanges();
 
@@ -54,7 +54,7 @@ namespace FrontRowCMS2.Data
 
             context.Services.Add(new FrontRowCMS2.Models.Home.Services {
                 MainText = "Our programming is divided into three main areas. Each program area has specific components to meet the needs of the youth in need.",
-                Service1 = new LinkSubContent { Title = "Overnight Shelter", Description = "Located in the heart of downtown Ogden, Utah, Youth Futures provides emergency shelter, temporary residence and supportive services for runaway, homeless, unaccompanied and at-risk youth ages 12-17.  The shelter is open 24 hours per day.", Image = "house_icon.png", Link = "/secondary#sheltersMain" },
+                Service1 = new LinkSubContent { Title = "Overnight Shelter", Description = "Located in the heart of downtown Ogden, Utah, Youth Futures provides emergency shelter, temporary residence and supportive services for runaway, homeless, unaccompanied and at-risk youth ages 12-17.  The shelter is open 24 hours per day.", Image = "house_icon.png", Link = "/secondary#historyBanner" },
                 Service2 = new LinkSubContent { Title = "Drop In Services", Description = "Available to any youth ages 12-18. Drop-in services allow for the youth to access food, clothing, hygiene items, laundry facilities, computer stations, and case management. Drop-in hours are 6:30 am to 8:00 pm every day of the week.", Image = "door_icon.png", Link = "/secondary#dropinsMain" },
                 Service3 = new LinkSubContent { Title = "Street Outreach", Description = "Youth Futures’ Street Outreach is conducted once per week and provides outreach and crisis services to youth in Ogden City, Utah. ", Image = "van_icon.png", Link = "/secondary#outreachBanner" }
             });
@@ -66,9 +66,9 @@ namespace FrontRowCMS2.Data
             context.SaveChanges();
 
             context.BottomHomePage.Add(new BottomHomePage {
-                Service1 = new LinkSubContent { Title = "Apply To Volunteer", Description = "Make your mark where it matters. Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse.", Image = "hand_icon.png", Link = "/secondary#donateMain" },
-                Service2 = new LinkSubContent { Title = "Youth Stories", Description = "Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse nec tortor urna.", Image = "girl_icon.png", Link = "#" },
-                Service3 = new LinkSubContent { Title = "Events", Description = "Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse nec tortor urna.", Image = "calendar_icon.png", Link = "/secondary#calendarMain" }
+                Service1 = new LinkSubContent { Title = "Apply To Volunteer", Description = "Make your mark where it matters. Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse.", Image = "hand_icon.png", Link = "/secondary#contactMain" },
+                Service2 = new LinkSubContent { Title = "Youth Stories", Description = "Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse nec tortor urna.", Image = "girl_icon.png", Link = "/secondary#storiesMain" },
+                Service3 = new LinkSubContent { Title = "Events", Description = "Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse nec tortor urna.", Image = "calendar_icon.png", Link = "/secondary#eventsMain" }
 
             });
 
