@@ -1421,6 +1421,28 @@ hr{
     padding-bottom: 3%;
 }
 
+.calendar_month {
+    /*width: 1101.6px;*/
+    height: 36px;
+    font-family: Montserrat;
+    font-size: 32px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    /*line-height: 1.13;*/
+    letter-spacing: normal;
+    color: #1c5788;
+    color: var(--dark-blue);
+}
+
+.calendar_dropdown {
+    /*width: 1130px;*/
+    width: 80%;
+    height: 78px;
+    background-color: #6a6a6a;
+    background-color: var(--brownish-grey);
+}
+
 .needs {
     background-color: white;
 }
