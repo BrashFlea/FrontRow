@@ -43,7 +43,8 @@ namespace FrontRowCMS2.Data
 		public DbSet<TextSubContent> TextSubContent { get; set; }
 		public DbSet<YouthStory> YouthStories {get; set;}
 		public DbSet<YouthStorySection> YouthStorySection { get; set; }
-        public DbSet<SecondaryPage> SecondaryPage { get; set; }
+    public DbSet<ContactInfo> ContactInfo { get; set; }
+    public DbSet<SecondaryPage> SecondaryPage { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

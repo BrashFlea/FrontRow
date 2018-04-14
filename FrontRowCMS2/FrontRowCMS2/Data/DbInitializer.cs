@@ -12,14 +12,14 @@ namespace FrontRowCMS2.Data
 {
     public class DbInitializer
     {
+      
 		public static void Initialize(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
 		{
 			//TODO: REMOVE BEFORE PRODUCTION
 			context.Database.EnsureDeleted();
 			context.Database.EnsureCreated();
 
-
-			//Look for proff that database has been seeded
+			//Look for proof that database has been seeded
 			if (context.History.Any())
 			{
 				return; //Skip initialization if already been seeded
@@ -69,7 +69,6 @@ namespace FrontRowCMS2.Data
 				Service1 = new LinkSubContent { Title = "Apply To Volunteer", Description = "Make your mark where it matters. Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse.", Image = "hand_icon.png", Link = "/secondary#contactMain" },
 				Service2 = new LinkSubContent { Title = "Youth Stories", Description = "Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse nec tortor urna.", Image = "girl_icon.png", Link = "/secondary#storiesMain" },
 				Service3 = new LinkSubContent { Title = "Events", Description = "Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse nec tortor urna.", Image = "calendar_icon.png", Link = "/secondary#eventsMain" }
-
 			});
 
 			#endregion
@@ -99,7 +98,7 @@ namespace FrontRowCMS2.Data
 			{
 				TextArea1 = "During the 2014 Legislative Session, HB132 was passed, which allowed for rewriting the prohibitive law and drafting licensing procedures for residential support programs for temporary homeless youth shelter in Utah. Youth Futures and other homeless youth service providers participated in the rules writing process. The licensing rules enrolled on October 22, 2014, and the founders began to set-up the facility for licensing. Youth Futures received the first license for homeless youth shelter granted in the State of Utah under the new law. ",
 				TextArea2 = "During the first full year of operations (February 20, 2015-March 31, 2016), our Residential Support Temporary Youth Shelter has:",
-				Operation1 = new TextSubContent { Image = "history_meal.svg", Description = "Served 7,085 meals; 3 meals a day and 2 snacks for shelter and drop-in youth. Opened the resource room 354 times with access to basic nec-essities including clothing, hygiene items, back packs, blankets, sleeping bags, basic medical supplies, etc.", ContentType = "Operation" },
+				Operation1 = new TextSubContent { Image = "history_meal.svg", Description = "Served 7,085 meals; 3 meals a day and 2 snacks for shelter and drop-in youth. Opened the resource room 354 times with access to basic necessities including clothing, hygiene items, back packs, blankets, sleeping bags, basic medical supplies, etc.", ContentType = "Operation" },
 				Operation2 = new TextSubContent { Image = "history_hand.svg", Description = "Conducted more than 245 street outreach hours and provided items from the resource room to street youth.", ContentType = "Operation" },
 				Operation3 = new TextSubContent { Image = "house_icon2.png", Description = "Provided 1,535 shelter night stays and 511 drop in services including case management, connections to health care, mental health care and group therapy, facilitation with other youth service providers, computer access, showers, laundry facilities, etc.", ContentType = "Operation" }
 			});
@@ -155,32 +154,32 @@ namespace FrontRowCMS2.Data
 			//DONOR
 			var donor = new Donor[]
 			{
-                //PLATINUM
-                new Donor{Level=DonorType.Platinum, Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
+        //PLATINUM
+        new Donor{Level=DonorType.Platinum, Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
 				new Donor{Level=DonorType.Platinum, Name="IVY LANE PEDIATRICS", Year="2016"},
 				new Donor{Level=DonorType.Platinum, Name="SORENSON LEGACY FOUNDATION", Year="2015"},
 				new Donor{Level=DonorType.Platinum, Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
 				new Donor{Level=DonorType.Platinum, Name="IVY LANE PEDIATRICS", Year="2016"},
 				new Donor{Level=DonorType.Platinum, Name="SORENSON LEGACY FOUNDATION", Year="2015"},
 
-                //GOLD
-                new Donor{Level=DonorType.Gold, Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
+        //GOLD
+        new Donor{Level=DonorType.Gold, Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
 				new Donor{Level=DonorType.Gold, Name="IVY LANE PEDIATRICS", Year="2016"},
 				new Donor{Level=DonorType.Gold, Name="SORENSON LEGACY FOUNDATION", Year="2015"},
 				new Donor{Level=DonorType.Gold, Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
 				new Donor{Level=DonorType.Gold, Name="IVY LANE PEDIATRICS", Year="2016"},
 				new Donor{Level=DonorType.Gold, Name="SORENSON LEGACY FOUNDATION", Year="2015"},
 
-                //SILVER
-                new Donor{Level=DonorType.Silver, Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
+        //SILVER
+        new Donor{Level=DonorType.Silver, Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
 				new Donor{Level=DonorType.Silver, Name="IVY LANE PEDIATRICS", Year="2016"},
 				new Donor{Level=DonorType.Silver, Name="SORENSON LEGACY FOUNDATION", Year="2015"},
 				new Donor{Level=DonorType.Silver, Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
 				new Donor{Level=DonorType.Silver, Name="IVY LANE PEDIATRICS", Year="2016"},
 				new Donor{Level=DonorType.Silver, Name="SORENSON LEGACY FOUNDATION", Year="2015"},
 
-                //BRONZE
-                new Donor{Level=DonorType.Bronze, Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
+        //BRONZE
+        new Donor{Level=DonorType.Bronze, Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
 				new Donor{Level=DonorType.Bronze, Name="IVY LANE PEDIATRICS", Year="2016"},
 				new Donor{Level=DonorType.Bronze, Name="SORENSON LEGACY FOUNDATION", Year="2015"},
 				new Donor{Level=DonorType.Bronze, Name="MILLER FAMILY FOUNDATION LARRY H. & GAIL", Year="2015 & 2016"},
@@ -246,6 +245,17 @@ namespace FrontRowCMS2.Data
                                                             Info = "Youth Futures is hosting it’s 6th Annual Charity Dinner Auction at the Meydenbauer Center in Bellevue, WA. Join us for an evening of glamor and geekery, hosted by Mike “Gabe” Krahulik and Jerry “Tycho” Holkins of Penny Arcade and featuring auction items from every corner of the nerd (and non-nerd) universe."
             });
 
+
+            //ContactInfo
+            context.ContactInfo.Add(new ContactInfo
+            {
+                Header1 = "CALL US",
+                PhoneNumber = "Tel: 801-528-1214",
+                Header2 = "COME SEE US",
+                AddressLine1 = "2760 S. Adams Ave. Ogden, UT",
+                AddressLine2 = "Ogden, Utah, 84403"
+            });
+            context.SaveChanges();
 
             #endregion
 
