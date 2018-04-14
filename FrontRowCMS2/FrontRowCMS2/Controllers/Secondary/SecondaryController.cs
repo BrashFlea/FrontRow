@@ -65,6 +65,8 @@ namespace FrontRowCMS2.Controllers
             Page.SecondaryPage.ListOfNeeds = await _context.Needs.FirstOrDefaultAsync();
             Page.SecondaryPage.ContactInfo = await _context.ContactInfo.FirstOrDefaultAsync();
 
+			Page.SecondaryPage.YouthStory = await _context.YouthStorySection.FirstOrDefaultAsync();
+
             return View(Page);
         }
 
@@ -297,6 +299,42 @@ namespace FrontRowCMS2.Controllers
             }
             return View(donate);
         }
+
+
+		//GET: EditYouthStories
+		[Authorize]
+		public async Task<IActionResult> EditYouthStories()
+		{
+			var youthStories = await _context.YouthStorySection.FirstOrDefaultAsync();
+			youthStories.youthStories = new List<YouthStory>();
+			foreach (var story in _context.YouthStories ) {
+				youthStories.youthStories.Add(story);
+			}
+			return View(youthStories);
+		}
+
+		//POST: EditDonate
+		[HttpPost]
+		[Authorize]
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> EditYouthStories([Bind("ID,Body,YouthStories")] YouthStorySection youthStorySection)
+		{
+			if (ModelState.IsValid)
+			{
+				try
+				{
+					_context.Update(youthStorySection);
+					await _context.SaveChangesAsync();
+				}
+				catch (DbUpdateException ex)
+				{
+					ModelState.AddModelError("", "Unable to save changes. " +
+					"Try again, and if the problem persister " +
+					"see your system administrator for assitance.");
+				}
+			}
+			return View(youthStorySection);
+		}
 
         //GET: EditContactInfo
         [Authorize]
