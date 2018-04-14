@@ -60,9 +60,10 @@ namespace FrontRowCMS2.Controllers
             Page.SecondaryPage.Donate = await _context.Donate.FirstOrDefaultAsync();
             Page.SecondaryPage.Donate.Donate1 = await _context.TextSubContent.Where(c => c.ID == 4).FirstAsync();
             Page.SecondaryPage.Donate.Donate2 = await _context.TextSubContent.Where(c => c.ID == 5).FirstAsync();
-            Page.SecondaryPage.Donate.Donate2 = await _context.TextSubContent.Where(c => c.ID == 6).FirstAsync();
+            Page.SecondaryPage.Donate.Donate3 = await _context.TextSubContent.Where(c => c.ID == 6).FirstAsync();
 
             Page.SecondaryPage.ListOfNeeds = await _context.Needs.FirstOrDefaultAsync();
+            Page.SecondaryPage.ContactInfo = await _context.ContactInfo.FirstOrDefaultAsync();
 
             return View(Page);
         }
@@ -295,6 +296,38 @@ namespace FrontRowCMS2.Controllers
                 }
             }
             return View(donate);
+        }
+
+        //GET: EditContactInfo
+        [Authorize]
+        public async Task<IActionResult> EditContactInfo()
+        {
+            var contactInfo = await _context.ContactInfo.FirstOrDefaultAsync();
+            GetImages();
+            return View(contactInfo);
+        }
+
+        //POST: EditContactInfo
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditContactInfo([Bind("ID,Header1,PhoneNumber,Header2,AddressLine1,AddressLine2")] ContactInfo contactInfo)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(contactInfo);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException ex)
+                {
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persister " +
+                    "see your system administrator for assitance.");
+                }
+            }
+            return View(contactInfo);
         }
 
         public IActionResult Error()
