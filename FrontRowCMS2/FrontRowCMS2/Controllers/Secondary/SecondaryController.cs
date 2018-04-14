@@ -274,6 +274,7 @@ namespace FrontRowCMS2.Controllers
         }
 
         //GET: EditContactInfo
+        [Authorize]
         public async Task<IActionResult> EditContactInfo()
         {
             var contactInfo = await _context.ContactInfo.FirstOrDefaultAsync();
@@ -283,6 +284,7 @@ namespace FrontRowCMS2.Controllers
 
         //POST: EditContactInfo
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditContactInfo([Bind("ID,Header1,PhoneNumber,Header2,AddressLine1,AddressLine2")] ContactInfo contactInfo)
         {
