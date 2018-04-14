@@ -1421,10 +1421,10 @@ hr{
     padding-bottom: 3%;
 }
 
-.calendar_month {
+.calendar-month {
     /*width: 1101.6px;*/
     height: 36px;
-    font-family: Montserrat;
+    font-family: quicksand-bold;
     font-size: 32px;
     font-weight: normal;
     font-style: normal;
@@ -1432,15 +1432,15 @@ hr{
     /*line-height: 1.13;*/
     letter-spacing: normal;
     color: #1c5788;
-    color: var(--dark-blue);
 }
 
-.calendar_dropdown {
+.calendar-dropdown {
     /*width: 1130px;*/
     width: 80%;
     height: 78px;
     background-color: #6a6a6a;
-    background-color: var(--brownish-grey);
+    font-family: quicksand-bold;
+    font-size: 32px;
 }
 
 .needs {
