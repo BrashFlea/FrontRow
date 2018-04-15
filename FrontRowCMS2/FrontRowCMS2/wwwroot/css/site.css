@@ -1421,6 +1421,40 @@ hr{
     padding-bottom: 3%;
 }
 
+.calendar-month {
+    /*width: 1101.6px;*/
+    height: 36px;
+    font-family: quicksand-bold;
+    font-size: 32px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    /*line-height: 1.13;*/
+    letter-spacing: normal;
+    color: #1c5788;
+}
+
+.calendar-dropdown {
+    /*width: 1130px;*/
+    width: 100%;
+    height: 78px;
+    background-color: #6a6a6a;
+    font-family: quicksand-bold;
+    font-size: 32px;
+    position: relative;
+    display: inline-block;
+}
+
+.calendar-dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+}
+
+.calendar-dropdown:focus .calendar-dropdown-content {
+    display: block;
+}
+
 .needs {
     background-color: white;
 }

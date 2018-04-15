@@ -174,7 +174,7 @@
         </div>
     }
 
-    <div class="container-fluid" id="dropinsMain">
+    @*<div class="container-fluid" id="dropinsMain">
         <div class="row events_header">
             <div class="col-xs-6 text">
                 <h2 class="h2style1">Drop-ins</h2>
@@ -188,9 +188,10 @@
             <a class="btn btn-success editableButton" href="#" role="button">Edit Drop-Ins Section</a>
             <hr />
         </div>
-    }
+    }*@
 
-    <div class="container-fluid" id="sheltersMain">
+    
+    @*<div class="container-fluid" id="sheltersMain">
         <div class="row events_header">
             <div class="col-xs-6 text">
                 <h2 class="h2style1">Shelters</h2>
@@ -204,7 +205,7 @@
             <a class="btn btn-success editableButton" href="#" role="button">Edit Shelters Section</a>
             <hr />
         </div>
-    }
+    }*@
 
     <div class="container-fluid" id="directorsMain">
         <div class="row board_header board_main_img">
@@ -462,7 +463,6 @@
     }
 
     @Html.Raw(Model.SecondaryPage.ListOfNeeds.TextArea)
- 
 
     @if (@isEditable == "true")
     {
@@ -477,6 +477,25 @@
             <div class="col-xs-6 text">
                 <h2>Youth Futures</h2>
                 <h2 class="h2style1">Events</h2>
+            </div>
+        </div>
+
+        <div class="row events_header">
+            <div class="col-xs-11 text">
+                <h2 class="h2style1">Calendar</h2><br>
+                <p class="calendar-month">March 2017</p>
+                <button class="calendar-dropdown">FUNDRAISING EVENT</button>
+                <button class="calendar-dropdown">CHARITY DINNER</button>
+                <div class="calendar-dropdown-content">
+                    <p>WHAT     Weber State Youth Charity Dinner</p>
+                    <p>WHEN     03/8/2017 7:00-9:00 pm</p>
+                    <p>WHERE    Weber State University, Browning Center, Ballroom C</p><br>
+                    <p>INFO     Youth Futures is hosting it's 6th Annual Charity Dinner Auction at the Meydenbauer Center<br/>
+                                in Bellevue, WA. Join us for an evening of glamor and geekery, hosted by Mike "Gabe"<br/>
+                                Krahulik and Jerry "Tycho" Holkins of Penny Arcade and featuring auction items from every<br/>
+                                corner of the nerd (and non-nerd) universe.</p>
+                </div>
+                <button class="calendar-dropdown">HOMELESS AWARENESS PICNIC</button>
             </div>
         </div>
     </div>
