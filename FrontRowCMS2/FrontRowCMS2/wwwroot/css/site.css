@@ -1436,11 +1436,23 @@ hr{
 
 .calendar-dropdown {
     /*width: 1130px;*/
-    width: 80%;
+    width: 100%;
     height: 78px;
     background-color: #6a6a6a;
     font-family: quicksand-bold;
     font-size: 32px;
+    position: relative;
+    display: inline-block;
+}
+
+.calendar-dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+}
+
+.calendar-dropdown:focus .calendar-dropdown-content {
+    display: block;
 }
 
 .needs {
