@@ -13,6 +13,7 @@ using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using System.Text.RegularExpressions;
 
 namespace FrontRowCMS2.Controllers
 {
@@ -66,6 +67,11 @@ namespace FrontRowCMS2.Controllers
             Page.SecondaryPage.ContactInfo = await _context.ContactInfo.FirstOrDefaultAsync();
 
 			Page.SecondaryPage.YouthStory = await _context.YouthStorySection.FirstOrDefaultAsync();
+			//Page.SecondaryPage.YouthStory.youthStories = new List<YouthStory>();
+			/*foreach (var story in _context.YouthStories)
+			{
+				Page.SecondaryPage.YouthStory.youthStories.Add(story);
+			}*/
 
             return View(Page);
         }
@@ -317,12 +323,34 @@ namespace FrontRowCMS2.Controllers
 		[HttpPost]
 		[Authorize]
 		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> EditYouthStories([Bind("ID,Body,YouthStories")] YouthStorySection youthStorySection)
+		public async Task<IActionResult> EditYouthStories([Bind("ID,Background,Body")] YouthStorySection youthStorySection)
 		{
 			if (ModelState.IsValid)
 			{
 				try
 				{
+					List<YouthStory> stories = new List<YouthStory>();
+					for(int i = 0; i < Request.Form.Keys.Count; i++)
+					{
+						if (Request.Form.Keys.ElementAt(i).Equals("stories.TextArea"))
+						{
+							int j = 0;
+							foreach (var story in Regex.Split(((string)Request.Form.ElementAt(i).Value), "<p>(.*?)</p>"))
+							{
+								if(!story.Equals(",") && !story.Equals(""))
+									stories.Add(new YouthStory { ID = j++, TextArea = story });
+							}
+						}
+					}
+					youthStorySection.youthStories = new List<YouthStory>();
+					
+					foreach (var story in stories)
+					{
+						youthStorySection.youthStories.Add(story);
+					}
+					//var existing = await _context.YouthStorySection.FirstOrDefaultAsync();
+					//foreach (var item in existing.youthStories)
+					//	_context.YouthStories.Remove(item);
 					_context.Update(youthStorySection);
 					await _context.SaveChangesAsync();
 				}

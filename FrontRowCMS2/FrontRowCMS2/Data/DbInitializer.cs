@@ -210,18 +210,24 @@ namespace FrontRowCMS2.Data
 
 
 			//YOUTHSTORIES
-
-
 			context.YouthStories.Add(new YouthStory
 			{
-				TextArea = ""
+				TextArea = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consectetur, ligula quis iaculis bibendum, arcu risus lacinia mauris, ac condimentum libero justo dignissim nulla. Sed tristique tortor libero, nec maximus est consectetur in. Phasellus vel odio cursus, vehicula enim bibendum, lacinia nisl. Praesent vitae eleifend libero. Nam non leo at urna efficitur feugiat quis quis mi. Proin nec ultricies quam, sed venenatis nulla. Cras id elit sed justo tristique fermentum. Maecenas lobortis, ipsum at lobortis rutrum, erat orci consectetur elit, eget sagittis tellus quam a magna. Aliquam dictum nisi urna. Cras at bibendum massa, vel pharetra augue. Pellentesque dui nulla, pulvinar ut dignissim vel, convallis sollicitudin lacus. Morbi egestas auctor imperdiet. Etiam dictum rutrum purus in sodales. Nullam a erat lorem."
+			});
+			context.YouthStories.Add(new YouthStory
+			{
+				TextArea = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consectetur, ligula quis iaculis bibendum, arcu risus lacinia mauris, ac condimentum libero justo dignissim nulla. Sed tristique tortor libero, nec maximus est consectetur in. Phasellus vel odio cursus, vehicula enim bibendum, lacinia nisl. Praesent vitae eleifend libero. Nam non leo at urna efficitur feugiat quis quis mi. Proin nec ultricies quam, sed venenatis nulla. Cras id elit sed justo tristique fermentum. Maecenas lobortis, ipsum at lobortis rutrum, erat orci consectetur elit, eget sagittis tellus quam a magna. Aliquam dictum nisi urna. Cras at bibendum massa, vel pharetra augue. Pellentesque dui nulla, pulvinar ut dignissim vel, convallis sollicitudin lacus. Morbi egestas auctor imperdiet. Etiam dictum rutrum purus in sodales. Nullam a erat lorem."
+			});
+			context.YouthStories.Add(new YouthStory
+			{
+				TextArea = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consectetur, ligula quis iaculis bibendum, arcu risus lacinia mauris, ac condimentum libero justo dignissim nulla. Sed tristique tortor libero, nec maximus est consectetur in. Phasellus vel odio cursus, vehicula enim bibendum, lacinia nisl. Praesent vitae eleifend libero. Nam non leo at urna efficitur feugiat quis quis mi. Proin nec ultricies quam, sed venenatis nulla. Cras id elit sed justo tristique fermentum. Maecenas lobortis, ipsum at lobortis rutrum, erat orci consectetur elit, eget sagittis tellus quam a magna. Aliquam dictum nisi urna. Cras at bibendum massa, vel pharetra augue. Pellentesque dui nulla, pulvinar ut dignissim vel, convallis sollicitudin lacus. Morbi egestas auctor imperdiet. Etiam dictum rutrum purus in sodales. Nullam a erat lorem."
 			});
 			context.SaveChanges();
 
 			context.YouthStorySection.Add(new YouthStorySection
 			{
-				Body = "",
-				Background = ""
+				Body = "<p class=\"mont_regular_22_darkgray\">Here's a few stories from some of our youth.</p>",
+				Background = "contact_header.jpg"
 			});
 
 			context.SaveChanges();

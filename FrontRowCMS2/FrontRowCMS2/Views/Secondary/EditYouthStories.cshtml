@@ -29,7 +29,7 @@
 <hr />
 <div class="row">
 	<div class="col-md-4">
-		<form asp-action="EditOutreach">
+		<form asp-action="EditYouthStories">
 			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 			<input type="hidden" asp-for="ID" />
 			<div class="form-group">
@@ -44,6 +44,7 @@
 				<span asp-validation-for="Body" rows="30" class="text-danger"></span>
 			</div>
 			<div id="stories">
+				@if( Model.youthStories != null){
 				@foreach (var stories in Model.youthStories)
 				{
 					<div class="form-group">
@@ -51,8 +52,8 @@
 						<textarea asp-for="@stories.TextArea" class="form-control"></textarea>
 						<span asp-validation-for="@stories.TextArea" rows="30" class="text-danger"></span>
 						<input type="button" value="Remove Story" class="btn btn-default" />
-
 					</div>
+				}
 				}
 			</div>
 			<div class="form-group">
