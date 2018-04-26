@@ -67,11 +67,7 @@ namespace FrontRowCMS2.Controllers
             Page.SecondaryPage.ContactInfo = await _context.ContactInfo.FirstOrDefaultAsync();
 
 			Page.SecondaryPage.YouthStory = await _context.YouthStorySection.FirstOrDefaultAsync();
-			//Page.SecondaryPage.YouthStory.youthStories = new List<YouthStory>();
-			/*foreach (var story in _context.YouthStories)
-			{
-				Page.SecondaryPage.YouthStory.youthStories.Add(story);
-			}*/
+			Page.SecondaryPage.YouthStories = await _context.YouthStories.ToListAsync();
 
             return View(Page);
         }
@@ -313,7 +309,7 @@ namespace FrontRowCMS2.Controllers
 		{
 			var youthStories = await _context.YouthStorySection.FirstOrDefaultAsync();
 			youthStories.youthStories = new List<YouthStory>();
-			foreach (var story in _context.YouthStories ) {
+			foreach (var story in await _context.YouthStories.ToListAsync() ) {
 				youthStories.youthStories.Add(story);
 			}
 			return View(youthStories);
@@ -334,7 +330,7 @@ namespace FrontRowCMS2.Controllers
 					{
 						if (Request.Form.Keys.ElementAt(i).Equals("stories.TextArea"))
 						{
-							int j = 0;
+							int j = 1;
 							foreach (var story in Regex.Split(((string)Request.Form.ElementAt(i).Value), "<p>(.*?)</p>"))
 							{
 								if(!story.Equals(",") && !story.Equals(""))
@@ -342,15 +338,25 @@ namespace FrontRowCMS2.Controllers
 							}
 						}
 					}
-					youthStorySection.youthStories = new List<YouthStory>();
-					
-					foreach (var story in stories)
+
+					foreach (YouthStory story in stories)
 					{
-						youthStorySection.youthStories.Add(story);
+						if (!_context.YouthStories.Any(s => s.ID == story.ID))
+						{
+							_context.YouthStories.Add(story);
+						}
+						else
+						{
+							YouthStory storyToUpdate = _context.YouthStories
+							  .Where(s => s.ID == story.ID).FirstOrDefault();
+
+							if (storyToUpdate != null)
+							{
+								_context.Entry(storyToUpdate).CurrentValues.SetValues(story);
+							}
+						}
 					}
-					//var existing = await _context.YouthStorySection.FirstOrDefaultAsync();
-					//foreach (var item in existing.youthStories)
-					//	_context.YouthStories.Remove(item);
+					youthStorySection.youthStories = await _context.YouthStories.ToListAsync();
 					_context.Update(youthStorySection);
 					await _context.SaveChangesAsync();
 				}

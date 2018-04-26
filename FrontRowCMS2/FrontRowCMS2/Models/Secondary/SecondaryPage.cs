@@ -24,6 +24,7 @@ namespace FrontRowCMS2.Models.Secondary
         public Calendar Calendar { get; set; }
         public ContactInfo ContactInfo { get; set; }
 		public YouthStorySection YouthStory { get; set; }
+		public List<YouthStory> YouthStories { get; set; }
         public Footer Footer { get; set; }
     }
 }
