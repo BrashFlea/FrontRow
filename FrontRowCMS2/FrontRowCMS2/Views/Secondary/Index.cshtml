@@ -11,568 +11,584 @@
 
 <article>
 
-    <div class="container-fluid">
-        <div class="row  questions">
-            <div class="col-sm-12 col-md-7 text">
-                <p>@Model.SecondaryPage.SecondaryHeader.TitleText</p>
-            </div>
-
-            <div class="col-sm-12 col-md-5 phone">
-                <p>@Model.SecondaryPage.SecondaryHeader.PhoneNumber</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid" id="historyBanner">
-        <div class="row hist_main_img">
-            <div class="col-xs-8 text">
-                <h2>@Model.SecondaryPage.SecondaryHeader.ImageText1</h2>
-                <h2 class="h2style1">@Model.SecondaryPage.SecondaryHeader.ImageText2</h2>
-            </div>
-        </div>
-    </div>
-
-    @if (@isEditable == "true")
-    {
-        <div class="row text-center">
-            <a class="btn btn-success editableButton" href="~/Secondary/EditHeader" role="button">Edit History Banner</a>
-            <hr />
-        </div>
-    }
-
-    <div class="container-fluid">
-        <div class="row history_text">
-            <section class="col-xs-12">
-                <p class="mont_regular_22_darkgray">@Model.SecondaryPage.History.TextArea1</p>
-            </section>
-        </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="row history_text_pics">
-            <section class="col-xs-12  col-md-4 first_img ">
-                <img src="~/images/@(Model.SecondaryPage.History.Image1)" class="img-responsive center-block" title="@(Model.SecondaryPage.History.Caption1)" alt="@(Model.SecondaryPage.History.Caption1)">
-                <p class="mont_light_14_white hist_subtitle">@Model.SecondaryPage.History.Caption1</p>
-            </section>
-
-            <section class="col-xs-12 col-md-4 second_img">
-                <img src="~/images/@(Model.SecondaryPage.History.Image2)" class="img-responsive img-responsive center-block" title="@(Model.SecondaryPage.History.Caption2)" alt="@(Model.SecondaryPage.History.Caption2)">
-                <p class="mont_light_14_white hist_subtitle">@Model.SecondaryPage.History.Caption2</p>
-            </section>
-
-            <section class="col-xs-12 col-md-4 third_img">
-                <img src="~/images/@(Model.SecondaryPage.History.Image3)" class="img-responsive center-block" title="@(Model.SecondaryPage.History.Caption3)" alt="@(Model.SecondaryPage.History.Caption3)">
-                <p class="mont_light_14_white hist_subtitle">@Model.SecondaryPage.History.Caption3</p>
-            </section>
-        </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="row history_text">
-            <section class="col-xs-12">
-                <p class="mont_regular_22_darkgray">@Model.SecondaryPage.History.TextArea2</p>
-            </section>
-        </div>
-    </div>
-
-    @if (@isEditable == "true")
-    {
-        <div class="row text-center ">
-            <a class="btn btn-success editableButton" href="~/Secondary/EditHistory" role="button">Edit History Section</a>
-            <hr />
-        </div>
-    }
-
-    <div class="container-fluid">
-        <div class="row hist_2nd_back_img">
-            <section class="col-xs-12 hist_2nd_back_img_text">
-                <h4>5,000 youth experience homelessness for at least one night a year in Utah</h4>
-            </section>
-        </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="row history_text">
-            <section class="col-xs-12">
-                <p class="mont_regular_22_darkgray">@Model.SecondaryPage.Operation.TextArea1</p>
-            </section>
-        </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="row history_green_text">
-            <section class="col-xs-12">
-                <p class="mont_light_32_white">@Model.SecondaryPage.Operation.TextArea2</p>
-            </section>
-        </div>
-    </div>
-
-    <div class="container-fluid">
-        <section class="row more">
-            <div class="col-xs-12 col-md-4 more_volunteer">
-                <img src="~/images/@(Model.SecondaryPage.Operation.Operation1.Image)" title="Meal" alt="Meal">
-                <p class="vol_p mont_light_18_darkgray">@(Model.SecondaryPage.Operation.Operation1.Description)</p>
-            </div>
-
-            <div class="col-xs-12 col-md-4 more_stories">
-                <img src="~/images/@(Model.SecondaryPage.Operation.Operation2.Image)" title="Outreach Hand" alt="Hand">
-                <p class="youth_p mont_light_18_darkgray">@(Model.SecondaryPage.Operation.Operation2.Description)</p>
-            </div>
-
-            <div class="col-xs-12 col-md-4 more_events">
-                <img src="~/images/@(Model.SecondaryPage.Operation.Operation3.Image)" title="House" alt="House">
-                <p class="events_p mont_light_18_darkgray">@(Model.SecondaryPage.Operation.Operation3.Description)</p>
-            </div>
-        </section>
-    </div>
-
-    @if (@isEditable == "true")
-    {
-        <div class="row text-center ">
-            <a class="btn btn-success editableButton" href="~/Secondary/EditOperation" role="button">Edit Operations Section</a>
-            <hr />
-        </div>
-    }
-    
-    <div class="container-fluid" id="outreachBanner">
-        <div class="row outreach_main_img">
-            <div class="col-xs-8 text">
-                <h2>Street</h2>
-                <h2 class="h2style1">Outreach</h2>
-            </div>
-        </div>
-    </div>
-
-    @Html.Raw(Model.SecondaryPage.Outreach.TextArea)
-    @*<div class="container-fluid">
-        <div class="row outreach_text">
-            <section class="col-xs-12">
-                <p class="mont_regular_22_darkgray">Street Outreach is designed to meet the clients where they are on the street to build rapport and encourage youth to access drop-in and shelter services. This program offers, case management, hygiene items, food, sleeping bags, and other essential items as needed. Street Outreach currently take place once per week on Wednesdays. The team visits the same Ogden, Utah locations every week:</p>
-            </section>
-        </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="row outreach_bullet">
-            <ul class="row">
-                <li class="col-md-6">Jefferson Park</li>
-                <li class="col-md-6">Marchall White Center Park</li>
-                <li class="col-md-6">Lorin Farr Skate Park</li>
-
-                <li class="col-md-6">Basketball Court at Bonneville Park</li>
-                <li class="col-md-6">Under the Ogden River Bridge (sporadic)</li>
-                <li class="col-md-6">Lantern House Homeless Shelter</li>
-            </ul>
-        </div>
-    </div>*@
-
-    @if (@isEditable == "true")
-    {
-        <div class="row text-center ">
-            <a class="btn btn-success editableButton" href="~/Secondary/EditOutreach" role="button">Edit Outreach Section</a>
-            <hr />
-        </div>
-    }
-
-    @*<div class="container-fluid" id="dropinsMain">
-        <div class="row events_header">
-            <div class="col-xs-6 text">
-                <h2 class="h2style1">Drop-ins</h2>
-            </div>
-        </div>
-    </div>
-
-    @if (@isEditable == "true")
-    {
-        <div class="row text-center ">
-            <a class="btn btn-success editableButton" href="#" role="button">Edit Drop-Ins Section</a>
-            <hr />
-        </div>
-    }*@
-
-    
-    @*<div class="container-fluid" id="sheltersMain">
-        <div class="row events_header">
-            <div class="col-xs-6 text">
-                <h2 class="h2style1">Shelters</h2>
-            </div>
-        </div>
-    </div>
-
-    @if (@isEditable == "true")
-    {
-        <div class="row text-center ">
-            <a class="btn btn-success editableButton" href="#" role="button">Edit Shelters Section</a>
-            <hr />
-        </div>
-    }*@
-
-    <div class="container-fluid" id="directorsMain">
-        <div class="row board_header board_main_img">
-            <div class="col-xs-6 text">
-                <h2>Board of</h2>
-                <h2 class="h2style1">Directors</h2>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="row board_members">
-            @foreach (var director in Model.SecondaryPage.Directors)
-            {
-                <div class="col-xs-12 col-md-4">
-                    <p>
-                        <span class="name">@director.Name</span>
-                        <br />@director.Title1
-                        <br />@director.Title2<br />
-                        <span class="email">@director.Email</span>
-                    </p>
-                </div>
-
-            }
-        </div>
-    </div>
-
-    <div class="container-fluid" id="staffMain">
-        <div class="row board_header staff_main_img">
-            <div class="col-xs-6 text">
-                <h2>Youth Futures</h2>
-                <h2 class="h2style1">Staff</h2>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="row board_members">
-            @foreach (var staff in Model.SecondaryPage.Staff)
-            {
-                <div class="col-xs-12 col-md-4">
-                    <img src="~/images/@(staff.Image)" class="img-responsive" title="@(staff.Name)" alt="@(staff.Name)">
-                    <p>
-                        <span class="name">@staff.Name</span>
-                        <br />@staff.Title1
-                        <br />@staff.Title2<br />
-                        <span class="email">@staff.Email</span>
-                    </p>
-                </div>
-            }
-        </div>
-    </div>
-
-    @if (@isEditable == "true")
-    {
-    <div class="row text-center ">
-        <a class="btn btn-success editableButton" href="~/Staff/Create" role="button">Add Directors & Staff</a>
-        <a class="btn btn-success editableButton" href="~/Staff" role="button">Edit Directors & Staff</a>
-        <hr />
-    </div>
-    }
-
-    <div class="container-fluid" id="mediaMain">
-        <div class="row media_header media_main_img">
-            <div class="col-xs-6 text">
-                <h2>Media</h2>
-                <h2 class="h2style1">Recognition</h2>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="row media_subheader">
-            <div class="col-xs-12 ">
-                <p class="title">@Model.SecondaryPage.MediaEvent.Title</p>
-                <p class="mont_regular_22_darkgray time">@Model.SecondaryPage.MediaEvent.Time</p>
-                <a class="link" href="#">inShare</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="row media_pic">
-            <div class="col-xs-12 col-lg-7 pic">
-                <img src="~/images/@(Model.SecondaryPage.MediaEvent.Image)" class="img-responsive center-block" title="@Model.SecondaryPage.MediaEvent.Image_Title" alt="@Model.SecondaryPage.MediaEvent.Image_Title">
-            </div>
-
-            <div class="col-xs-12 col-lg-3 subtext">
-                <p class="subtitle">@Model.SecondaryPage.MediaEvent.Caption</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="row media_text">
-            <section class="col-xs-12">
-                <p class="mont_regular_22_darkgray">
-                    @Model.SecondaryPage.MediaEvent.Description1
-                    <br />
-                    <br />
-                    @Model.SecondaryPage.MediaEvent.Description2
-                </p>
-            </section>
-        </div>
-    </div>
-
-    @if (@isEditable == "true")
-    {
-        <div class="row text-center ">
-            <a class="btn btn-success editableButton" href="~/Secondary/EditMediaEvent" role="button">Edit Media Section</a>
-            <hr />
-        </div>
-    }
-
-
-    <div class="container-fluid" id="donorsMain">
-        <div class="row donor_header donor_main_img">
-            <div class="col-xs-6 text">
-                <h2>Donor</h2>
-                <h2 class="h2style1">Recognition</h2>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="container-fluid">
-        <div class="row donor_subheader">
-            <div class="col-xs-12 ">
-                <p class="title_plat">Plantinum Level Donors</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid row donor_list">
-        @foreach (var platDonor in Model.SecondaryPage.PlatinumDonors)
-        {
-            <div class="col-xs-4 donor_box plat">
-                <p class="donor_name">@platDonor.Name</p>
-                <p class="year">@platDonor.Year</p>
-            </div>
-
-        }
-    </div>
-
-    <div class="container-fluid">
-        <div class="row donor_subheader">
-            <div class="col-xs-12 ">
-                <p class="title_gold">Gold Level Donors</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid row donor_list">
-        @foreach (var goldDonor in Model.SecondaryPage.GoldDonors)
-        {
-        <div class="col-xs-4 donor_box gold">
-            <p class="donor_name">@goldDonor.Name</p>
-            <p class="year">@goldDonor.Year</p>
-        </div>
-
-        }
-    </div>
-
-    <div class="container-fluid">
-        <div class="row donor_subheader">
-            <div class="col-xs-12 ">
-                <p class="title_silver">Silver Level Donors</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid row donor_list">
-        @foreach (var silverDonor in Model.SecondaryPage.SilverDonors)
-        {
-        <div class="col-xs-4 donor_box silver">
-            <p class="donor_name">@silverDonor.Name</p>
-            <p class="year">@silverDonor.Year</p>
-        </div>
-
-        }
-    </div>
-
-    <div class="container-fluid">
-        <div class="row donor_subheader">
-            <div class="col-xs-12 ">
-                <p class="title_bronze">Bronze Level Donors</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid row donor_list">
-        @foreach (var bronzeDonor in Model.SecondaryPage.BronzeDonors)
-        {
-        <div class="col-xs-4 donor_box bronze">
-            <p class="donor_name">@bronzeDonor.Name</p>
-            <p class="year">@bronzeDonor.Year</p>
-        </div>
-
-        }
-    </div>
-
-    @if (@isEditable == "true")
-    {
-    <div class="row text-center">
-        <a class="btn btn-success editableButton" href="~/Donor/Create" role="button">Add New Donor</a>
-        <a class="btn btn-success editableButton" href="~/Donor" role="button">Edit Donors</a>
-        <hr />
-    </div>
-    }
-
-    <div class="container-fluid" id="donateMain">
-        <div class="row donor_header donate_main_img">
-            <div class="col-xs-6 text">
-                <h2>How to </h2>
-                <h2 class="h2style1">Donate</h2>
-            </div>
-        </div>
-
-        <div class="row donate_help">
-            <div class="col-xs-12">
-                <p>@Model.SecondaryPage.Donate.TextArea1</p>
-            </div>
-        </div>
-
-        <div class="row media_text">
-            <div class="col-xs-12">
-                <p class="mont_regular_22_darkgray">@Model.SecondaryPage.Donate.TextArea2</p>
-            </div>
-        </div>
-
-        <section class="row more">
-            <div class="col-xs-12 col-lg-4 more_volunteer">
-                <img src="~/images/@(Model.SecondaryPage.Donate.Donate1.Image)" title="Dollar" alt="Dollar">
-                <p class="vol_p mont_light_18_darkgray">@Model.SecondaryPage.Donate.Donate1.Description</p>
-            </div>
-
-            <div class="col-xs-12 col-lg-4 more_stories">
-                <img src="~/images/@(Model.SecondaryPage.Donate.Donate2.Image)" title="Cart" alt="Cart">
-                <p class="youth_p mont_light_18_darkgray">@Model.SecondaryPage.Donate.Donate2.Description</p>
-            </div>
-
-            <div class="col-xs-12 col-lg-4 more_events">
-                <img src="~/images/@(Model.SecondaryPage.Donate.Donate3.Image)" title="Hand" alt="Hand">
-                <p class="events_p mont_light_18_darkgray">@Model.SecondaryPage.Donate.Donate3.Description</p>
-            </div>
-        </section>
-    </div>
-
-    @if (@isEditable == "true")
-    {
-        <div class="row text-center ">
-            <a class="btn btn-success editableButton" href="~/Secondary/EditDonate" role="button">Edit Donate Section</a>
-            <hr />
-        </div>
-    }
-
-    @Html.Raw(Model.SecondaryPage.ListOfNeeds.TextArea)
-
-    @if (@isEditable == "true")
-    {
-        <div class="row text-center ">
-            <a class="btn btn-success editableButton" href="~/secondary/EditNeeds" role="button">Edit Needs Section</a>
-            <hr />
-        </div>
-    }
-
-    <div class="container-fluid" id="eventsMain">
-        <div class="row events_header events_main_img">
-            <div class="col-xs-6 text">
-                <h2>Youth Futures</h2>
-                <h2 class="h2style1">Events</h2>
-            </div>
-        </div>
-
-        <div class="row events_header">
-            <div class="col-xs-11 text">
-                <h2 class="h2style1">Calendar</h2><br>
-                <p class="calendar-month">March 2017</p>
-                <button class="calendar-dropdown">FUNDRAISING EVENT</button>
-                <button class="calendar-dropdown">CHARITY DINNER</button>
-                <div class="calendar-dropdown-content">
-                    <p>WHAT     Weber State Youth Charity Dinner</p>
-                    <p>WHEN     03/8/2017 7:00-9:00 pm</p>
-                    <p>WHERE    Weber State University, Browning Center, Ballroom C</p><br>
-                    <p>INFO     Youth Futures is hosting it's 6th Annual Charity Dinner Auction at the Meydenbauer Center<br/>
-                                in Bellevue, WA. Join us for an evening of glamor and geekery, hosted by Mike "Gabe"<br/>
-                                Krahulik and Jerry "Tycho" Holkins of Penny Arcade and featuring auction items from every<br/>
-                                corner of the nerd (and non-nerd) universe.</p>
-                </div>
-                <button class="calendar-dropdown">HOMELESS AWARENESS PICNIC</button>
-            </div>
-        </div>
-    </div>
-
-    @if (@isEditable == "true")
-    {
-        <div class="row text-center ">
-            <a class="btn btn-success editableButton" href="#" role="button">Edit Events Section</a>
-            <hr />
-        </div>
-    }
-
-    <div class="container-fluid" id="storiesMain">
-        <div class="row events_header">
-            <div class="col-xs-6 text">
-                <h2 class="h2style1">Youth Stories</h2>
-            </div>
-        </div>
-    </div>
-
-    @if (@isEditable == "true")
-    {
-        <div class="row text-center ">
-            <a class="btn btn-success editableButton" href="~/secondary/EditYouthStories" role="button">Edit Youth Stories Section</a>
-            <hr />
-        </div>
-    }
-
-    <div class="container-fluid needs" id="contactMain">
-        <div class="row donor_header contact_main_img">
-            <div class="col-xs-6 text">
-                <h2>CONTACT</h2>
-                <h2 class="h2style1">INFO</h2>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-6 ">
-                <div class="contact_form">
-                    <p class="contact_subheader">CONTACT US</p>
-                    <form method="post" name="myemailform" action="form-to-email.php">
-                        <input type="text" class="input_text" name="firstName" placeholder="First Name" maxlength="20"> <span class="change" id="fName_change">Required!</span>
-                        <br>
-                        <input type="text" class="input_text" name="lastName" placeholder="Last Name" maxlength="20"><span class="change" id="lName_change">Required!</span>
-                        <br>
-                        <input type="tel" name="phone" placeholder="Telephone (Optional)" maxlength="20">
-                        <br>
-                        <input type="email" class="input_text" name="email" placeholder="Email Address" maxlength="40"><span class="change" id="email_change">Required!</span>
-                        <br>
-                        <textarea name="message" class="input_text" placeholder="Message" maxlength="255"></textarea><span class="change" id="message_change">Required!</span>
-                        <br>
-                        <input type="submit" class="submit_button" id="submit" value="Submit" disabled>
-                        <input type="reset" value="Cancel" class="cancel" />
-                    </form>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="contact_form">
-                    <p class="contact_subheader other_info">@Model.SecondaryPage.ContactInfo.Header1</p>
-                    <p class="contact_info_text contact_tel">@Model.SecondaryPage.ContactInfo.PhoneNumber</p>
-                    <p class="contact_subheader other_info">@Model.SecondaryPage.ContactInfo.Header2</p>
-                    <p class="contact_info_text">@Model.SecondaryPage.ContactInfo.AddressLine1<br>@Model.SecondaryPage.ContactInfo.AddressLine2</p>
-
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1784.5861387467835!2d-111.96804305268928!3d41.215141436084046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87530f2689623957%3A0x49def70f5ee0a151!2sOgden+Youth+Futures!5e0!3m2!1sen!2sus!4v1492809010928" class="map" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-
-        @if (@isEditable == "true")
-        {
-            <div class="row text-center ">
-                <a class="btn btn-success editableButton" href="~/secondary/EditContactInfo" role="button">Edit Contact Section</a>
-                <hr />
-            </div>
-        }
-
-    </div>
-    <!-- </div> -->
+	<div class="container-fluid">
+		<div class="row  questions">
+			<div class="col-sm-12 col-md-7 text">
+				<p>@Model.SecondaryPage.SecondaryHeader.TitleText</p>
+			</div>
+
+			<div class="col-sm-12 col-md-5 phone">
+				<p>@Model.SecondaryPage.SecondaryHeader.PhoneNumber</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid" id="historyBanner">
+		<div class="row hist_main_img">
+			<div class="col-xs-8 text">
+				<h2>@Model.SecondaryPage.SecondaryHeader.ImageText1</h2>
+				<h2 class="h2style1">@Model.SecondaryPage.SecondaryHeader.ImageText2</h2>
+			</div>
+		</div>
+	</div>
+
+	@if (@isEditable == "true")
+	{
+		<div class="row text-center">
+			<a class="btn btn-success editableButton" href="~/Secondary/EditHeader" role="button">Edit History Banner</a>
+			<hr />
+		</div>
+	}
+
+	<div class="container-fluid">
+		<div class="row history_text">
+			<section class="col-xs-12">
+				<p class="mont_regular_22_darkgray">@Model.SecondaryPage.History.TextArea1</p>
+			</section>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row history_text_pics">
+			<section class="col-xs-12  col-md-4 first_img ">
+				<img src="~/images/@(Model.SecondaryPage.History.Image1)" class="img-responsive center-block" title="@(Model.SecondaryPage.History.Caption1)" alt="@(Model.SecondaryPage.History.Caption1)">
+				<p class="mont_light_14_white hist_subtitle">@Model.SecondaryPage.History.Caption1</p>
+			</section>
+
+			<section class="col-xs-12 col-md-4 second_img">
+				<img src="~/images/@(Model.SecondaryPage.History.Image2)" class="img-responsive img-responsive center-block" title="@(Model.SecondaryPage.History.Caption2)" alt="@(Model.SecondaryPage.History.Caption2)">
+				<p class="mont_light_14_white hist_subtitle">@Model.SecondaryPage.History.Caption2</p>
+			</section>
+
+			<section class="col-xs-12 col-md-4 third_img">
+				<img src="~/images/@(Model.SecondaryPage.History.Image3)" class="img-responsive center-block" title="@(Model.SecondaryPage.History.Caption3)" alt="@(Model.SecondaryPage.History.Caption3)">
+				<p class="mont_light_14_white hist_subtitle">@Model.SecondaryPage.History.Caption3</p>
+			</section>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row history_text">
+			<section class="col-xs-12">
+				<p class="mont_regular_22_darkgray">@Model.SecondaryPage.History.TextArea2</p>
+			</section>
+		</div>
+	</div>
+
+	@if (@isEditable == "true")
+	{
+		<div class="row text-center ">
+			<a class="btn btn-success editableButton" href="~/Secondary/EditHistory" role="button">Edit History Section</a>
+			<hr />
+		</div>
+	}
+
+	<div class="container-fluid">
+		<div class="row hist_2nd_back_img">
+			<section class="col-xs-12 hist_2nd_back_img_text">
+				<h4>5,000 youth experience homelessness for at least one night a year in Utah</h4>
+			</section>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row history_text">
+			<section class="col-xs-12">
+				<p class="mont_regular_22_darkgray">@Model.SecondaryPage.Operation.TextArea1</p>
+			</section>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row history_green_text">
+			<section class="col-xs-12">
+				<p class="mont_light_32_white">@Model.SecondaryPage.Operation.TextArea2</p>
+			</section>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<section class="row more">
+			<div class="col-xs-12 col-md-4 more_volunteer">
+				<img src="~/images/@(Model.SecondaryPage.Operation.Operation1.Image)" title="Meal" alt="Meal">
+				<p class="vol_p mont_light_18_darkgray">@(Model.SecondaryPage.Operation.Operation1.Description)</p>
+			</div>
+
+			<div class="col-xs-12 col-md-4 more_stories">
+				<img src="~/images/@(Model.SecondaryPage.Operation.Operation2.Image)" title="Outreach Hand" alt="Hand">
+				<p class="youth_p mont_light_18_darkgray">@(Model.SecondaryPage.Operation.Operation2.Description)</p>
+			</div>
+
+			<div class="col-xs-12 col-md-4 more_events">
+				<img src="~/images/@(Model.SecondaryPage.Operation.Operation3.Image)" title="House" alt="House">
+				<p class="events_p mont_light_18_darkgray">@(Model.SecondaryPage.Operation.Operation3.Description)</p>
+			</div>
+		</section>
+	</div>
+
+	@if (@isEditable == "true")
+	{
+		<div class="row text-center ">
+			<a class="btn btn-success editableButton" href="~/Secondary/EditOperation" role="button">Edit Operations Section</a>
+			<hr />
+		</div>
+	}
+
+	<div class="container-fluid" id="outreachBanner">
+		<div class="row outreach_main_img">
+			<div class="col-xs-8 text">
+				<h2>Street</h2>
+				<h2 class="h2style1">Outreach</h2>
+			</div>
+		</div>
+	</div>
+
+	@Html.Raw(Model.SecondaryPage.Outreach.TextArea)
+	@*<div class="container-fluid">
+			<div class="row outreach_text">
+				<section class="col-xs-12">
+					<p class="mont_regular_22_darkgray">Street Outreach is designed to meet the clients where they are on the street to build rapport and encourage youth to access drop-in and shelter services. This program offers, case management, hygiene items, food, sleeping bags, and other essential items as needed. Street Outreach currently take place once per week on Wednesdays. The team visits the same Ogden, Utah locations every week:</p>
+				</section>
+			</div>
+		</div>
+
+		<div class="container-fluid">
+			<div class="row outreach_bullet">
+				<ul class="row">
+					<li class="col-md-6">Jefferson Park</li>
+					<li class="col-md-6">Marchall White Center Park</li>
+					<li class="col-md-6">Lorin Farr Skate Park</li>
+
+					<li class="col-md-6">Basketball Court at Bonneville Park</li>
+					<li class="col-md-6">Under the Ogden River Bridge (sporadic)</li>
+					<li class="col-md-6">Lantern House Homeless Shelter</li>
+				</ul>
+			</div>
+		</div>*@
+
+	@if (@isEditable == "true")
+	{
+		<div class="row text-center ">
+			<a class="btn btn-success editableButton" href="~/Secondary/EditOutreach" role="button">Edit Outreach Section</a>
+			<hr />
+		</div>
+	}
+
+	@*<div class="container-fluid" id="dropinsMain">
+			<div class="row events_header">
+				<div class="col-xs-6 text">
+					<h2 class="h2style1">Drop-ins</h2>
+				</div>
+			</div>
+		</div>
+
+		@if (@isEditable == "true")
+		{
+			<div class="row text-center ">
+				<a class="btn btn-success editableButton" href="#" role="button">Edit Drop-Ins Section</a>
+				<hr />
+			</div>
+		}*@
+
+
+	@*<div class="container-fluid" id="sheltersMain">
+			<div class="row events_header">
+				<div class="col-xs-6 text">
+					<h2 class="h2style1">Shelters</h2>
+				</div>
+			</div>
+		</div>
+
+		@if (@isEditable == "true")
+		{
+			<div class="row text-center ">
+				<a class="btn btn-success editableButton" href="#" role="button">Edit Shelters Section</a>
+				<hr />
+			</div>
+		}*@
+
+	<div class="container-fluid" id="directorsMain">
+		<div class="row board_header board_main_img">
+			<div class="col-xs-6 text">
+				<h2>Board of</h2>
+				<h2 class="h2style1">Directors</h2>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row board_members">
+			@foreach (var director in Model.SecondaryPage.Directors)
+			{
+				<div class="col-xs-12 col-md-4">
+					<p>
+						<span class="name">@director.Name</span>
+						<br />@director.Title1
+						<br />@director.Title2<br />
+						<span class="email">@director.Email</span>
+					</p>
+				</div>
+
+			}
+		</div>
+	</div>
+
+	<div class="container-fluid" id="staffMain">
+		<div class="row board_header staff_main_img">
+			<div class="col-xs-6 text">
+				<h2>Youth Futures</h2>
+				<h2 class="h2style1">Staff</h2>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row board_members">
+			@foreach (var staff in Model.SecondaryPage.Staff)
+			{
+				<div class="col-xs-12 col-md-4">
+					<img src="~/images/@(staff.Image)" class="img-responsive" title="@(staff.Name)" alt="@(staff.Name)">
+					<p>
+						<span class="name">@staff.Name</span>
+						<br />@staff.Title1
+						<br />@staff.Title2<br />
+						<span class="email">@staff.Email</span>
+					</p>
+				</div>
+			}
+		</div>
+	</div>
+
+	@if (@isEditable == "true")
+	{
+		<div class="row text-center ">
+			<a class="btn btn-success editableButton" href="~/Staff/Create" role="button">Add Directors & Staff</a>
+			<a class="btn btn-success editableButton" href="~/Staff" role="button">Edit Directors & Staff</a>
+			<hr />
+		</div>
+	}
+
+	<div class="container-fluid" id="mediaMain">
+		<div class="row media_header media_main_img">
+			<div class="col-xs-6 text">
+				<h2>Media</h2>
+				<h2 class="h2style1">Recognition</h2>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row media_subheader">
+			<div class="col-xs-12 ">
+				<p class="title">@Model.SecondaryPage.MediaEvent.Title</p>
+				<p class="mont_regular_22_darkgray time">@Model.SecondaryPage.MediaEvent.Time</p>
+				<a class="link" href="#">inShare</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row media_pic">
+			<div class="col-xs-12 col-lg-7 pic">
+				<img src="~/images/@(Model.SecondaryPage.MediaEvent.Image)" class="img-responsive center-block" title="@Model.SecondaryPage.MediaEvent.Image_Title" alt="@Model.SecondaryPage.MediaEvent.Image_Title">
+			</div>
+
+			<div class="col-xs-12 col-lg-3 subtext">
+				<p class="subtitle">@Model.SecondaryPage.MediaEvent.Caption</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row media_text">
+			<section class="col-xs-12">
+				<p class="mont_regular_22_darkgray">
+					@Model.SecondaryPage.MediaEvent.Description1
+					<br />
+					<br />
+					@Model.SecondaryPage.MediaEvent.Description2
+				</p>
+			</section>
+		</div>
+	</div>
+
+	@if (@isEditable == "true")
+	{
+		<div class="row text-center ">
+			<a class="btn btn-success editableButton" href="~/Secondary/EditMediaEvent" role="button">Edit Media Section</a>
+			<hr />
+		</div>
+	}
+
+
+	<div class="container-fluid" id="donorsMain">
+		<div class="row donor_header donor_main_img">
+			<div class="col-xs-6 text">
+				<h2>Donor</h2>
+				<h2 class="h2style1">Recognition</h2>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container-fluid">
+		<div class="row donor_subheader">
+			<div class="col-xs-12 ">
+				<p class="title_plat">Plantinum Level Donors</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid row donor_list">
+		@foreach (var platDonor in Model.SecondaryPage.PlatinumDonors)
+		{
+			<div class="col-xs-4 donor_box plat">
+				<p class="donor_name">@platDonor.Name</p>
+				<p class="year">@platDonor.Year</p>
+			</div>
+
+		}
+	</div>
+
+	<div class="container-fluid">
+		<div class="row donor_subheader">
+			<div class="col-xs-12 ">
+				<p class="title_gold">Gold Level Donors</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid row donor_list">
+		@foreach (var goldDonor in Model.SecondaryPage.GoldDonors)
+		{
+			<div class="col-xs-4 donor_box gold">
+				<p class="donor_name">@goldDonor.Name</p>
+				<p class="year">@goldDonor.Year</p>
+			</div>
+
+		}
+	</div>
+
+	<div class="container-fluid">
+		<div class="row donor_subheader">
+			<div class="col-xs-12 ">
+				<p class="title_silver">Silver Level Donors</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid row donor_list">
+		@foreach (var silverDonor in Model.SecondaryPage.SilverDonors)
+		{
+			<div class="col-xs-4 donor_box silver">
+				<p class="donor_name">@silverDonor.Name</p>
+				<p class="year">@silverDonor.Year</p>
+			</div>
+
+		}
+	</div>
+
+	<div class="container-fluid">
+		<div class="row donor_subheader">
+			<div class="col-xs-12 ">
+				<p class="title_bronze">Bronze Level Donors</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid row donor_list">
+		@foreach (var bronzeDonor in Model.SecondaryPage.BronzeDonors)
+		{
+			<div class="col-xs-4 donor_box bronze">
+				<p class="donor_name">@bronzeDonor.Name</p>
+				<p class="year">@bronzeDonor.Year</p>
+			</div>
+
+		}
+	</div>
+
+	@if (@isEditable == "true")
+	{
+		<div class="row text-center">
+			<a class="btn btn-success editableButton" href="~/Donor/Create" role="button">Add New Donor</a>
+			<a class="btn btn-success editableButton" href="~/Donor" role="button">Edit Donors</a>
+			<hr />
+		</div>
+	}
+
+	<div class="container-fluid" id="donateMain">
+		<div class="row donor_header donate_main_img">
+			<div class="col-xs-6 text">
+				<h2>How to </h2>
+				<h2 class="h2style1">Donate</h2>
+			</div>
+		</div>
+
+		<div class="row donate_help">
+			<div class="col-xs-12">
+				<p>@Model.SecondaryPage.Donate.TextArea1</p>
+			</div>
+		</div>
+
+		<div class="row media_text">
+			<div class="col-xs-12">
+				<p class="mont_regular_22_darkgray">@Model.SecondaryPage.Donate.TextArea2</p>
+			</div>
+		</div>
+
+		<section class="row more">
+			<div class="col-xs-12 col-lg-4 more_volunteer">
+				<img src="~/images/@(Model.SecondaryPage.Donate.Donate1.Image)" title="Dollar" alt="Dollar">
+				<p class="vol_p mont_light_18_darkgray">@Model.SecondaryPage.Donate.Donate1.Description</p>
+			</div>
+
+			<div class="col-xs-12 col-lg-4 more_stories">
+				<img src="~/images/@(Model.SecondaryPage.Donate.Donate2.Image)" title="Cart" alt="Cart">
+				<p class="youth_p mont_light_18_darkgray">@Model.SecondaryPage.Donate.Donate2.Description</p>
+			</div>
+
+			<div class="col-xs-12 col-lg-4 more_events">
+				<img src="~/images/@(Model.SecondaryPage.Donate.Donate3.Image)" title="Hand" alt="Hand">
+				<p class="events_p mont_light_18_darkgray">@Model.SecondaryPage.Donate.Donate3.Description</p>
+			</div>
+		</section>
+	</div>
+
+	@if (@isEditable == "true")
+	{
+		<div class="row text-center ">
+			<a class="btn btn-success editableButton" href="~/Secondary/EditDonate" role="button">Edit Donate Section</a>
+			<hr />
+		</div>
+	}
+
+	@Html.Raw(Model.SecondaryPage.ListOfNeeds.TextArea)
+
+	@if (@isEditable == "true")
+	{
+		<div class="row text-center ">
+			<a class="btn btn-success editableButton" href="~/secondary/EditNeeds" role="button">Edit Needs Section</a>
+			<hr />
+		</div>
+	}
+
+	<div class="container-fluid" id="eventsMain">
+		<div class="row events_header events_main_img">
+			<div class="col-xs-6 text">
+				<h2>Youth Futures</h2>
+				<h2 class="h2style1">Events</h2>
+			</div>
+		</div>
+
+		<div class="row events_header">
+			<div class="col-xs-11 text">
+				<h2 class="h2style1">Calendar</h2><br>
+				<p class="calendar-month">March 2017</p>
+				<button class="calendar-dropdown">FUNDRAISING EVENT</button>
+				<button class="calendar-dropdown">CHARITY DINNER</button>
+				<div class="calendar-dropdown-content">
+					<p>WHAT     Weber State Youth Charity Dinner</p>
+					<p>WHEN     03/8/2017 7:00-9:00 pm</p>
+					<p>WHERE    Weber State University, Browning Center, Ballroom C</p><br>
+					<p>
+						INFO     Youth Futures is hosting it's 6th Annual Charity Dinner Auction at the Meydenbauer Center<br />
+						in Bellevue, WA. Join us for an evening of glamor and geekery, hosted by Mike "Gabe"<br />
+						Krahulik and Jerry "Tycho" Holkins of Penny Arcade and featuring auction items from every<br />
+						corner of the nerd (and non-nerd) universe.
+					</p>
+				</div>
+				<button class="calendar-dropdown">HOMELESS AWARENESS PICNIC</button>
+			</div>
+		</div>
+	</div>
+
+	@if (@isEditable == "true")
+	{
+		<div class="row text-center ">
+			<a class="btn btn-success editableButton" href="#" role="button">Edit Events Section</a>
+			<hr />
+		</div>
+	}
+
+	<div class="container-fluid needs" id="storiesMain">
+		<div class="row stories_header" style='background-image: url(/images/@Model.SecondaryPage.YouthStory.Background)'>
+			<div class="col-xs-6 text">
+				<h2>YOUTH</h2>
+				<h2 class="h2style1">STORIES</h2>
+			</div>
+		</div>
+			<div class="row stories_help">
+				<div class="col-xs-12 stories_text">
+					@Html.Raw(Model.SecondaryPage.YouthStory.Body)
+				</div>
+			</div>
+			<div class="row col-xs-12">
+				@foreach (var youthStories in Model.SecondaryPage.YouthStories)
+				{
+					<div class="stories_list">
+						<article class="panel">@youthStories.TextArea</article>
+					</div>
+				}
+			</div>
+		</div>
+			@if (@isEditable == "true")
+			{
+				<div class="row text-center ">
+					<a class="btn btn-success editableButton" href="~/secondary/EditYouthStories" role="button">Edit Youth Stories Section</a>
+					<hr />
+				</div>
+			}
+
+		</div>
+		<div class="container-fluid needs" id="contactMain">
+			<div class="row donor_header contact_main_img">
+				<div class="col-xs-6 text">
+					<h2>CONTACT</h2>
+					<h2 class="h2style1">INFO</h2>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-6 ">
+					<div class="contact_form">
+						<p class="contact_subheader">CONTACT US</p>
+						<form method="post" name="myemailform" action="form-to-email.php">
+							<input type="text" class="input_text" name="firstName" placeholder="First Name" maxlength="20"> <span class="change" id="fName_change">Required!</span>
+							<br>
+							<input type="text" class="input_text" name="lastName" placeholder="Last Name" maxlength="20"><span class="change" id="lName_change">Required!</span>
+							<br>
+							<input type="tel" name="phone" placeholder="Telephone (Optional)" maxlength="20">
+							<br>
+							<input type="email" class="input_text" name="email" placeholder="Email Address" maxlength="40"><span class="change" id="email_change">Required!</span>
+							<br>
+							<textarea name="message" class="input_text" placeholder="Message" maxlength="255"></textarea><span class="change" id="message_change">Required!</span>
+							<br>
+							<input type="submit" class="submit_button" id="submit" value="Submit" disabled>
+							<input type="reset" value="Cancel" class="cancel" />
+						</form>
+					</div>
+				</div>
+
+				<div class="col-lg-6">
+					<div class="contact_form">
+						<p class="contact_subheader other_info">@Model.SecondaryPage.ContactInfo.Header1</p>
+						<p class="contact_info_text contact_tel">@Model.SecondaryPage.ContactInfo.PhoneNumber</p>
+						<p class="contact_subheader other_info">@Model.SecondaryPage.ContactInfo.Header2</p>
+						<p class="contact_info_text">@Model.SecondaryPage.ContactInfo.AddressLine1<br>@Model.SecondaryPage.ContactInfo.AddressLine2</p>
+
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1784.5861387467835!2d-111.96804305268928!3d41.215141436084046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87530f2689623957%3A0x49def70f5ee0a151!2sOgden+Youth+Futures!5e0!3m2!1sen!2sus!4v1492809010928" class="map" allowfullscreen></iframe>
+					</div>
+				</div>
+			</div>
+
+			@if (@isEditable == "true")
+			{
+				<div class="row text-center ">
+					<a class="btn btn-success editableButton" href="~/secondary/EditContactInfo" role="button">Edit Contact Section</a>
+					<hr />
+				</div>
+			}
+
+		</div>
+		<!-- </div> -->
 </article>

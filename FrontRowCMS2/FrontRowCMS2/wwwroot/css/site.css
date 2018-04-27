@@ -1111,6 +1111,7 @@ hr{
         color: #9ec54d;
     }
 
+
 .outreach_main_img {
     background-image: url(../images/outreach_header.jpg);
     background-size: cover;
@@ -1153,7 +1154,11 @@ hr{
     .outreach_bullet .col-xs-6 {
         padding: 0%;
     }
-
+#storiesMain {
+	background-size: cover;
+	background-repeat: no-repeat;
+	margin: 0;
+}
 .board_header {
     background-color: white;
 }
@@ -1279,14 +1284,26 @@ hr{
     }
 
 .media_text {
-    background-color: white;
-    padding-bottom: 5%;
+	background-color: white;
+	padding-bottom: 5%;
 }
 
-    .media_text p {
-        padding: 1% 11%;
-        text-align: left;
-    }
+	.media_text p {
+		padding: 1% 11%;
+		text-align: left;
+	}
+.stories_text {
+	background-color: white;
+	margin-bottom: 1%;
+}
+	.stories_list .panel {
+		padding: 15px;
+	}
+
+	.stories_text p {
+		padding: 1% 11%;
+		text-align: left;
+	}
 
 .donor_header {
     background-color: white;

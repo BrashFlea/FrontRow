@@ -13,6 +13,7 @@ using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using System.Text.RegularExpressions;
 
 namespace FrontRowCMS2.Controllers
 {
@@ -66,6 +67,7 @@ namespace FrontRowCMS2.Controllers
             Page.SecondaryPage.ContactInfo = await _context.ContactInfo.FirstOrDefaultAsync();
 
 			Page.SecondaryPage.YouthStory = await _context.YouthStorySection.FirstOrDefaultAsync();
+			Page.SecondaryPage.YouthStories = await _context.YouthStories.ToListAsync();
 
             return View(Page);
         }
@@ -307,7 +309,7 @@ namespace FrontRowCMS2.Controllers
 		{
 			var youthStories = await _context.YouthStorySection.FirstOrDefaultAsync();
 			youthStories.youthStories = new List<YouthStory>();
-			foreach (var story in _context.YouthStories ) {
+			foreach (var story in await _context.YouthStories.ToListAsync() ) {
 				youthStories.youthStories.Add(story);
 			}
 			return View(youthStories);
@@ -317,12 +319,44 @@ namespace FrontRowCMS2.Controllers
 		[HttpPost]
 		[Authorize]
 		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> EditYouthStories([Bind("ID,Body,YouthStories")] YouthStorySection youthStorySection)
+		public async Task<IActionResult> EditYouthStories([Bind("ID,Background,Body")] YouthStorySection youthStorySection)
 		{
 			if (ModelState.IsValid)
 			{
 				try
 				{
+					List<YouthStory> stories = new List<YouthStory>();
+					for(int i = 0; i < Request.Form.Keys.Count; i++)
+					{
+						if (Request.Form.Keys.ElementAt(i).Equals("stories.TextArea"))
+						{
+							int j = 1;
+							foreach (var story in Regex.Split(((string)Request.Form.ElementAt(i).Value), "<p>(.*?)</p>"))
+							{
+								if(!story.Equals(",") && !story.Equals(""))
+									stories.Add(new YouthStory { ID = j++, TextArea = story });
+							}
+						}
+					}
+
+					foreach (YouthStory story in stories)
+					{
+						if (!_context.YouthStories.Any(s => s.ID == story.ID))
+						{
+							_context.YouthStories.Add(story);
+						}
+						else
+						{
+							YouthStory storyToUpdate = _context.YouthStories
+							  .Where(s => s.ID == story.ID).FirstOrDefault();
+
+							if (storyToUpdate != null)
+							{
+								_context.Entry(storyToUpdate).CurrentValues.SetValues(story);
+							}
+						}
+					}
+					youthStorySection.youthStories = await _context.YouthStories.ToListAsync();
 					_context.Update(youthStorySection);
 					await _context.SaveChangesAsync();
 				}
